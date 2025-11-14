@@ -19,6 +19,7 @@
 package io.sf.carte.echosvg.anim.dom;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -44,9 +45,9 @@ public class DocumentRenameNodeTest extends DOM3Test {
 	public void test() throws DOMException {
 		Document doc = newSVGDoc();
 		Element e2 = doc.createElementNS(SVG_NAMESPACE_URI, "g");
-		assertTrue(e2 instanceof SVGGElement);
+		assertInstanceOf(SVGGElement.class, e2);
 		e2 = (Element) ((AbstractDocument) doc).renameNode(e2, SVG_NAMESPACE_URI, "svg");
-		assertTrue(e2 instanceof SVGSVGElement);
+		assertInstanceOf(SVGSVGElement.class, e2);
 		Attr a = doc.createAttributeNS(null, "test");
 		a = (Attr) ((AbstractDocument) doc).renameNode(a, EX_NAMESPACE_URI, "test2");
 		assertEquals(EX_NAMESPACE_URI, a.getNamespaceURI());

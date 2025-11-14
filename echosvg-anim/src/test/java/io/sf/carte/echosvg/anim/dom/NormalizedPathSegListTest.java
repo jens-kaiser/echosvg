@@ -19,6 +19,7 @@
 package io.sf.carte.echosvg.anim.dom;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -96,7 +97,7 @@ public class NormalizedPathSegListTest {
 
 		Element path1 = doc.getElementById("path1");
 		assertNotNull(path1);
-		assertTrue(path1 instanceof SVGOMPathElement);
+		assertInstanceOf(SVGOMPathElement.class, path1);
 		SVGOMPathElement pathElm = (SVGOMPathElement) path1;
 
 		SVGPathSegList nSegList = pathElm.getNormalizedPathSegList();

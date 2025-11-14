@@ -329,7 +329,7 @@ public class PropertyManagerTest {
 		}
 
 		// test if the property is inherited or not
-		assertTrue(isInherited == manager.isInheritedProperty());
+		assertEquals((boolean) isInherited, manager.isInheritedProperty());
 
 		Parser cssParser = new CSSParser();
 		// see if the property supports the value 'inherit'

@@ -18,6 +18,7 @@
  */
 package io.sf.carte.echosvg.dom;
 
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -160,7 +161,7 @@ public class DocumentNormalizeDocumentTest extends DOM3Test {
 		conf.setParameter("namespace-declarations", Boolean.FALSE);
 		doc.appendChild(e);
 		doc.normalizeDocument();
-		assertTrue(e.getAttributeNodeNS(XMLNS_NAMESPACE_URI, "ex") == null);
+		assertNull(e.getAttributeNodeNS(XMLNS_NAMESPACE_URI, "ex"));
 	}
 
 	private static class Handler implements DOMErrorHandler {

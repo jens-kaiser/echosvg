@@ -19,6 +19,7 @@
 
 package io.sf.carte.echosvg.ext.awt.image.codec.png.test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -240,7 +241,7 @@ public class PNGEncoderTest {
 			assertNotNull(encodeParams, "EncodeParam should be generated.");
 			assertTrue(encodeParams.isTextSet());
 			String[] decText = encodeParams.getText();
-			assertTrue(Arrays.equals(text, decText), "tEXt does not match.");
+			assertArrayEquals(text, decText, "tEXt does not match.");
 
 			assertNotNull(decodedRenderedImage.getPropertyNames(), "No properties");
 			String ptyVal = (String) decodedRenderedImage
@@ -254,7 +255,7 @@ public class PNGEncoderTest {
 			assertNotNull(encodeParams, "EncodeParam should be generated.");
 			assertTrue(encodeParams.isInternationalTextSet());
 			String[] decIText = encodeParams.getInternationalText();
-			assertTrue(Arrays.equals(iText, decIText), "iTXt does not match.");
+			assertArrayEquals(iText, decIText, "iTXt does not match.");
 
 			assertNotNull(decodedRenderedImage.getPropertyNames(), "No properties");
 			String[] ptyVal = (String[]) decodedRenderedImage
@@ -271,7 +272,7 @@ public class PNGEncoderTest {
 			assertNotNull(encodeParams, "EncodeParam should be generated.");
 			assertTrue(encodeParams.isCompressedTextSet());
 			String[] decZText = encodeParams.getCompressedText();
-			assertTrue(Arrays.equals(zText, decZText), "zTXt does not match.");
+			assertArrayEquals(zText, decZText, "zTXt does not match.");
 
 			assertNotNull(decodedRenderedImage.getPropertyNames(), "No properties");
 			String ptyVal = (String) decodedRenderedImage
