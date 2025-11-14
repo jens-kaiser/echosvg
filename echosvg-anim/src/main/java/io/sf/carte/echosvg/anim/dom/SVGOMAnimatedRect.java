@@ -211,7 +211,7 @@ public class SVGOMAnimatedRect extends AbstractSVGAnimatedValue implements SVGAn
 			final String s = attr == null ? defaultValue : attr.getValue();
 			final float[] numbers = new float[4];
 			NumberListParser p = new NumberListParser(new DefaultNumberListHandler() {
-				protected int count;
+				private int count;
 
 				@Override
 				public void endNumberList() {

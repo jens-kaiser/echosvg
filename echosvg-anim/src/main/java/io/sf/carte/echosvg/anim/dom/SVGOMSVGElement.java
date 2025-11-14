@@ -375,7 +375,7 @@ public class SVGOMSVGElement extends SVGStylableElement implements SVGSVGElement
 	@Override
 	public SVGPoint getCurrentTranslate() {
 		return new SVGPoint() {
-			protected AffineTransform getScreenTransform() {
+			private AffineTransform getScreenTransform() {
 				SVGContext context = getSVGContext();
 				return context.getScreenTransform();
 			}
@@ -567,7 +567,7 @@ public class SVGOMSVGElement extends SVGStylableElement implements SVGSVGElement
 	@Override
 	public SVGNumber createSVGNumber() {
 		return new SVGNumber() {
-			protected float value;
+			private float value;
 
 			@Override
 			public float getValue() {
@@ -611,7 +611,7 @@ public class SVGOMSVGElement extends SVGStylableElement implements SVGSVGElement
 	@Override
 	public SVGMatrix createSVGMatrix() {
 		return new AbstractSVGMatrix() {
-			protected AffineTransform at = new AffineTransform();
+			private AffineTransform at = new AffineTransform();
 
 			@Override
 			protected AffineTransform getAffineTransform() {

@@ -216,8 +216,8 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	@Override
 	public SVGPathSegMovetoAbs createSVGPathSegMovetoAbs(final float x_value, final float y_value) {
 		return new SVGPathSegMovetoAbs() {
-			protected float x = x_value;
-			protected float y = y_value;
+			private float x = x_value;
+			private float y = y_value;
 
 			@Override
 			public short getPathSegType() {
@@ -258,8 +258,8 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	@Override
 	public SVGPathSegMovetoRel createSVGPathSegMovetoRel(final float x_value, final float y_value) {
 		return new SVGPathSegMovetoRel() {
-			protected float x = x_value;
-			protected float y = y_value;
+			private float x = x_value;
+			private float y = y_value;
 
 			@Override
 			public short getPathSegType() {
@@ -300,8 +300,8 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	@Override
 	public SVGPathSegLinetoAbs createSVGPathSegLinetoAbs(final float x_value, final float y_value) {
 		return new SVGPathSegLinetoAbs() {
-			protected float x = x_value;
-			protected float y = y_value;
+			private float x = x_value;
+			private float y = y_value;
 
 			@Override
 			public short getPathSegType() {
@@ -342,8 +342,8 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	@Override
 	public SVGPathSegLinetoRel createSVGPathSegLinetoRel(final float x_value, final float y_value) {
 		return new SVGPathSegLinetoRel() {
-			protected float x = x_value;
-			protected float y = y_value;
+			private float x = x_value;
+			private float y = y_value;
 
 			@Override
 			public short getPathSegType() {
@@ -384,7 +384,7 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	@Override
 	public SVGPathSegLinetoHorizontalAbs createSVGPathSegLinetoHorizontalAbs(final float x_value) {
 		return new SVGPathSegLinetoHorizontalAbs() {
-			protected float x = x_value;
+			private float x = x_value;
 
 			@Override
 			public short getPathSegType() {
@@ -415,7 +415,7 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	@Override
 	public SVGPathSegLinetoHorizontalRel createSVGPathSegLinetoHorizontalRel(final float x_value) {
 		return new SVGPathSegLinetoHorizontalRel() {
-			protected float x = x_value;
+			private float x = x_value;
 
 			@Override
 			public short getPathSegType() {
@@ -446,7 +446,7 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	@Override
 	public SVGPathSegLinetoVerticalAbs createSVGPathSegLinetoVerticalAbs(final float y_value) {
 		return new SVGPathSegLinetoVerticalAbs() {
-			protected float y = y_value;
+			private float y = y_value;
 
 			@Override
 			public short getPathSegType() {
@@ -477,7 +477,7 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	@Override
 	public SVGPathSegLinetoVerticalRel createSVGPathSegLinetoVerticalRel(final float y_value) {
 		return new SVGPathSegLinetoVerticalRel() {
-			protected float y = y_value;
+			private float y = y_value;
 
 			@Override
 			public short getPathSegType() {
@@ -509,12 +509,12 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	public SVGPathSegCurvetoCubicAbs createSVGPathSegCurvetoCubicAbs(final float x_value, final float y_value,
 			final float x1_value, final float y1_value, final float x2_value, final float y2_value) {
 		return new SVGPathSegCurvetoCubicAbs() {
-			protected float x = x_value;
-			protected float y = y_value;
-			protected float x1 = x1_value;
-			protected float y1 = y1_value;
-			protected float x2 = x2_value;
-			protected float y2 = y2_value;
+			private float x = x_value;
+			private float y = y_value;
+			private float x1 = x1_value;
+			private float y1 = y1_value;
+			private float x2 = x2_value;
+			private float y2 = y2_value;
 
 			@Override
 			public short getPathSegType() {
@@ -596,12 +596,12 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	public SVGPathSegCurvetoCubicRel createSVGPathSegCurvetoCubicRel(final float x_value, final float y_value,
 			final float x1_value, final float y1_value, final float x2_value, final float y2_value) {
 		return new SVGPathSegCurvetoCubicRel() {
-			protected float x = x_value;
-			protected float y = y_value;
-			protected float x1 = x1_value;
-			protected float y1 = y1_value;
-			protected float x2 = x2_value;
-			protected float y2 = y2_value;
+			private float x = x_value;
+			private float y = y_value;
+			private float x1 = x1_value;
+			private float y1 = y1_value;
+			private float x2 = x2_value;
+			private float y2 = y2_value;
 
 			@Override
 			public short getPathSegType() {
@@ -683,10 +683,10 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	public SVGPathSegCurvetoQuadraticAbs createSVGPathSegCurvetoQuadraticAbs(final float x_value, final float y_value,
 			final float x1_value, final float y1_value) {
 		return new SVGPathSegCurvetoQuadraticAbs() {
-			protected float x = x_value;
-			protected float y = y_value;
-			protected float x1 = x1_value;
-			protected float y1 = y1_value;
+			private float x = x_value;
+			private float y = y_value;
+			private float x1 = x1_value;
+			private float y1 = y1_value;
 
 			@Override
 			public short getPathSegType() {
@@ -748,10 +748,10 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	public SVGPathSegCurvetoQuadraticRel createSVGPathSegCurvetoQuadraticRel(final float x_value, final float y_value,
 			final float x1_value, final float y1_value) {
 		return new SVGPathSegCurvetoQuadraticRel() {
-			protected float x = x_value;
-			protected float y = y_value;
-			protected float x1 = x1_value;
-			protected float y1 = y1_value;
+			private float x = x_value;
+			private float y = y_value;
+			private float x1 = x1_value;
+			private float y1 = y1_value;
 
 			@Override
 			public short getPathSegType() {
@@ -813,10 +813,10 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	public SVGPathSegCurvetoCubicSmoothAbs createSVGPathSegCurvetoCubicSmoothAbs(final float x_value,
 			final float y_value, final float x2_value, final float y2_value) {
 		return new SVGPathSegCurvetoCubicSmoothAbs() {
-			protected float x = x_value;
-			protected float y = y_value;
-			protected float x2 = x2_value;
-			protected float y2 = y2_value;
+			private float x = x_value;
+			private float y = y_value;
+			private float x2 = x2_value;
+			private float y2 = y2_value;
 
 			@Override
 			public short getPathSegType() {
@@ -878,10 +878,10 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	public SVGPathSegCurvetoCubicSmoothRel createSVGPathSegCurvetoCubicSmoothRel(final float x_value,
 			final float y_value, final float x2_value, final float y2_value) {
 		return new SVGPathSegCurvetoCubicSmoothRel() {
-			protected float x = x_value;
-			protected float y = y_value;
-			protected float x2 = x2_value;
-			protected float y2 = y2_value;
+			private float x = x_value;
+			private float y = y_value;
+			private float x2 = x2_value;
+			private float y2 = y2_value;
 
 			@Override
 			public short getPathSegType() {
@@ -943,8 +943,8 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	public SVGPathSegCurvetoQuadraticSmoothAbs createSVGPathSegCurvetoQuadraticSmoothAbs(final float x_value,
 			final float y_value) {
 		return new SVGPathSegCurvetoQuadraticSmoothAbs() {
-			protected float x = x_value;
-			protected float y = y_value;
+			private float x = x_value;
+			private float y = y_value;
 
 			@Override
 			public short getPathSegType() {
@@ -987,8 +987,8 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 	public SVGPathSegCurvetoQuadraticSmoothRel createSVGPathSegCurvetoQuadraticSmoothRel(final float x_value,
 			final float y_value) {
 		return new SVGPathSegCurvetoQuadraticSmoothRel() {
-			protected float x = x_value;
-			protected float y = y_value;
+			private float x = x_value;
+			private float y = y_value;
 
 			@Override
 			public short getPathSegType() {
@@ -1031,13 +1031,13 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 			final float r2_value, final float angle_value, final boolean largeArcFlag_value,
 			final boolean sweepFlag_value) {
 		return new SVGPathSegArcAbs() {
-			protected float x = x_value;
-			protected float y = y_value;
-			protected float r1 = r1_value;
-			protected float r2 = r2_value;
-			protected float angle = angle_value;
-			protected boolean largeArcFlag = largeArcFlag_value;
-			protected boolean sweepFlag = sweepFlag_value;
+			private float x = x_value;
+			private float y = y_value;
+			private float r1 = r1_value;
+			private float r2 = r2_value;
+			private float angle = angle_value;
+			private boolean largeArcFlag = largeArcFlag_value;
+			private boolean sweepFlag = sweepFlag_value;
 
 			@Override
 			public short getPathSegType() {
@@ -1131,13 +1131,13 @@ public class SVGOMPathElement extends SVGGraphicsElement implements SVGPathEleme
 			final float r2_value, final float angle_value, final boolean largeArcFlag_value,
 			final boolean sweepFlag_value) {
 		return new SVGPathSegArcRel() {
-			protected float x = x_value;
-			protected float y = y_value;
-			protected float r1 = r1_value;
-			protected float r2 = r2_value;
-			protected float angle = angle_value;
-			protected boolean largeArcFlag = largeArcFlag_value;
-			protected boolean sweepFlag = sweepFlag_value;
+			private float x = x_value;
+			private float y = y_value;
+			private float r1 = r1_value;
+			private float r2 = r2_value;
+			private float angle = angle_value;
+			private boolean largeArcFlag = largeArcFlag_value;
+			private boolean sweepFlag = sweepFlag_value;
 
 			@Override
 			public short getPathSegType() {

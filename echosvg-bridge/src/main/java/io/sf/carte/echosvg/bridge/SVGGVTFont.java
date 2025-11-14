@@ -673,7 +673,7 @@ public final class SVGGVTFont implements GVTFont, SVGConstants {
 		return fontFace.getFamilyName();
 	}
 
-	protected GVTLineMetrics getLineMetrics(int beginIndex, int limit) {
+	private GVTLineMetrics getLineMetrics(int beginIndex, int limit) {
 		if (lineMetrics != null)
 			return lineMetrics;
 
