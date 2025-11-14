@@ -78,7 +78,7 @@ public class SVGAnimateElementBridge extends SVGAnimationElementBridge {
 		}
 
 		String calcModeString = element.getAttributeNS(null, SVG_CALC_MODE_ATTRIBUTE);
-		if (calcModeString.length() == 0) {
+		if (calcModeString.isEmpty()) {
 			return getDefaultCalcMode();
 		} else if (calcModeString.equals(SMILConstants.SMIL_LINEAR_VALUE)) {
 			return AbstractAnimation.CALC_MODE_LINEAR;
@@ -98,7 +98,7 @@ public class SVGAnimateElementBridge extends SVGAnimationElementBridge {
 	 */
 	protected boolean parseAdditive() {
 		String additiveString = element.getAttributeNS(null, SVG_ADDITIVE_ATTRIBUTE);
-		if (additiveString.length() == 0 || additiveString.equals(SMILConstants.SMIL_REPLACE_VALUE)) {
+		if (additiveString.isEmpty() || additiveString.equals(SMILConstants.SMIL_REPLACE_VALUE)) {
 			return false;
 		} else if (additiveString.equals(SMILConstants.SMIL_SUM_VALUE)) {
 			return true;
@@ -112,7 +112,7 @@ public class SVGAnimateElementBridge extends SVGAnimationElementBridge {
 	 */
 	protected boolean parseAccumulate() {
 		String accumulateString = element.getAttributeNS(null, SVG_ACCUMULATE_ATTRIBUTE);
-		if (accumulateString.length() == 0 || accumulateString.equals(SMILConstants.SMIL_NONE_VALUE)) {
+		if (accumulateString.isEmpty() || accumulateString.equals(SMILConstants.SMIL_NONE_VALUE)) {
 			return false;
 		} else if (accumulateString.equals(SMILConstants.SMIL_SUM_VALUE)) {
 			return true;

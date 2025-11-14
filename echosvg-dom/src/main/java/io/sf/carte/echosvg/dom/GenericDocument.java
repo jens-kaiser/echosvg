@@ -170,7 +170,7 @@ public class GenericDocument extends AbstractDocument {
 	 */
 	@Override
 	public Element createElementNS(String namespaceURI, String qualifiedName) throws DOMException {
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		if (namespaceURI == null) {
@@ -186,7 +186,7 @@ public class GenericDocument extends AbstractDocument {
 	 */
 	@Override
 	public Attr createAttributeNS(String namespaceURI, String qualifiedName) throws DOMException {
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		if (namespaceURI == null) {

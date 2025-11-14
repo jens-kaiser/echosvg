@@ -122,7 +122,7 @@ public class SVGFeSpecularLightingElementBridge extends AbstractSVGLightingEleme
 	 */
 	protected static float convertSpecularExponent(Element filterElement, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, SVG_SPECULAR_EXPONENT_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return 1; // default is 1
 		} else {
 			try {

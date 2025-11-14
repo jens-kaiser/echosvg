@@ -81,7 +81,7 @@ public class SVGFeImageElementBridge extends AbstractSVGFilterPrimitiveElementBr
 
 		// 'xlink:href' attribute
 		String uriStr = XLinkSupport.getXLinkHref(filterElement);
-		if (uriStr.length() == 0) {
+		if (uriStr.isEmpty()) {
 			throw new BridgeException(ctx, filterElement, ERR_ATTRIBUTE_MISSING, new Object[] { "xlink:href" });
 		}
 
@@ -138,7 +138,7 @@ public class SVGFeImageElementBridge extends AbstractSVGFilterPrimitiveElementBr
 		// 'primitiveUnits' attribute - default is userSpaceOnUse
 		short coordSystemType;
 		String s = SVGUtilities.getChainableAttributeNS(filterDefElement, null, SVG_PRIMITIVE_UNITS_ATTRIBUTE, ctx);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			coordSystemType = SVGUtilities.USER_SPACE_ON_USE;
 		} else {
 			coordSystemType = SVGUtilities.parseCoordinateSystem(filterDefElement, SVG_PRIMITIVE_UNITS_ATTRIBUTE, s,
@@ -205,7 +205,7 @@ public class SVGFeImageElementBridge extends AbstractSVGFilterPrimitiveElementBr
 			short coordSystemType;
 			Element filterDefElement = (Element) (filterElement.getParentNode());
 			String s = SVGUtilities.getChainableAttributeNS(filterDefElement, null, SVG_PRIMITIVE_UNITS_ATTRIBUTE, ctx);
-			if (s.length() == 0) {
+			if (s.isEmpty()) {
 				coordSystemType = SVGUtilities.USER_SPACE_ON_USE;
 			} else {
 				coordSystemType = SVGUtilities.parseCoordinateSystem(filterDefElement, SVG_PRIMITIVE_UNITS_ATTRIBUTE, s,

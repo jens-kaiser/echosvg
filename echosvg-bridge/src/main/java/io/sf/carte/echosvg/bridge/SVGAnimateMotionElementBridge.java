@@ -85,7 +85,7 @@ public class SVGAnimateMotionElementBridge extends SVGAnimateElementBridge {
 		float rotateAngle = 0;
 		short rotateAngleUnit = SVGAngle.SVG_ANGLETYPE_UNKNOWN;
 		String rotateString = element.getAttributeNS(null, SVG_ROTATE_ATTRIBUTE);
-		if (rotateString.length() != 0) {
+		if (!rotateString.isEmpty()) {
 			if (rotateString.equals("auto")) {
 				rotateAuto = true;
 			} else if (rotateString.equals("auto-reverse")) {
@@ -173,7 +173,7 @@ public class SVGAnimateMotionElementBridge extends SVGAnimateElementBridge {
 			n = n.getNextSibling();
 		}
 		String pathString = element.getAttributeNS(null, SVG_PATH_ATTRIBUTE);
-		if (pathString.length() == 0) {
+		if (pathString.isEmpty()) {
 			return null;
 		}
 		try {
@@ -298,7 +298,7 @@ public class SVGAnimateMotionElementBridge extends SVGAnimateElementBridge {
 	 */
 	protected AnimatableValue parseLengthPair(String ln) {
 		String s = element.getAttributeNS(null, ln);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return null;
 		}
 		return parseValues(s)[0];
@@ -327,7 +327,7 @@ public class SVGAnimateMotionElementBridge extends SVGAnimateElementBridge {
 		// Determine the target element.
 		String uri = XLinkSupport.getXLinkHref(element);
 		Node t;
-		if (uri.length() == 0) {
+		if (uri.isEmpty()) {
 			t = element.getParentNode();
 		} else {
 			t = ctx.getReferencedElement(element, uri);

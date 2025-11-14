@@ -97,7 +97,7 @@ public class SVGMarkerElementBridge extends AnimatableGenericSVGBridge implement
 		// 'markerWidth' attribute - default is 3
 		float markerWidth = 3;
 		s = markerElement.getAttributeNS(null, SVG_MARKER_WIDTH_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			markerWidth = UnitProcessor.svgHorizontalLengthToUserSpace(s, SVG_MARKER_WIDTH_ATTRIBUTE, uctx);
 		}
 		if (markerWidth == 0) {
@@ -108,7 +108,7 @@ public class SVGMarkerElementBridge extends AnimatableGenericSVGBridge implement
 		// 'markerHeight' attribute - default is 3
 		float markerHeight = 3;
 		s = markerElement.getAttributeNS(null, SVG_MARKER_HEIGHT_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			markerHeight = UnitProcessor.svgVerticalLengthToUserSpace(s, SVG_MARKER_HEIGHT_ATTRIBUTE, uctx);
 		}
 		if (markerHeight == 0) {
@@ -119,7 +119,7 @@ public class SVGMarkerElementBridge extends AnimatableGenericSVGBridge implement
 		// 'orient' attribute - default is '0'
 		double orient;
 		s = markerElement.getAttributeNS(null, SVG_ORIENT_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			orient = 0;
 		} else if (SVG_AUTO_VALUE.equals(s)) {
 			orient = Double.NaN;
@@ -139,7 +139,7 @@ public class SVGMarkerElementBridge extends AnimatableGenericSVGBridge implement
 		// 'markerUnits' attribute - default is 'strokeWidth'
 		short unitsType;
 		s = markerElement.getAttributeNS(null, SVG_MARKER_UNITS_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			unitsType = SVGUtilities.STROKE_WIDTH;
 		} else {
 			unitsType = SVGUtilities.parseMarkerCoordinateSystem(markerElement, SVG_MARKER_UNITS_ATTRIBUTE, s, ctx);
@@ -197,14 +197,14 @@ public class SVGMarkerElementBridge extends AnimatableGenericSVGBridge implement
 		// 'refX' attribute - default is 0
 		float refX = 0;
 		s = markerElement.getAttributeNS(null, SVG_REF_X_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			refX = UnitProcessor.svgHorizontalCoordinateToUserSpace(s, SVG_REF_X_ATTRIBUTE, uctx);
 		}
 
 		// 'refY' attribute - default is 0
 		float refY = 0;
 		s = markerElement.getAttributeNS(null, SVG_REF_Y_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			refY = UnitProcessor.svgVerticalCoordinateToUserSpace(s, SVG_REF_Y_ATTRIBUTE, uctx);
 		}
 

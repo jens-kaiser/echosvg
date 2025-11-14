@@ -837,7 +837,7 @@ public abstract class CSSUtilities implements CSSConstants, ErrorConstants, XMLC
 			uri = uri.substring(0, idx);
 
 		// Only set xml:base if we have a real URL.
-		if (uri.length() != 0)
+		if (!uri.isEmpty())
 			localRefElement.setAttributeNS(XML_NAMESPACE_URI, "base", uri);
 
 		CSSEngine engine = CSSUtilities.getCSSEngine(localRefElement);

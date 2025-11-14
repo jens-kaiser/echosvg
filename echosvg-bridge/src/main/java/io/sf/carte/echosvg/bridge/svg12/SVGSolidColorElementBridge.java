@@ -112,7 +112,7 @@ public class SVGSolidColorElementBridge extends AnimatableGenericSVGBridge imple
 			}
 
 			String uri = XLinkSupport.getXLinkHref(paintElement);
-			if (uri.length() == 0) {
+			if (uri.isEmpty()) {
 				return opacity; // no xlink:href found, exit
 			}
 

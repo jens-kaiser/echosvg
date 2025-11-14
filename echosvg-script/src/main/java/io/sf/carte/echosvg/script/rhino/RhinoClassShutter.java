@@ -64,7 +64,7 @@ public class RhinoClassShutter implements ClassShutter {
 	 *                                invalid
 	 */
 	public static void addToWhitelist(String regex) throws PatternSyntaxException {
-		if (regex == null || (regex = regex.trim()).length() == 0) {
+		if (regex == null || (regex = regex.trim()).isEmpty()) {
 			return;
 		}
 
@@ -87,7 +87,7 @@ public class RhinoClassShutter implements ClassShutter {
 	 *                                invalid
 	 */
 	public static void removeFromWhitelist(String regex) throws PatternSyntaxException {
-		if (regex == null || (regex = regex.trim()).length() == 0) {
+		if (regex == null || (regex = regex.trim()).isEmpty()) {
 			return;
 		}
 		for (Pattern p : whitelist) {

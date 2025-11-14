@@ -54,7 +54,7 @@ public abstract class SVGKernElementBridge extends AbstractSVGBridge {
 		String g1 = kernElement.getAttributeNS(null, SVG_G1_ATTRIBUTE);
 		String g2 = kernElement.getAttributeNS(null, SVG_G2_ATTRIBUTE);
 		String k = kernElement.getAttributeNS(null, SVG_K_ATTRIBUTE);
-		if (k.length() == 0) {
+		if (k.isEmpty()) {
 			k = SVG_KERN_K_DEFAULT_VALUE;
 		}
 

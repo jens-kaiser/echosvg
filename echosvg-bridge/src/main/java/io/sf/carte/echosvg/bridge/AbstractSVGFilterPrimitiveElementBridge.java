@@ -65,7 +65,7 @@ public abstract class AbstractSVGFilterPrimitiveElementBridge extends Animatable
 			Filter inputFilter, Map<String, Filter> filterMap, BridgeContext ctx) {
 
 		String s = filterElement.getAttributeNS(null, SVG_IN_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return inputFilter;
 		} else {
 			return getFilterSource(filterElement, s, filteredElement, filteredNode, filterMap, ctx);
@@ -88,7 +88,7 @@ public abstract class AbstractSVGFilterPrimitiveElementBridge extends Animatable
 			Filter inputFilter, Map<String, Filter> filterMap, BridgeContext ctx) {
 
 		String s = filterElement.getAttributeNS(null, SVG_IN2_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			throw new BridgeException(ctx, filterElement, ERR_ATTRIBUTE_MISSING, new Object[] { SVG_IN2_ATTRIBUTE });
 		}
 		return getFilterSource(filterElement, s, filteredElement, filteredNode, filterMap, ctx);
@@ -104,7 +104,7 @@ public abstract class AbstractSVGFilterPrimitiveElementBridge extends Animatable
 	protected static void updateFilterMap(Element filterElement, Filter filter, Map<String, Filter> filterMap) {
 
 		String s = filterElement.getAttributeNS(null, SVG_RESULT_ATTRIBUTE);
-		if ((s.length() != 0) && (s.trim().length() != 0)) {
+		if ((!s.isEmpty()) && (!s.trim().isEmpty())) {
 			filterMap.put(s, filter);
 		}
 	}
@@ -214,7 +214,7 @@ public abstract class AbstractSVGFilterPrimitiveElementBridge extends Animatable
 	 */
 	protected static int convertInteger(Element filterElement, String attrName, int defaultValue, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, attrName);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return defaultValue;
 		} else {
 			try {
@@ -239,7 +239,7 @@ public abstract class AbstractSVGFilterPrimitiveElementBridge extends Animatable
 			BridgeContext ctx) {
 
 		String s = filterElement.getAttributeNS(null, attrName);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return defaultValue;
 		} else {
 			try {

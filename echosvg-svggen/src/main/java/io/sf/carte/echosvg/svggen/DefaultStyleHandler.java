@@ -74,7 +74,7 @@ public class DefaultStyleHandler implements StyleHandler, SVGConstants {
 	public void setStyle(Element element, Map<String, String> styleMap, SVGGeneratorContext generatorContext) {
 		String tagName = element.getTagName();
 		for (String styleName : styleMap.keySet()) {
-			if (element.getAttributeNS(null, styleName).length() == 0) {
+			if (element.getAttributeNS(null, styleName).isEmpty()) {
 				if (appliesTo(styleName, tagName)) {
 					element.setAttributeNS(null, styleName, styleMap.get(styleName));
 				}

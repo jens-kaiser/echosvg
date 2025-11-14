@@ -82,7 +82,7 @@ public class Kern {
 			if (pt >= 0)
 				return true;
 		}
-		if (glyphUnicode.length() < 1)
+		if (glyphUnicode.isEmpty())
 			return false;
 		char glyphChar = glyphUnicode.charAt(0);
 		for (UnicodeRange firstUnicodeRange : firstUnicodeRanges) {
@@ -130,7 +130,7 @@ public class Kern {
 			if (pt >= 0)
 				return true;
 		}
-		if (glyphUnicode.length() < 1)
+		if (glyphUnicode.isEmpty())
 			return false;
 		char glyphChar = glyphUnicode.charAt(0);
 		for (UnicodeRange secondUnicodeRange : secondUnicodeRanges) {

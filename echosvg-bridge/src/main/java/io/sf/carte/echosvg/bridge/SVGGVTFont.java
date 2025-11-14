@@ -255,7 +255,7 @@ public final class SVGGVTFont implements GVTFont, SVGConstants {
 	 *         node.
 	 */
 	private boolean languageMatches(String glyphLang) {
-		if (glyphLang == null || glyphLang.length() == 0) {
+		if (glyphLang == null || glyphLang.isEmpty()) {
 			return true; // will match all languages
 		}
 		StringTokenizer st = new StringTokenizer(glyphLang, ",");
@@ -280,7 +280,7 @@ public final class SVGGVTFont implements GVTFont, SVGConstants {
 	 *         by this font object.
 	 */
 	private boolean orientationMatches(String glyphOrientation) {
-		if (glyphOrientation == null || glyphOrientation.length() == 0) {
+		if (glyphOrientation == null || glyphOrientation.isEmpty()) {
 			return true;
 		}
 		return glyphOrientation.equals(orientation);
@@ -297,7 +297,7 @@ public final class SVGGVTFont implements GVTFont, SVGConstants {
 	 */
 	private boolean formMatches(String glyphUnicode, String glyphForm, AttributedCharacterIterator aci,
 			int currentIndex) {
-		if (aci == null || glyphForm == null || glyphForm.length() == 0) {
+		if (aci == null || glyphForm == null || glyphForm.isEmpty()) {
 			// there aren't any attributes attached to the text
 			// or the glyph doesn't have an arabic form
 			return true;

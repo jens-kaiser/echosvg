@@ -166,7 +166,7 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 		test: if (elt.hasAttributeNS(null, SVG_SYSTEM_LANGUAGE_ATTRIBUTE)) {
 			// Tests the system languages.
 			String sl = elt.getAttributeNS(null, SVG_SYSTEM_LANGUAGE_ATTRIBUTE);
-			if (sl.length() == 0) // SVG spec says empty returns false
+			if (sl.isEmpty()) // SVG spec says empty returns false
 				return false;
 			StringTokenizer st = new StringTokenizer(sl, ", ");
 			while (st.hasMoreTokens()) {
@@ -180,7 +180,7 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 		if (elt.hasAttributeNS(null, SVG_REQUIRED_FEATURES_ATTRIBUTE)) {
 			// Tests the system features.
 			String rf = elt.getAttributeNS(null, SVG_REQUIRED_FEATURES_ATTRIBUTE);
-			if (rf.length() == 0) // SVG spec says empty returns false
+			if (rf.isEmpty()) // SVG spec says empty returns false
 				return false;
 			StringTokenizer st = new StringTokenizer(rf, " ");
 			while (st.hasMoreTokens()) {
@@ -193,7 +193,7 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 		if (elt.hasAttributeNS(null, SVG_REQUIRED_EXTENSIONS_ATTRIBUTE)) {
 			// Tests the system features.
 			String re = elt.getAttributeNS(null, SVG_REQUIRED_EXTENSIONS_ATTRIBUTE);
-			if (re.length() == 0) // SVG spec says empty returns false
+			if (re.isEmpty()) // SVG spec says empty returns false
 				return false;
 			StringTokenizer st = new StringTokenizer(re, " ");
 			while (st.hasMoreTokens()) {
@@ -246,11 +246,11 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 		List<ParsedURL> refs = new LinkedList<>();
 		for (;;) {
 			String v = e.getAttributeNS(namespaceURI, attrName);
-			if (v.length() > 0) { // exit if attribute defined
+			if (!v.isEmpty()) { // exit if attribute defined
 				return v;
 			}
 			String uriStr = XLinkSupport.getXLinkHref(e);
-			if (uriStr.length() == 0) { // exit if no more xlink:href
+			if (uriStr.isEmpty()) { // exit if no more xlink:href
 				return "";
 			}
 			String baseURI = e.getBaseURI();
@@ -354,28 +354,28 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 
 		// 'x' attribute - default is -10%
 		String xStr = maskElement.getAttributeNS(null, SVG_X_ATTRIBUTE);
-		if (xStr.length() == 0) {
+		if (xStr.isEmpty()) {
 			xStr = SVG_MASK_X_DEFAULT_VALUE;
 		}
 		// 'y' attribute - default is -10%
 		String yStr = maskElement.getAttributeNS(null, SVG_Y_ATTRIBUTE);
-		if (yStr.length() == 0) {
+		if (yStr.isEmpty()) {
 			yStr = SVG_MASK_Y_DEFAULT_VALUE;
 		}
 		// 'width' attribute - default is 120%
 		String wStr = maskElement.getAttributeNS(null, SVG_WIDTH_ATTRIBUTE);
-		if (wStr.length() == 0) {
+		if (wStr.isEmpty()) {
 			wStr = SVG_MASK_WIDTH_DEFAULT_VALUE;
 		}
 		// 'height' attribute - default is 120%
 		String hStr = maskElement.getAttributeNS(null, SVG_HEIGHT_ATTRIBUTE);
-		if (hStr.length() == 0) {
+		if (hStr.isEmpty()) {
 			hStr = SVG_MASK_HEIGHT_DEFAULT_VALUE;
 		}
 		// 'maskUnits' attribute - default is 'objectBoundingBox'
 		short unitsType;
 		String units = maskElement.getAttributeNS(null, SVG_MASK_UNITS_ATTRIBUTE);
-		if (units.length() == 0) {
+		if (units.isEmpty()) {
 			unitsType = OBJECT_BOUNDING_BOX;
 		} else {
 			unitsType = parseCoordinateSystem(maskElement, SVG_MASK_UNITS_ATTRIBUTE, units, ctx);
@@ -405,29 +405,29 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 
 		// 'x' attribute - default is 0%
 		String xStr = getChainableAttributeNS(patternElement, null, SVG_X_ATTRIBUTE, ctx);
-		if (xStr.length() == 0) {
+		if (xStr.isEmpty()) {
 			xStr = SVG_PATTERN_X_DEFAULT_VALUE;
 		}
 		// 'y' attribute - default is 0%
 		String yStr = getChainableAttributeNS(patternElement, null, SVG_Y_ATTRIBUTE, ctx);
-		if (yStr.length() == 0) {
+		if (yStr.isEmpty()) {
 			yStr = SVG_PATTERN_Y_DEFAULT_VALUE;
 		}
 		// 'width' attribute - required
 		String wStr = getChainableAttributeNS(patternElement, null, SVG_WIDTH_ATTRIBUTE, ctx);
-		if (wStr.length() == 0) {
+		if (wStr.isEmpty()) {
 			throw new BridgeException(ctx, patternElement, ERR_ATTRIBUTE_MISSING, new Object[] { SVG_WIDTH_ATTRIBUTE });
 		}
 		// 'height' attribute - required
 		String hStr = getChainableAttributeNS(patternElement, null, SVG_HEIGHT_ATTRIBUTE, ctx);
-		if (hStr.length() == 0) {
+		if (hStr.isEmpty()) {
 			throw new BridgeException(ctx, patternElement, ERR_ATTRIBUTE_MISSING,
 					new Object[] { SVG_HEIGHT_ATTRIBUTE });
 		}
 		// 'patternUnits' attribute - default is 'objectBoundingBox'
 		short unitsType;
 		String units = getChainableAttributeNS(patternElement, null, SVG_PATTERN_UNITS_ATTRIBUTE, ctx);
-		if (units.length() == 0) {
+		if (units.isEmpty()) {
 			unitsType = OBJECT_BOUNDING_BOX;
 		} else {
 			unitsType = parseCoordinateSystem(patternElement, SVG_PATTERN_UNITS_ATTRIBUTE, units, ctx);
@@ -490,7 +490,7 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 			BridgeContext ctx) {
 
 		Float[] ret = new Float[2];
-		if (attrValue.length() == 0)
+		if (attrValue.isEmpty())
 			return ret;
 
 		try {
@@ -525,28 +525,28 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 
 		// 'x' attribute - default is -10%
 		String xStr = getChainableAttributeNS(filterElement, null, SVG_X_ATTRIBUTE, ctx);
-		if (xStr.length() == 0) {
+		if (xStr.isEmpty()) {
 			xStr = SVG_FILTER_X_DEFAULT_VALUE;
 		}
 		// 'y' attribute - default is -10%
 		String yStr = getChainableAttributeNS(filterElement, null, SVG_Y_ATTRIBUTE, ctx);
-		if (yStr.length() == 0) {
+		if (yStr.isEmpty()) {
 			yStr = SVG_FILTER_Y_DEFAULT_VALUE;
 		}
 		// 'width' attribute - default is 120%
 		String wStr = getChainableAttributeNS(filterElement, null, SVG_WIDTH_ATTRIBUTE, ctx);
-		if (wStr.length() == 0) {
+		if (wStr.isEmpty()) {
 			wStr = SVG_FILTER_WIDTH_DEFAULT_VALUE;
 		}
 		// 'height' attribute - default is 120%
 		String hStr = getChainableAttributeNS(filterElement, null, SVG_HEIGHT_ATTRIBUTE, ctx);
-		if (hStr.length() == 0) {
+		if (hStr.isEmpty()) {
 			hStr = SVG_FILTER_HEIGHT_DEFAULT_VALUE;
 		}
 		// 'filterUnits' attribute - default is 'objectBoundingBox'
 		short unitsType;
 		String units = getChainableAttributeNS(filterElement, null, SVG_FILTER_UNITS_ATTRIBUTE, ctx);
-		if (units.length() == 0) {
+		if (units.isEmpty()) {
 			unitsType = OBJECT_BOUNDING_BOX;
 		} else {
 			unitsType = parseCoordinateSystem(filterElement, SVG_FILTER_UNITS_ATTRIBUTE, units, ctx);
@@ -572,7 +572,7 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 		// Account for region padding
 		//
 		units = getChainableAttributeNS(filterElement, null, SVG12Constants.SVG_FILTER_MARGINS_UNITS_ATTRIBUTE, ctx);
-		if (units.length() == 0) {
+		if (units.isEmpty()) {
 			// Default to user space on use for margins, not objectBoundingBox
 			unitsType = USER_SPACE_ON_USE;
 		} else {
@@ -582,22 +582,22 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 
 		// 'dx' attribute - default is 0
 		String dxStr = filterElement.getAttributeNS(null, SVG12Constants.SVG_MX_ATRIBUTE);
-		if (dxStr.length() == 0) {
+		if (dxStr.isEmpty()) {
 			dxStr = SVG12Constants.SVG_FILTER_MX_DEFAULT_VALUE;
 		}
 		// 'dy' attribute - default is 0
 		String dyStr = filterElement.getAttributeNS(null, SVG12Constants.SVG_MY_ATRIBUTE);
-		if (dyStr.length() == 0) {
+		if (dyStr.isEmpty()) {
 			dyStr = SVG12Constants.SVG_FILTER_MY_DEFAULT_VALUE;
 		}
 		// 'dw' attribute - default is 0
 		String dwStr = filterElement.getAttributeNS(null, SVG12Constants.SVG_MW_ATRIBUTE);
-		if (dwStr.length() == 0) {
+		if (dwStr.isEmpty()) {
 			dwStr = SVG12Constants.SVG_FILTER_MW_DEFAULT_VALUE;
 		}
 		// 'dh' attribute - default is 0
 		String dhStr = filterElement.getAttributeNS(null, SVG12Constants.SVG_MH_ATRIBUTE);
-		if (dhStr.length() == 0) {
+		if (dhStr.isEmpty()) {
 			dhStr = SVG12Constants.SVG_FILTER_MH_DEFAULT_VALUE;
 		}
 
@@ -671,28 +671,28 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 		// 'x' attribute - default is defaultRegion.getX()
 		double x = defaultRegion.getX();
 		s = filterPrimitiveElement.getAttributeNS(null, SVG_X_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			x = UnitProcessor.svgHorizontalCoordinateToUserSpace(s, SVG_X_ATTRIBUTE, uctx);
 		}
 
 		// 'y' attribute - default is defaultRegion.getY()
 		double y = defaultRegion.getY();
 		s = filterPrimitiveElement.getAttributeNS(null, SVG_Y_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			y = UnitProcessor.svgVerticalCoordinateToUserSpace(s, SVG_Y_ATTRIBUTE, uctx);
 		}
 
 		// 'width' attribute - default is defaultRegion.getWidth()
 		double w = defaultRegion.getWidth();
 		s = filterPrimitiveElement.getAttributeNS(null, SVG_WIDTH_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			w = UnitProcessor.svgHorizontalLengthToUserSpace(s, SVG_WIDTH_ATTRIBUTE, uctx);
 		}
 
 		// 'height' attribute - default is defaultRegion.getHeight()
 		double h = defaultRegion.getHeight();
 		s = filterPrimitiveElement.getAttributeNS(null, SVG_HEIGHT_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			h = UnitProcessor.svgVerticalLengthToUserSpace(s, SVG_HEIGHT_ATTRIBUTE, uctx);
 		}
 
@@ -725,7 +725,7 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 			units = getChainableAttributeNS(filterElement, null, SVG_PRIMITIVE_UNITS_ATTRIBUTE, ctx);
 		}
 		short unitsType;
-		if (units.length() == 0) {
+		if (units.isEmpty()) {
 			unitsType = USER_SPACE_ON_USE;
 		} else {
 			unitsType = parseCoordinateSystem(filterElement, SVG_FILTER_UNITS_ATTRIBUTE, units, ctx);
@@ -759,35 +759,35 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 		case OBJECT_BOUNDING_BOX:
 			Rectangle2D bounds = filteredNode.getGeometryBounds();
 			if (bounds != null) {
-				if (xStr.length() != 0) {
+				if (!xStr.isEmpty()) {
 					x = UnitProcessor.svgHorizontalCoordinateToObjectBoundingBox(xStr, SVG_X_ATTRIBUTE, uctx);
 					x = bounds.getX() + x * bounds.getWidth();
 				}
-				if (yStr.length() != 0) {
+				if (!yStr.isEmpty()) {
 					y = UnitProcessor.svgVerticalCoordinateToObjectBoundingBox(yStr, SVG_Y_ATTRIBUTE, uctx);
 					y = bounds.getY() + y * bounds.getHeight();
 				}
-				if (wStr.length() != 0) {
+				if (!wStr.isEmpty()) {
 					w = UnitProcessor.svgHorizontalLengthToObjectBoundingBox(wStr, SVG_WIDTH_ATTRIBUTE, uctx);
 					w *= bounds.getWidth();
 				}
-				if (hStr.length() != 0) {
+				if (!hStr.isEmpty()) {
 					h = UnitProcessor.svgVerticalLengthToObjectBoundingBox(hStr, SVG_HEIGHT_ATTRIBUTE, uctx);
 					h *= bounds.getHeight();
 				}
 			}
 			break;
 		case USER_SPACE_ON_USE:
-			if (xStr.length() != 0) {
+			if (!xStr.isEmpty()) {
 				x = UnitProcessor.svgHorizontalCoordinateToUserSpace(xStr, SVG_X_ATTRIBUTE, uctx);
 			}
-			if (yStr.length() != 0) {
+			if (!yStr.isEmpty()) {
 				y = UnitProcessor.svgVerticalCoordinateToUserSpace(yStr, SVG_Y_ATTRIBUTE, uctx);
 			}
-			if (wStr.length() != 0) {
+			if (!wStr.isEmpty()) {
 				w = UnitProcessor.svgHorizontalLengthToUserSpace(wStr, SVG_WIDTH_ATTRIBUTE, uctx);
 			}
-			if (hStr.length() != 0) {
+			if (!hStr.isEmpty()) {
 				h = UnitProcessor.svgVerticalLengthToUserSpace(hStr, SVG_HEIGHT_ATTRIBUTE, uctx);
 			}
 			break;
@@ -807,7 +807,7 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 					SVG12Constants.SVG_FILTER_PRIMITIVE_MARGINS_UNITS_ATTRIBUTE, ctx);
 		}
 
-		if (units.length() == 0) {
+		if (units.isEmpty()) {
 			unitsType = USER_SPACE_ON_USE;
 		} else {
 			unitsType = parseCoordinateSystem(filterElement,
@@ -829,16 +829,16 @@ public abstract class SVGUtilities implements SVGConstants, ErrorConstants {
 			// 'dh' attribute - default is 0
 			dhStr = filterPrimitiveElement.getAttributeNS(null, SVG12Constants.SVG_MH_ATRIBUTE);
 		}
-		if (dxStr.length() == 0) {
+		if (dxStr.isEmpty()) {
 			dxStr = SVG12Constants.SVG_FILTER_MX_DEFAULT_VALUE;
 		}
-		if (dyStr.length() == 0) {
+		if (dyStr.isEmpty()) {
 			dyStr = SVG12Constants.SVG_FILTER_MY_DEFAULT_VALUE;
 		}
-		if (dwStr.length() == 0) {
+		if (dwStr.isEmpty()) {
 			dwStr = SVG12Constants.SVG_FILTER_MW_DEFAULT_VALUE;
 		}
-		if (dhStr.length() == 0) {
+		if (dhStr.isEmpty()) {
 			dhStr = SVG12Constants.SVG_FILTER_MH_DEFAULT_VALUE;
 		}
 

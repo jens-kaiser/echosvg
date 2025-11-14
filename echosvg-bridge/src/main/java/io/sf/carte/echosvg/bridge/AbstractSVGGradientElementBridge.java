@@ -87,7 +87,7 @@ public abstract class AbstractSVGGradientElementBridge extends AnimatableGeneric
 		// 'spreadMethod' attribute - default is pad
 		MultipleGradientPaint.CycleMethodEnum spreadMethod = MultipleGradientPaint.NO_CYCLE;
 		s = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_SPREAD_METHOD_ATTRIBUTE, ctx);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			spreadMethod = convertSpreadMethod(paintElement, s, ctx);
 		}
 
@@ -97,7 +97,7 @@ public abstract class AbstractSVGGradientElementBridge extends AnimatableGeneric
 		// 'gradientTransform' attribute - default is an Identity matrix
 		AffineTransform transform;
 		s = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_GRADIENT_TRANSFORM_ATTRIBUTE, ctx);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			transform = SVGUtilities.convertTransform(paintElement, SVG_GRADIENT_TRANSFORM_ATTRIBUTE, s, ctx);
 		} else {
 			transform = new AffineTransform();
@@ -167,7 +167,7 @@ public abstract class AbstractSVGGradientElementBridge extends AnimatableGeneric
 				return stops; // stop elements found, exit
 			}
 			String uri = XLinkSupport.getXLinkHref(paintElement);
-			if (uri.length() == 0) {
+			if (uri.isEmpty()) {
 				return null; // no xlink:href found, exit
 			}
 			// check if there is circular dependencies
@@ -283,7 +283,7 @@ public abstract class AbstractSVGGradientElementBridge extends AnimatableGeneric
 
 			float offset;
 			String s = stopElement.getAttributeNS(null, SVG_OFFSET_ATTRIBUTE);
-			if (s.length() != 0) {
+			if (!s.isEmpty()) {
 				try {
 					offset = SVGUtilities.convertRatio(s);
 				} catch (NumberFormatException nfEx) {

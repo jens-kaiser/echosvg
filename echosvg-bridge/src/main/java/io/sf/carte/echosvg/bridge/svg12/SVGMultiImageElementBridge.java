@@ -129,7 +129,7 @@ public class SVGMultiImageElementBridge extends SVGImageElementBridge {
 		// 'transform'
 		AffineTransform at = null;
 		String s = e.getAttribute(SVG_TRANSFORM_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			at = SVGUtilities.convertTransform(e, SVG_TRANSFORM_ATTRIBUTE, s, ctx);
 		} else {
 			at = new AffineTransform();
@@ -261,21 +261,21 @@ public class SVGMultiImageElementBridge extends SVGImageElementBridge {
 		// 'x' attribute - default is 0
 		String s = element.getAttributeNS(null, SVG_X_ATTRIBUTE);
 		float x = 0;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			x = UnitProcessor.svgHorizontalCoordinateToUserSpace(s, SVG_X_ATTRIBUTE, uctx);
 		}
 
 		// 'y' attribute - default is 0
 		s = element.getAttributeNS(null, SVG_Y_ATTRIBUTE);
 		float y = 0;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			y = UnitProcessor.svgVerticalCoordinateToUserSpace(s, SVG_Y_ATTRIBUTE, uctx);
 		}
 
 		// 'width' attribute - required
 		s = element.getAttributeNS(null, SVG_WIDTH_ATTRIBUTE);
 		float w;
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			throw new BridgeException(ctx, element, ERR_ATTRIBUTE_MISSING, new Object[] { SVG_WIDTH_ATTRIBUTE });
 		} else {
 			w = UnitProcessor.svgHorizontalLengthToUserSpace(s, SVG_WIDTH_ATTRIBUTE, uctx);
@@ -284,7 +284,7 @@ public class SVGMultiImageElementBridge extends SVGImageElementBridge {
 		// 'height' attribute - required
 		s = element.getAttributeNS(null, SVG_HEIGHT_ATTRIBUTE);
 		float h;
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			throw new BridgeException(ctx, element, ERR_ATTRIBUTE_MISSING, new Object[] { SVG_HEIGHT_ATTRIBUTE });
 		} else {
 			h = UnitProcessor.svgVerticalLengthToUserSpace(s, SVG_HEIGHT_ATTRIBUTE, uctx);
@@ -316,7 +316,7 @@ public class SVGMultiImageElementBridge extends SVGImageElementBridge {
 	protected void addRefInfo(Element e, Collection<Element> elems, Collection<Dimension> minDim,
 			Collection<Dimension> maxDim, Rectangle2D bounds) {
 		String uriStr = XLinkSupport.getXLinkHref(e);
-		if (uriStr.length() == 0) {
+		if (uriStr.isEmpty()) {
 			throw new BridgeException(ctx, e, ERR_ATTRIBUTE_MISSING, new Object[] { "xlink:href" });
 		}
 		String baseURI = AbstractNode.getBaseURI(e);
@@ -337,16 +337,16 @@ public class SVGMultiImageElementBridge extends SVGImageElementBridge {
 		}
 		String s;
 		s = e.getAttribute("x");
-		if (s.length() == 0)
+		if (s.isEmpty())
 			imgElem.setAttribute("x", "0");
 		s = e.getAttribute("y");
-		if (s.length() == 0)
+		if (s.isEmpty())
 			imgElem.setAttribute("y", "0");
 		s = e.getAttribute("width");
-		if (s.length() == 0)
+		if (s.isEmpty())
 			imgElem.setAttribute("width", "100%");
 		s = e.getAttribute("height");
-		if (s.length() == 0)
+		if (s.isEmpty())
 			imgElem.setAttribute("height", "100%");
 		e.appendChild(imgElem);
 		elems.add(imgElem);
@@ -366,7 +366,7 @@ public class SVGMultiImageElementBridge extends SVGImageElementBridge {
 	protected Dimension getElementPixelSize(Element e, String attr, Rectangle2D bounds) {
 		String s;
 		s = e.getAttribute(attr);
-		if (s.length() == 0)
+		if (s.isEmpty())
 			return null;
 
 		Float[] vals = SVGUtilities.convertSVGNumberOptionalNumber(e, attr, s, ctx);

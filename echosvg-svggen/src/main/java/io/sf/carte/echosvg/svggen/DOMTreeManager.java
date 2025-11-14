@@ -356,7 +356,7 @@ public class DOMTreeManager implements SVGSyntax, ErrorConstants {
 		//
 		if (includeDefinitionSet) {
 			List<Element> defSet = getDefinitionSet();
-			if (defSet.size() > 0) {
+			if (!defSet.isEmpty()) {
 				Element defElement = null;
 
 				NodeList defsElements = topLevelGroup.getElementsByTagName(SVG_DEFS_TAG);

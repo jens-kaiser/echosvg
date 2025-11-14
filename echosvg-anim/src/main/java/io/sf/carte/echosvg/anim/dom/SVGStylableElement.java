@@ -309,7 +309,7 @@ public abstract class SVGStylableElement extends SVGOMElement implements CSSStyl
 			}
 		}
 		putLiveAttributeValue(null, name, (LiveAttributeValue) result);
-		if (getAttributeNS(null, name).length() == 0) {
+		if (getAttributeNS(null, name).isEmpty()) {
 			return null;
 		}
 		return result;
@@ -728,7 +728,7 @@ public abstract class SVGStylableElement extends SVGOMElement implements CSSStyl
 		 */
 		@Override
 		public void propertyChanged(String name, String value, String prio) throws DOMException {
-			boolean important = prio != null && prio.length() > 0;
+			boolean important = prio != null && !prio.isEmpty();
 			cssEngine.setMainProperties(SVGStylableElement.this, this, name, value, important);
 			mutate = true;
 			setAttributeNS(null, SVG_STYLE_ATTRIBUTE, declaration.toString(cssEngine));

@@ -848,7 +848,7 @@ public class CSSTranscodingHelper {
 			selector = (String) transcoder.getTranscodingHints()
 					.get(SVGAbstractTranscoder.KEY_SVG_SELECTOR);
 		}
-		if (selector != null && (selector = selector.trim()).length() != 0) {
+		if (selector != null && !(selector = selector.trim()).isEmpty()) {
 			svgRoot = document.querySelector(selector);
 		}
 		if (svgRoot == null) {
@@ -881,7 +881,7 @@ public class CSSTranscodingHelper {
 
 		boolean isSVG12;
 		String version = svgRoot.getAttribute("version");
-		if (version.length() == 0) {
+		if (version.isEmpty()) {
 			// Assume 1.2 unless doctype Public ID is 1.0
 			isSVG12 = docType == null || !"-//W3C//DTD SVG 1.0//EN".equals(docType.getPublicId());
 		} else {
@@ -917,7 +917,7 @@ public class CSSTranscodingHelper {
 		// Check for a target medium
 		String medium = (String) transcoder.getTranscodingHints()
 				.get(SVGAbstractTranscoder.KEY_MEDIA);
-		if (medium == null || (medium = medium.trim()).length() == 0) {
+		if (medium == null || (medium = medium.trim()).isEmpty()) {
 			// This won't match a real medium but the rest of the machinery will work
 			medium = "medium";
 		}
@@ -945,7 +945,7 @@ public class CSSTranscodingHelper {
 		}
 
 		// If there is an alternate style sheet, set it
-		if (alt != null && (alt = alt.trim()).length() != 0) {
+		if (alt != null && !(alt = alt.trim()).isEmpty()) {
 			document.setSelectedStyleSheetSet(alt);
 		}
 
@@ -1106,7 +1106,7 @@ public class CSSTranscodingHelper {
 			if (!"preserve".equalsIgnoreCase(preserve)) {
 				content = content.trim();
 			}
-			if (content.length() == 0) {
+			if (content.isEmpty()) {
 				return;
 			}
 			Text text = svgDoc.createTextNode(content);
@@ -1150,7 +1150,7 @@ public class CSSTranscodingHelper {
 				this.width = width.floatValue();
 			} else {
 				String w = svgRoot.getAttribute("width");
-				if (w.length() != 0) {
+				if (!w.isEmpty()) {
 					try {
 						this.width = Float.parseFloat(w);
 					} catch (NumberFormatException e) {
@@ -1166,7 +1166,7 @@ public class CSSTranscodingHelper {
 				this.height = height.floatValue();
 			} else {
 				String h = svgRoot.getAttribute("height");
-				if (h.length() != 0) {
+				if (!h.isEmpty()) {
 					try {
 						this.height = Float.parseFloat(h);
 					} catch (NumberFormatException e) {

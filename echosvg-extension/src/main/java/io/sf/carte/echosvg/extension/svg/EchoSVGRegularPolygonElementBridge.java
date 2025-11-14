@@ -85,21 +85,21 @@ public class EchoSVGRegularPolygonElementBridge extends SVGDecoratedShapeElement
 		// 'cx' attribute - default is 0
 		s = e.getAttributeNS(null, SVG_CX_ATTRIBUTE);
 		float cx = 0;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			cx = UnitProcessor.svgHorizontalCoordinateToUserSpace(s, SVG_CX_ATTRIBUTE, uctx);
 		}
 
 		// 'cy' attribute - default is 0
 		s = e.getAttributeNS(null, SVG_CY_ATTRIBUTE);
 		float cy = 0;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			cy = UnitProcessor.svgVerticalCoordinateToUserSpace(s, SVG_CY_ATTRIBUTE, uctx);
 		}
 
 		// 'r' attribute - required
 		s = e.getAttributeNS(null, SVG_R_ATTRIBUTE);
 		float r;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			r = UnitProcessor.svgOtherLengthToUserSpace(s, SVG_R_ATTRIBUTE, uctx);
 		} else {
 			throw new BridgeException(ctx, e, ERR_ATTRIBUTE_MISSING, new Object[] { SVG_R_ATTRIBUTE, s });
@@ -135,7 +135,7 @@ public class EchoSVGRegularPolygonElementBridge extends SVGDecoratedShapeElement
 	 */
 	protected static int convertSides(Element filterElement, String attrName, int defaultValue, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, attrName);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return defaultValue;
 		} else {
 			int ret = 0;

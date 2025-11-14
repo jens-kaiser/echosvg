@@ -139,7 +139,7 @@ public class SVGFeDisplacementMapElementBridge extends AbstractSVGFilterPrimitiv
 			ARGBChannel defaultChannel, BridgeContext ctx) {
 
 		String s = filterElement.getAttributeNS(null, attrName);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return defaultChannel;
 		}
 		if (SVG_A_VALUE.equals(s)) {

@@ -68,7 +68,7 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 
 		// units per em
 		String unitsPerEmStr = fontFaceElement.getAttributeNS(null, SVG_UNITS_PER_EM_ATTRIBUTE);
-		if (unitsPerEmStr.length() == 0) {
+		if (unitsPerEmStr.isEmpty()) {
 			unitsPerEmStr = SVG_FONT_FACE_UNITS_PER_EM_DEFAULT_VALUE;
 		}
 		float unitsPerEm;
@@ -81,31 +81,31 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 
 		// font-weight
 		String fontWeight = fontFaceElement.getAttributeNS(null, SVG_FONT_WEIGHT_ATTRIBUTE);
-		if (fontWeight.length() == 0) {
+		if (fontWeight.isEmpty()) {
 			fontWeight = SVG_FONT_FACE_FONT_WEIGHT_DEFAULT_VALUE;
 		}
 
 		// font-style
 		String fontStyle = fontFaceElement.getAttributeNS(null, SVG_FONT_STYLE_ATTRIBUTE);
-		if (fontStyle.length() == 0) {
+		if (fontStyle.isEmpty()) {
 			fontStyle = SVG_FONT_FACE_FONT_STYLE_DEFAULT_VALUE;
 		}
 
 		// font-variant
 		String fontVariant = fontFaceElement.getAttributeNS(null, SVG_FONT_VARIANT_ATTRIBUTE);
-		if (fontVariant.length() == 0) {
+		if (fontVariant.isEmpty()) {
 			fontVariant = SVG_FONT_FACE_FONT_VARIANT_DEFAULT_VALUE;
 		}
 
 		// font-stretch
 		String fontStretch = fontFaceElement.getAttributeNS(null, SVG_FONT_STRETCH_ATTRIBUTE);
-		if (fontStretch.length() == 0) {
+		if (fontStretch.isEmpty()) {
 			fontStretch = SVG_FONT_FACE_FONT_STRETCH_DEFAULT_VALUE;
 		}
 
 		// slopeStr
 		String slopeStr = fontFaceElement.getAttributeNS(null, SVG_SLOPE_ATTRIBUTE);
-		if (slopeStr.length() == 0) {
+		if (slopeStr.isEmpty()) {
 			slopeStr = SVG_FONT_FACE_SLOPE_DEFAULT_VALUE;
 		}
 		float slope;
@@ -118,13 +118,13 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 
 		// panose-1
 		String panose1 = fontFaceElement.getAttributeNS(null, SVG_PANOSE_1_ATTRIBUTE);
-		if (panose1.length() == 0) {
+		if (panose1.isEmpty()) {
 			panose1 = SVG_FONT_FACE_PANOSE_1_DEFAULT_VALUE;
 		}
 
 		// ascent
 		String ascentStr = fontFaceElement.getAttributeNS(null, SVG_ASCENT_ATTRIBUTE);
-		if (ascentStr.length() == 0) {
+		if (ascentStr.isEmpty()) {
 			// set it to be unitsPerEm * .8
 			ascentStr = String.valueOf(unitsPerEm * 0.8);
 		}
@@ -138,7 +138,7 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 
 		// descent
 		String descentStr = fontFaceElement.getAttributeNS(null, SVG_DESCENT_ATTRIBUTE);
-		if (descentStr.length() == 0) {
+		if (descentStr.isEmpty()) {
 			// set it to be unitsPerEm *.2.
 			descentStr = String.valueOf(unitsPerEm * 0.2);
 		}
@@ -152,7 +152,7 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 
 		// underline-position
 		String underlinePosStr = fontFaceElement.getAttributeNS(null, SVG_UNDERLINE_POSITION_ATTRIBUTE);
-		if (underlinePosStr.length() == 0) {
+		if (underlinePosStr.isEmpty()) {
 			underlinePosStr = String.valueOf(-3 * unitsPerEm / 40);
 		}
 		float underlinePos;
@@ -165,7 +165,7 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 
 		// underline-thickness
 		String underlineThicknessStr = fontFaceElement.getAttributeNS(null, SVG_UNDERLINE_THICKNESS_ATTRIBUTE);
-		if (underlineThicknessStr.length() == 0) {
+		if (underlineThicknessStr.isEmpty()) {
 			underlineThicknessStr = String.valueOf(unitsPerEm / 20);
 		}
 		float underlineThickness;
@@ -178,7 +178,7 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 
 		// strikethrough-position
 		String strikethroughPosStr = fontFaceElement.getAttributeNS(null, SVG_STRIKETHROUGH_POSITION_ATTRIBUTE);
-		if (strikethroughPosStr.length() == 0) {
+		if (strikethroughPosStr.isEmpty()) {
 			strikethroughPosStr = String.valueOf(3 * ascent / 8);
 		}
 		float strikethroughPos;
@@ -191,7 +191,7 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 
 		// strikethrough-thickness
 		String strikethroughThicknessStr = fontFaceElement.getAttributeNS(null, SVG_STRIKETHROUGH_THICKNESS_ATTRIBUTE);
-		if (strikethroughThicknessStr.length() == 0) {
+		if (strikethroughThicknessStr.isEmpty()) {
 			strikethroughThicknessStr = String.valueOf(unitsPerEm / 20);
 		}
 		float strikethroughThickness;
@@ -204,7 +204,7 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 
 		// overline-position
 		String overlinePosStr = fontFaceElement.getAttributeNS(null, SVG_OVERLINE_POSITION_ATTRIBUTE);
-		if (overlinePosStr.length() == 0) {
+		if (overlinePosStr.isEmpty()) {
 			overlinePosStr = String.valueOf(ascent);
 		}
 		float overlinePos;
@@ -218,7 +218,7 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 		// overline-thickness
 		float overlineThickness;
 		String overlineThicknessStr = fontFaceElement.getAttributeNS(null, SVG_OVERLINE_THICKNESS_ATTRIBUTE);
-		if (overlineThicknessStr.length() == 0) {
+		if (overlineThicknessStr.isEmpty()) {
 			overlineThickness = underlineThickness;
 		} else {
 			try {
@@ -279,7 +279,7 @@ public class SVGFontFaceElementBridge extends AbstractSVGBridge implements Error
 			if (n.getLocalName().equals(SVG_FONT_FACE_NAME_TAG)) {
 				Element ffname = (Element) n;
 				String s = ffname.getAttribute("name");
-				if (s.length() != 0)
+				if (!s.isEmpty())
 					ret.add(s); // here we add a String
 			}
 		}

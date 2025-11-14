@@ -859,7 +859,7 @@ public class SVGTextElementBridge extends AbstractGraphicsNodeBridge implements 
 			if (preserve) {
 				prevEndsWithSpace = false;
 			} else {
-				if (asb.length() == 0) {
+				if (asb.isEmpty()) {
 					prevEndsWithSpace = true;
 				} else {
 					prevEndsWithSpace = (asb.getLastChar() == ' ');
@@ -900,7 +900,7 @@ public class SVGTextElementBridge extends AbstractGraphicsNodeBridge implements 
 					}
 					s = TextUtilities.getElementContent(ref);
 					s = normalizeString(s, preserve, prevEndsWithSpace);
-					if (s.length() != 0) {
+					if (!s.isEmpty()) {
 						int trefStart = asb.length();
 						Map<Attribute, Object> m = initialAttributes == null ? new HashMap<>()
 								: new HashMap<>(initialAttributes);
@@ -934,7 +934,7 @@ public class SVGTextElementBridge extends AbstractGraphicsNodeBridge implements 
 			case Node.CDATA_SECTION_NODE:
 				s = n.getNodeValue();
 				s = normalizeString(s, preserve, prevEndsWithSpace);
-				if (s.length() != 0) {
+				if (!s.isEmpty()) {
 					asb.append(s, map);
 					if (preserve) {
 						endLimit = asb.length();
@@ -1078,7 +1078,7 @@ public class SVGTextElementBridge extends AbstractGraphicsNodeBridge implements 
 		 * Appends a String and its associated attributes.
 		 */
 		public void append(String s, Map<Attribute, Object> m) {
-			if (s.length() == 0)
+			if (s.isEmpty())
 				return;
 			strings.add(s);
 			attributes.add(m);

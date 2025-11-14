@@ -352,7 +352,7 @@ public class LocalizableSupport implements Localizable {
 	public int getCharacter(String key) throws MissingResourceException {
 		String s = getString(key);
 
-		if (s == null || s.length() == 0) {
+		if (s == null || s.isEmpty()) {
 			throw new MissingResourceException("Malformed character", bundleName, key);
 		}
 

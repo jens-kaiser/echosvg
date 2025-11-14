@@ -136,7 +136,7 @@ public class ResourceManager {
 	public int getCharacter(String key) throws MissingResourceException, ResourceFormatException {
 		String s = getString(key);
 
-		if (s == null || s.length() == 0) {
+		if (s == null || s.isEmpty()) {
 			throw new ResourceFormatException("Malformed character", bundle.getClass().getName(), key);
 		}
 

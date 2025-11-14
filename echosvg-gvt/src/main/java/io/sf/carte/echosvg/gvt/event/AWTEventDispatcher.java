@@ -395,7 +395,7 @@ public class AWTEventDispatcher
 		eventDispatchEnabled = b;
 		if (eventDispatchEnabled) {
 			// Dispatch any queued events.
-			while (eventQueue.size() > 0) {
+			while (!eventQueue.isEmpty()) {
 				EventObject evt = eventQueue.remove(0);
 				dispatchEvent(evt);
 			}

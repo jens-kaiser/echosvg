@@ -864,12 +864,12 @@ public class SAXDocumentFactory extends DocumentBuilder
 				continue;
 			if (slen == 5) {
 				String ns = attributes.getValue(i);
-				if (ns.length() == 0)
+				if (ns.isEmpty())
 					ns = null;
 				namespaces.put("", ns);
 			} else if (aname.charAt(5) == ':') {
 				String ns = attributes.getValue(i);
-				if (ns.length() == 0) {
+				if (ns.isEmpty()) {
 					ns = null;
 				}
 				namespaces.put(aname.substring(6), ns);

@@ -473,7 +473,7 @@ public abstract class AbstractDocument extends AbstractParentNode
 	 * has 'id'.
 	 */
 	public Element getChildElementById(Node requestor, String id) {
-		if (id == null || id.length() == 0)
+		if (id == null || id.isEmpty())
 			return null;
 		if (elementsById == null)
 			return null;
@@ -754,7 +754,7 @@ public abstract class AbstractDocument extends AbstractParentNode
 		if (eventType == null) {
 			return false;
 		}
-		if (ns != null && ns.length() == 0) {
+		if (ns != null && ns.isEmpty()) {
 			ns = null;
 		}
 		if (ns == null || ns.equals(XMLConstants.XML_EVENTS_NAMESPACE_URI)) {
@@ -1092,7 +1092,7 @@ public abstract class AbstractDocument extends AbstractParentNode
 			throw createDOMException(DOMException.NAMESPACE_ERR, "qname", new Object[] { nt, n.getNodeName(), qn });
 		}
 		String prefix = DOMUtilities.getPrefix(qn);
-		if (ns != null && ns.length() == 0) {
+		if (ns != null && ns.isEmpty()) {
 			ns = null;
 		}
 		if (prefix != null && ns == null) {
@@ -1283,7 +1283,7 @@ public abstract class AbstractDocument extends AbstractParentNode
 					n = next;
 				}
 				String s = sb.toString();
-				if (s.length() == 0) {
+				if (s.isEmpty()) {
 					Node next = n.getNextSibling(); // todo: Jlint says: n can be NULL
 					e.removeChild(n);
 					n = next;

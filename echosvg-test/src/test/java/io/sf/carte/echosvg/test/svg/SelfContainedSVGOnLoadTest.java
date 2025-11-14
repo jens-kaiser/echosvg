@@ -242,7 +242,7 @@ public class SelfContainedSVGOnLoadTest {
 		if (!TEST_RESULT_PASSED.equals(result)) {
 			String errorCode = testResult.getAttributeNS(null, "errorCode");
 			assertEquals(expectedError, errorCode, "Failed with unexpected error code,");
-		} else if (expectedError != null && expectedError.length() > 0) {
+		} else if (expectedError != null && !expectedError.isEmpty()) {
 			fail("Script was loaded, but expected error: " + expectedError);
 		}
 

@@ -107,7 +107,7 @@ public class SVGOMAnimatedEnumeration extends AbstractSVGAnimatedValue implement
 	 */
 	protected void update() {
 		String val = element.getAttributeNS(namespaceURI, localName);
-		if (val.length() == 0) {
+		if (val.isEmpty()) {
 			baseVal = defaultValue;
 		} else {
 			baseVal = getEnumerationNumber(val);

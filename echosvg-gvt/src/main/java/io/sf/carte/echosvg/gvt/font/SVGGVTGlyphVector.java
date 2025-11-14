@@ -588,11 +588,11 @@ public final class SVGGVTGlyphVector implements GVTGlyphVector {
 			glyphLogicalBounds[i] = null;
 
 			String uni = g.getUnicode();
-			if ((uni != null) && (uni.length() != 0) && ArabicTextHandler.arabicCharTransparent(uni.charAt(0))) {
+			if ((uni != null) && (!uni.isEmpty()) && ArabicTextHandler.arabicCharTransparent(uni.charAt(0))) {
 				int j;
 				for (j = i + 1; j < glyphs.length; j++) {
 					uni = glyphs[j].getUnicode();
-					if ((uni == null) || (uni.length() == 0))
+					if ((uni == null) || (uni.isEmpty()))
 						break;
 					char ch = uni.charAt(0);
 					if (!ArabicTextHandler.arabicCharTransparent(ch))

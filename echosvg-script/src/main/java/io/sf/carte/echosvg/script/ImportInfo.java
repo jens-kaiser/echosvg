@@ -213,7 +213,7 @@ public class ImportInfo {
 				// Trim whitespace.
 				line = line.trim();
 				// If nothing left then loop around...
-				if (line.length() == 0)
+				if (line.isEmpty())
 					continue;
 
 				// Line must start with 'class ' or 'package '.
@@ -229,7 +229,7 @@ public class ImportInfo {
 				if (!isPackage && !isClass)
 					continue;
 
-				while (line.length() != 0) {
+				while (!line.isEmpty()) {
 					idx = line.indexOf(' ');
 					String id;
 					if (idx == -1) {
@@ -239,7 +239,7 @@ public class ImportInfo {
 						id = line.substring(0, idx);
 						line = line.substring(idx + 1);
 					}
-					if (id.length() == 0)
+					if (id.isEmpty())
 						continue;
 
 					if (isClass)

@@ -1067,7 +1067,7 @@ public abstract class TimedElement implements SMILConstants {
 	 */
 	protected void parseBegin(String begin) {
 		try {
-			if (begin.length() == 0) {
+			if (begin.isEmpty()) {
 				begin = SMIL_BEGIN_DEFAULT_VALUE;
 			}
 			beginTimes = TimingSpecifierListProducer.parseTimingSpecifierList(TimedElement.this, true, begin,
@@ -1086,7 +1086,7 @@ public abstract class TimedElement implements SMILConstants {
 			simpleDur = UNRESOLVED;
 		} else {
 			durMedia = false;
-			if (dur.length() == 0 || dur.equals(SMIL_INDEFINITE_VALUE)) {
+			if (dur.isEmpty() || dur.equals(SMIL_INDEFINITE_VALUE)) {
 				simpleDur = INDEFINITE;
 			} else {
 				try {
@@ -1142,7 +1142,7 @@ public abstract class TimedElement implements SMILConstants {
 			minMedia = true;
 		} else {
 			minMedia = false;
-			if (min.length() == 0) {
+			if (min.isEmpty()) {
 				this.min = 0;
 			} else {
 				try {
@@ -1166,7 +1166,7 @@ public abstract class TimedElement implements SMILConstants {
 			maxMedia = true;
 		} else {
 			maxMedia = false;
-			if (max.length() == 0 || max.equals(SMIL_INDEFINITE_VALUE)) {
+			if (max.isEmpty() || max.equals(SMIL_INDEFINITE_VALUE)) {
 				this.max = INDEFINITE;
 			} else {
 				try {
@@ -1185,7 +1185,7 @@ public abstract class TimedElement implements SMILConstants {
 	 * Parses a new 'repeatCount' attribute.
 	 */
 	protected void parseRepeatCount(String repeatCount) {
-		if (repeatCount.length() == 0) {
+		if (repeatCount.isEmpty()) {
 			this.repeatCount = UNRESOLVED;
 		} else if (repeatCount.equals(SMIL_INDEFINITE_VALUE)) {
 			this.repeatCount = INDEFINITE;
@@ -1206,7 +1206,7 @@ public abstract class TimedElement implements SMILConstants {
 	 */
 	protected void parseRepeatDur(String repeatDur) {
 		try {
-			if (repeatDur.length() == 0) {
+			if (repeatDur.isEmpty()) {
 				this.repeatDur = UNRESOLVED;
 			} else if (repeatDur.equals(SMIL_INDEFINITE_VALUE)) {
 				this.repeatDur = INDEFINITE;
@@ -1222,7 +1222,7 @@ public abstract class TimedElement implements SMILConstants {
 	 * Parses a new 'fill' attribute.
 	 */
 	protected void parseFill(String fill) {
-		if (fill.length() == 0 || fill.equals(SMIL_REMOVE_VALUE)) {
+		if (fill.isEmpty() || fill.equals(SMIL_REMOVE_VALUE)) {
 			fillMode = FILL_REMOVE;
 		} else if (fill.equals(SMIL_FREEZE_VALUE)) {
 			fillMode = FILL_FREEZE;
@@ -1235,7 +1235,7 @@ public abstract class TimedElement implements SMILConstants {
 	 * Parses a new 'restart' attribute.
 	 */
 	protected void parseRestart(String restart) {
-		if (restart.length() == 0 || restart.equals(SMIL_ALWAYS_VALUE)) {
+		if (restart.isEmpty() || restart.equals(SMIL_ALWAYS_VALUE)) {
 			restartMode = RESTART_ALWAYS;
 		} else if (restart.equals(SMIL_WHEN_NOT_ACTIVE_VALUE)) {
 			restartMode = RESTART_WHEN_NOT_ACTIVE;

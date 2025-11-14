@@ -1092,7 +1092,7 @@ public class ScriptingEnvironment extends BaseScriptingEnvironment {
 									enc = "";
 								conn.setRequestProperty("Content-Encoding", DEFLATE);
 							}
-							if (enc.length() != 0) {
+							if (!enc.isEmpty()) {
 								e = EncodingUtilities.javaEncoding(enc);
 								if (e == null)
 									e = UTF_8;
@@ -1323,7 +1323,7 @@ public class ScriptingEnvironment extends BaseScriptingEnvironment {
 			Element elt = (Element) evt.getCurrentTarget();
 			// Evaluate the script
 			String script = elt.getAttributeNS(null, attribute);
-			if (script.length() == 0)
+			if (script.isEmpty())
 				return;
 
 			DocumentLoader dl = bridgeContext.getDocumentLoader();

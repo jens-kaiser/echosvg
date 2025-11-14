@@ -241,7 +241,7 @@ public class GVTTreeWalker {
 		if (children == null) {
 			return null;
 		}
-		if (children.size() >= 1) {
+		if (!children.isEmpty()) {
 			return children.get(children.size() - 1);
 		} else {
 			return null;
@@ -274,7 +274,7 @@ public class GVTTreeWalker {
 		if (children == null) {
 			return null;
 		}
-		if (children.size() >= 1) {
+		if (!children.isEmpty()) {
 			return children.get(0);
 		} else {
 			return null;

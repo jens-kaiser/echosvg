@@ -119,7 +119,7 @@ public class MarkerShapePainter implements ShapePainter {
 		if (markerGroup == null) {
 			buildMarkerGroup();
 		}
-		if (markerGroup.getChildren().size() > 0) {
+		if (!markerGroup.getChildren().isEmpty()) {
 			markerGroup.paint(g2d);
 		}
 	}

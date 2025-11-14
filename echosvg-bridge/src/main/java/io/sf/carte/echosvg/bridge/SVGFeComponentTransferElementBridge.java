@@ -294,7 +294,7 @@ public class SVGFeComponentTransferElementBridge extends AbstractSVGFilterPrimit
 		 */
 		protected static float[] convertTableValues(Element e, BridgeContext ctx) {
 			String s = e.getAttributeNS(null, SVG_TABLE_VALUES_ATTRIBUTE);
-			if (s.length() == 0) {
+			if (s.isEmpty()) {
 				return null;
 			}
 			StringTokenizer tokens = new StringTokenizer(s, " ,");
@@ -318,7 +318,7 @@ public class SVGFeComponentTransferElementBridge extends AbstractSVGFilterPrimit
 		 */
 		protected static int convertType(Element e, BridgeContext ctx) {
 			String s = e.getAttributeNS(null, SVG_TYPE_ATTRIBUTE);
-			if (s.length() == 0) {
+			if (s.isEmpty()) {
 				throw new BridgeException(ctx, e, ERR_ATTRIBUTE_MISSING, new Object[] { SVG_TYPE_ATTRIBUTE });
 			}
 			if (SVG_DISCRETE_VALUE.equals(s)) {

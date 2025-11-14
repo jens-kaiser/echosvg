@@ -83,7 +83,7 @@ public class SVGTextPathElementBridge extends AnimatableGenericSVGBridge impleme
 		// construct a shape for the referenced path element
 		String s = pathElement.getAttributeNS(null, SVG_D_ATTRIBUTE);
 		Shape pathShape = null;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			AWTPathProducer app = new AWTPathProducer();
 			app.setWindingRule(CSSUtilities.convertFillRule(pathElement));
 			try {
@@ -102,7 +102,7 @@ public class SVGTextPathElementBridge extends AnimatableGenericSVGBridge impleme
 		// if the reference path element has a transform apply the transform
 		// to the path shape
 		s = pathElement.getAttributeNS(null, SVG_TRANSFORM_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			AffineTransform tr = SVGUtilities.convertTransform(pathElement, SVG_TRANSFORM_ATTRIBUTE, s, ctx);
 			pathShape = tr.createTransformedShape(pathShape);
 		}
@@ -112,7 +112,7 @@ public class SVGTextPathElementBridge extends AnimatableGenericSVGBridge impleme
 
 		// set the start offset if specified
 		s = textPathElement.getAttributeNS(null, SVG_START_OFFSET_ATTRIBUTE);
-		if (s.length() > 0) {
+		if (!s.isEmpty()) {
 			float startOffset = 0;
 			int percentIndex = s.indexOf('%');
 			if (percentIndex != -1) {

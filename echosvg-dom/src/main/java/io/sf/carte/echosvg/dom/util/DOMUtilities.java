@@ -630,7 +630,7 @@ public class DOMUtilities extends XMLUtilities implements XMLConstants {
 		}
 
 		// Try and parse as a whole document, if no wrapper element is specified
-		if (wrapperElementPrefix.trim().length() == 0 && wrapperElementSuffix.trim().length() == 0) {
+		if (wrapperElementPrefix.trim().isEmpty() && wrapperElementSuffix.trim().isEmpty()) {
 			try {
 				Document d = documentFactory.createDocument(uri, new StringReader(text));
 				if (doc == null) {
@@ -920,7 +920,7 @@ public class DOMUtilities extends XMLUtilities implements XMLConstants {
 			modifiersEx = (modifiersEx >> 6) & 0x0f;
 		}
 		String s = LOCK_STRINGS[lockState & 0x0f];
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			return s + ' ' + MODIFIER_STRINGS[modifiersEx];
 		}
 		return MODIFIER_STRINGS[modifiersEx];

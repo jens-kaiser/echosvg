@@ -227,7 +227,7 @@ public abstract class AbstractElement extends AbstractParentChildNode implements
 	 */
 	@Override
 	public boolean hasAttributeNS(String namespaceURI, String localName) {
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		return attributes != null && attributes.getNamedItemNS(namespaceURI, localName) != null;
@@ -242,7 +242,7 @@ public abstract class AbstractElement extends AbstractParentChildNode implements
 		if (attributes == null) {
 			return "";
 		}
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		Attr attr = (Attr) attributes.getNamedItemNS(namespaceURI, localName);
@@ -259,7 +259,7 @@ public abstract class AbstractElement extends AbstractParentChildNode implements
 		if (attributes == null) {
 			attributes = createAttributes();
 		}
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		Attr attr = getAttributeNodeNS(namespaceURI, qualifiedName);
@@ -278,7 +278,7 @@ public abstract class AbstractElement extends AbstractParentChildNode implements
 	 */
 	@Override
 	public void removeAttributeNS(String namespaceURI, String localName) throws DOMException {
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		if (!hasAttributeNS(namespaceURI, localName)) {
@@ -293,7 +293,7 @@ public abstract class AbstractElement extends AbstractParentChildNode implements
 	 */
 	@Override
 	public Attr getAttributeNodeNS(String namespaceURI, String localName) {
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		if (attributes == null) {
@@ -350,7 +350,7 @@ public abstract class AbstractElement extends AbstractParentChildNode implements
 	 */
 	@Override
 	public void setIdAttributeNS(String ns, String ln, boolean isId) throws DOMException {
-		if (ns != null && ns.length() == 0) {
+		if (ns != null && ns.isEmpty()) {
 			ns = null;
 		}
 		AbstractAttr a = (AbstractAttr) getAttributeNodeNS(ns, ln);
@@ -415,7 +415,7 @@ public abstract class AbstractElement extends AbstractParentChildNode implements
 		Attr a = getIdAttribute();
 		if (a != null) {
 			String id = a.getNodeValue();
-			if (id.length() > 0) {
+			if (!id.isEmpty()) {
 				return id;
 			}
 		}
@@ -881,7 +881,7 @@ public abstract class AbstractElement extends AbstractParentChildNode implements
 		 */
 		@Override
 		public Node getNamedItemNS(String namespaceURI, String localName) {
-			if (namespaceURI != null && namespaceURI.length() == 0) {
+			if (namespaceURI != null && namespaceURI.isEmpty()) {
 				namespaceURI = null;
 			}
 			return get(namespaceURI, localName);
@@ -912,7 +912,7 @@ public abstract class AbstractElement extends AbstractParentChildNode implements
 			if (localName == null) {
 				throw createDOMException(DOMException.NOT_FOUND_ERR, "attribute.missing", new Object[] { "" });
 			}
-			if (namespaceURI != null && namespaceURI.length() == 0) {
+			if (namespaceURI != null && namespaceURI.isEmpty()) {
 				namespaceURI = null;
 			}
 			AbstractAttr n = (AbstractAttr) remove(namespaceURI, localName);
@@ -931,7 +931,7 @@ public abstract class AbstractElement extends AbstractParentChildNode implements
 		 */
 		public Node setNamedItem(String ns, String name, Node arg) throws DOMException {
 
-			if (ns != null && ns.length() == 0) {
+			if (ns != null && ns.isEmpty()) {
 				ns = null;
 			}
 			((AbstractAttr) arg).setOwnerElement(AbstractElement.this);

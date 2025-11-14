@@ -472,7 +472,7 @@ public class PreferenceManager {
 				break;
 			v.add(last);
 		}
-		if (v.size() != 0) {
+		if (!v.isEmpty()) {
 			String[] str = new String[v.size()];
 			return v.toArray(str);
 		} else {
@@ -513,7 +513,7 @@ public class PreferenceManager {
 				break;
 			v.add(last);
 		}
-		if (v.size() != 0) {
+		if (!v.isEmpty()) {
 			URL[] path = new URL[v.size()];
 			return v.toArray(path);
 		} else {
@@ -553,7 +553,7 @@ public class PreferenceManager {
 				break;
 			v.add(last);
 		}
-		if (v.size() != 0) {
+		if (!v.isEmpty()) {
 			File[] path = new File[v.size()];
 			return v.toArray(path);
 		} else {

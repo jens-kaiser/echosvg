@@ -190,7 +190,7 @@ public class DefaultXBLManager implements XBLManager, XBLConstants {
 
 		// Add definitions.
 		for (XBLOMDefinitionElement def : defs) {
-			if (def.getAttributeNS(null, XBL_REF_ATTRIBUTE).length() != 0) {
+			if (!def.getAttributeNS(null, XBL_REF_ATTRIBUTE).isEmpty()) {
 				addDefinitionRef(def);
 			} else {
 				String ns = def.getElementNamespaceURI();
@@ -408,7 +408,7 @@ public class DefaultXBLManager implements XBLManager, XBLConstants {
 		if (defs == null) {
 			defs = new TreeSet<>();
 			definitionLists.put(namespaceURI, localName, defs);
-		} else if (defs.size() > 0) {
+		} else if (!defs.isEmpty()) {
 			oldDefRec = defs.first();
 		}
 		XBLOMTemplateElement template = null;
@@ -884,7 +884,7 @@ public class DefaultXBLManager implements XBLManager, XBLConstants {
 				@SuppressWarnings("unchecked")
 				TreeSet<DefinitionRecord> defs = (TreeSet<DefinitionRecord>) definitionLists.get(namespaceURI,
 						localName);
-				if (defs != null && defs.size() != 0 && i == 0) {
+				if (defs != null && !defs.isEmpty() && i == 0) {
 					DefinitionRecord defRec = defs.first();
 					return defRec.definition;
 				}
@@ -894,7 +894,7 @@ public class DefaultXBLManager implements XBLManager, XBLConstants {
 			@Override
 			public int getLength() {
 				Set<?> defs = (Set<?>) definitionLists.get(namespaceURI, localName);
-				return defs != null && defs.size() != 0 ? 1 : 0;
+				return defs != null && !defs.isEmpty() ? 1 : 0;
 			}
 		};
 	}
@@ -1370,7 +1370,7 @@ public class DefaultXBLManager implements XBLManager, XBLConstants {
 				// only handle definition elements in document-level scope
 				if (getXblBoundElement((Node) target) == null) { // ??? suspect cast ???
 					XBLOMDefinitionElement def = (XBLOMDefinitionElement) target;
-					if (def.getAttributeNS(null, XBL_REF_ATTRIBUTE).length() == 0) {
+					if (def.getAttributeNS(null, XBL_REF_ATTRIBUTE).isEmpty()) {
 						addDefinition(def.getElementNamespaceURI(), def.getElementLocalName(), def, null);
 					} else {
 						addDefinitionRef(def);
@@ -1465,7 +1465,7 @@ public class DefaultXBLManager implements XBLManager, XBLConstants {
 			docRemovedListener.defsToBeRemoved.clear();
 			for (Object def1 : defs) {
 				XBLOMDefinitionElement def = (XBLOMDefinitionElement) def1;
-				if (def.getAttributeNS(null, XBL_REF_ATTRIBUTE).length() == 0) {
+				if (def.getAttributeNS(null, XBL_REF_ATTRIBUTE).isEmpty()) {
 					DefinitionRecord defRec = (DefinitionRecord) definitions.get(def, null);
 					removeDefinition(defRec);
 				} else {
@@ -1565,7 +1565,7 @@ public class DefaultXBLManager implements XBLManager, XBLConstants {
 
 				addDefinition(def.getElementNamespaceURI(), def.getElementLocalName(), def, importElement);
 			} else if (attrName.equals(XBL_REF_ATTRIBUTE)) {
-				if (mevt.getNewValue().length() != 0) {
+				if (!mevt.getNewValue().isEmpty()) {
 					DefinitionRecord defRec = (DefinitionRecord) definitions.get(def, importElement);
 					removeDefinition(defRec);
 					addDefinitionRef(def);
@@ -1736,7 +1736,7 @@ public class DefaultXBLManager implements XBLManager, XBLConstants {
 			if (mevt.getAttrName().equals(XBL_REF_ATTRIBUTE)) {
 				Element defRef = (Element) target;
 				removeDefinitionRef(defRef);
-				if (mevt.getNewValue().length() == 0) {
+				if (mevt.getNewValue().isEmpty()) {
 					XBLOMDefinitionElement def = (XBLOMDefinitionElement) defRef;
 					String ns = def.getElementNamespaceURI();
 					String ln = def.getElementLocalName();

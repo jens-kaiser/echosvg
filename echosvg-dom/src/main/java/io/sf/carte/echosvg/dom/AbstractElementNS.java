@@ -64,7 +64,7 @@ public abstract class AbstractElementNS extends AbstractElement {
 	 */
 	protected AbstractElementNS(String nsURI, String qname, AbstractDocument owner) throws DOMException {
 		super(qname, owner);
-		if (nsURI != null && nsURI.length() == 0) {
+		if (nsURI != null && nsURI.isEmpty()) {
 			nsURI = null;
 		}
 		namespaceURI = nsURI;

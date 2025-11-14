@@ -152,7 +152,7 @@ public class ParsedURLDefaultProtocolHandler extends AbstractParsedURLProtocolHa
 			ret.port = -1;
 			if (idx == -1) {
 				// Just Host...
-				if (hostPort.length() == 0)
+				if (hostPort.isEmpty())
 					ret.host = null;
 				else
 					ret.host = hostPort;
@@ -259,7 +259,7 @@ public class ParsedURLDefaultProtocolHandler extends AbstractParsedURLProtocolHa
 	@Override
 	public ParsedURLData parseURL(ParsedURL baseURL, String urlStr) {
 		// Reference to same document (including fragment, and query).
-		if (urlStr.length() == 0)
+		if (urlStr.isEmpty())
 			return baseURL.data;
 
 		// System.err.println("Base: " + baseURL + "\n" +

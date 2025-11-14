@@ -123,7 +123,7 @@ public class SVGFeGaussianBlurElementBridge extends AbstractSVGFilterPrimitiveEl
 	 */
 	protected static float[] convertStdDeviation(Element filterElement, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, SVG_STD_DEVIATION_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return new float[] { 0, 0 };
 		}
 		float[] stdDevs = new float[2];

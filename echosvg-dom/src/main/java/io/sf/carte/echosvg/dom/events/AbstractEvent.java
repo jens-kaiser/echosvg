@@ -287,7 +287,7 @@ public abstract class AbstractEvent implements Event, OriginalEvent, Cloneable {
 	 * org.w3c.dom.events.Event#initEventNS(String,String,boolean,boolean).
 	 */
 	public void initEventNS(String namespaceURIArg, String eventTypeArg, boolean canBubbleArg, boolean cancelableArg) {
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		namespaceURI = namespaceURIArg;

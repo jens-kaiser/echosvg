@@ -1945,7 +1945,7 @@ public class BridgeContext implements ErrorConstants, CSSContext, ColorContext, 
 
 		// I am well aware that this is not 100% accurate but it's
 		// the best I can do w/o booting the CSSEngine.
-		if (e.getAttribute(CSSConstants.CSS_CURSOR_PROPERTY).length() > 0)
+		if (!e.getAttribute(CSSConstants.CSS_CURSOR_PROPERTY).isEmpty())
 			return true;
 
 		/*

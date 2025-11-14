@@ -64,7 +64,7 @@ public class HashTableStack {
 			current.pushCount--;
 			current = new Link(current);
 		}
-		if (s.length() == 0)
+		if (s.isEmpty())
 			current.defaultStr = v;
 		return current.table.put(s, v);
 	}
@@ -73,7 +73,7 @@ public class HashTableStack {
 	 * Gets an item in the table on the top of the stack.
 	 */
 	public String get(String s) {
-		if (s.length() == 0)
+		if (s.isEmpty())
 			return current.defaultStr;
 
 		for (Link l = current; l != null; l = l.next) {

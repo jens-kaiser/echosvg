@@ -91,7 +91,7 @@ public abstract class AbstractDOMImplementation implements DOMImplementation, Lo
 	 */
 	@Override
 	public boolean hasFeature(String feature, String version) {
-		if (feature == null || feature.length() == 0) {
+		if (feature == null || feature.isEmpty()) {
 			return false;
 		}
 		if (feature.charAt(0) == '+') {
@@ -102,7 +102,7 @@ public abstract class AbstractDOMImplementation implements DOMImplementation, Lo
 		if (v == null) {
 			return false;
 		}
-		if (version == null || version.length() == 0) {
+		if (version == null || version.isEmpty()) {
 			return true;
 		}
 		if (v instanceof String) {

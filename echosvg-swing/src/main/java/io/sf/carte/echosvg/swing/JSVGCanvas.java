@@ -971,15 +971,15 @@ public class JSVGCanvas extends JSVGComponent {
 			}
 
 			final String toolTip;
-			if ((titleTip != null) && (titleTip.length() != 0)) {
-				if ((descTip != null) && (descTip.length() != 0)) {
+			if ((titleTip != null) && (!titleTip.isEmpty())) {
+				if ((descTip != null) && (!descTip.isEmpty())) {
 					toolTip = Messages.formatMessage(TOOLTIP_TITLE_AND_TEXT,
 							new Object[] { toFormattedHTML(titleTip), toFormattedHTML(descTip) });
 				} else {
 					toolTip = Messages.formatMessage(TOOLTIP_TITLE_ONLY, new Object[] { toFormattedHTML(titleTip) });
 				}
 			} else {
-				if ((descTip != null) && (descTip.length() != 0)) {
+				if ((descTip != null) && (!descTip.isEmpty())) {
 					toolTip = Messages.formatMessage(TOOLTIP_DESC_ONLY, new Object[] { toFormattedHTML(descTip) });
 				} else {
 					toolTip = null;

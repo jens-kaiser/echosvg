@@ -118,7 +118,7 @@ public class EchoSVGHistogramNormalizationElementBridge extends AbstractSVGFilte
 		float trim = 1;
 		String s = filterElement.getAttributeNS(null, EXT_TRIM_ATTRIBUTE);
 
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			try {
 				trim = SVGUtilities.convertSVGNumber(s);
 			} catch (NumberFormatException nfEx) {
@@ -158,7 +158,7 @@ public class EchoSVGHistogramNormalizationElementBridge extends AbstractSVGFilte
 	 */
 	protected static int convertSides(Element filterElement, String attrName, int defaultValue, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, attrName);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return defaultValue;
 		} else {
 			int ret = 0;

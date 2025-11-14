@@ -156,7 +156,7 @@ public class SVGFilterElementBridge extends AnimatableGenericSVGBridge implement
 				return newIn; // filter primitives found, exit
 			}
 			String uri = XLinkSupport.getXLinkHref(filterElement);
-			if (uri.length() == 0) {
+			if (uri.isEmpty()) {
 				return in; // no xlink:href found, exit
 			}
 			// check if there is circular dependencies

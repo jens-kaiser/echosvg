@@ -111,7 +111,7 @@ public class CSSOMStyleDeclaration implements CSSStyleDeclaration {
 	@Override
 	public String removeProperty(String propertyName) throws DOMException {
 		String result = getPropertyValue(propertyName);
-		if (result.length() > 0) {
+		if (!result.isEmpty()) {
 			if (handler == null) {
 				throw new DOMException(DOMException.NO_MODIFICATION_ALLOWED_ERR, "");
 			} else {

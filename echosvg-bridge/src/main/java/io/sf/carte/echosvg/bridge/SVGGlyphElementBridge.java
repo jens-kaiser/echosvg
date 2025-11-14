@@ -86,7 +86,7 @@ public class SVGGlyphElementBridge extends AbstractSVGBridge implements ErrorCon
 		// create a shape that represents the d attribute
 		String d = glyphElement.getAttributeNS(null, SVG_D_ATTRIBUTE);
 		Shape dShape = null;
-		if (d.length() != 0) {
+		if (!d.isEmpty()) {
 			AWTPathProducer app = new AWTPathProducer();
 			// Glyph is supposed to use properties from text element.
 			app.setWindingRule(CSSUtilities.convertFillRule(textElement));
@@ -192,10 +192,10 @@ public class SVGGlyphElementBridge extends AbstractSVGBridge implements ErrorCon
 
 		// horz-adv-x
 		String s = glyphElement.getAttributeNS(null, SVG_HORIZ_ADV_X_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			// look for attribute on parent font element
 			s = parentFontElement.getAttributeNS(null, SVG_HORIZ_ADV_X_ATTRIBUTE);
-			if (s.length() == 0) {
+			if (s.isEmpty()) {
 				// throw an exception since this attribute is required on the font element
 				throw new BridgeException(ctx, parentFontElement, ERR_ATTRIBUTE_MISSING,
 						new Object[] { SVG_HORIZ_ADV_X_ATTRIBUTE });
@@ -211,10 +211,10 @@ public class SVGGlyphElementBridge extends AbstractSVGBridge implements ErrorCon
 
 		// vert-adv-y
 		s = glyphElement.getAttributeNS(null, SVG_VERT_ADV_Y_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			// look for attribute on parent font element
 			s = parentFontElement.getAttributeNS(null, SVG_VERT_ADV_Y_ATTRIBUTE);
-			if (s.length() == 0) {
+			if (s.isEmpty()) {
 				// not specified on parent either, use one em
 				s = String.valueOf(fontFace.getUnitsPerEm());
 			}
@@ -229,10 +229,10 @@ public class SVGGlyphElementBridge extends AbstractSVGBridge implements ErrorCon
 
 		// vert-origin-x
 		s = glyphElement.getAttributeNS(null, SVG_VERT_ORIGIN_X_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			// look for attribute on parent font element
 			s = parentFontElement.getAttributeNS(null, SVG_VERT_ORIGIN_X_ATTRIBUTE);
-			if (s.length() == 0) {
+			if (s.isEmpty()) {
 				// not specified so use the default value which is horizAdvX/2
 				s = Float.toString(horizAdvX / 2);
 			}
@@ -247,10 +247,10 @@ public class SVGGlyphElementBridge extends AbstractSVGBridge implements ErrorCon
 
 		// vert-origin-y
 		s = glyphElement.getAttributeNS(null, SVG_VERT_ORIGIN_Y_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			// look for attribute on parent font element
 			s = parentFontElement.getAttributeNS(null, SVG_VERT_ORIGIN_Y_ATTRIBUTE);
-			if (s.length() == 0) {
+			if (s.isEmpty()) {
 				// not specified so use the default value which is the fonts ascent
 				s = String.valueOf(fontFace.getAscent());
 			}
@@ -269,7 +269,7 @@ public class SVGGlyphElementBridge extends AbstractSVGBridge implements ErrorCon
 
 		// horiz-origin-x
 		s = parentFontElement.getAttributeNS(null, SVG_HORIZ_ORIGIN_X_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			// not specified so use the default value which is 0
 			s = SVG_HORIZ_ORIGIN_X_DEFAULT_VALUE;
 		}
@@ -283,7 +283,7 @@ public class SVGGlyphElementBridge extends AbstractSVGBridge implements ErrorCon
 
 		// horiz-origin-y
 		s = parentFontElement.getAttributeNS(null, SVG_HORIZ_ORIGIN_Y_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			// not specified so use the default value which is 0
 			s = SVG_HORIZ_ORIGIN_Y_DEFAULT_VALUE;
 		}

@@ -161,7 +161,7 @@ public abstract class ExtensibleDOMImplementation extends AbstractDOMImplementat
 	 * implementation.
 	 */
 	public Element createElementNS(AbstractDocument document, String namespaceURI, String qualifiedName) {
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		if (namespaceURI == null)

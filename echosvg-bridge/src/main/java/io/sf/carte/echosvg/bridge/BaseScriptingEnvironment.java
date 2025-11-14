@@ -323,7 +323,7 @@ public class BaseScriptingEnvironment {
 
 		String type = script.getAttributeNS(null, SVGConstants.SVG_TYPE_ATTRIBUTE);
 
-		if (type.length() == 0) {
+		if (type.isEmpty()) {
 			type = SVGConstants.SVG_SCRIPT_TYPE_DEFAULT_VALUE;
 		}
 
@@ -555,7 +555,7 @@ public class BaseScriptingEnvironment {
 		NodeEventTarget t = (NodeEventTarget) elt;
 
 		final String s = elt.getAttributeNS(null, SVGConstants.SVG_ONLOAD_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			// No script to run so just dispatch the event to DOM
 			// (For java presumably).
 			t.dispatchEvent(ev);

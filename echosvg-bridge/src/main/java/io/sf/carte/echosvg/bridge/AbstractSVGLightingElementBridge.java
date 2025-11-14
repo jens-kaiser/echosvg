@@ -80,7 +80,7 @@ public abstract class AbstractSVGLightingElementBridge extends AbstractSVGFilter
 	 */
 	protected static double[] convertKernelUnitLength(Element filterElement, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, SVG_KERNEL_UNIT_LENGTH_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return null;
 		}
 		double[] units = new double[2];

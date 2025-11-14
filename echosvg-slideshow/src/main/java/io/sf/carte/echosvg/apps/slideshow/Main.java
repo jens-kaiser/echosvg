@@ -331,7 +331,7 @@ public class Main extends JComponent {
 				if (idx != -1)
 					str = str.substring(0, idx);
 				str = str.trim();
-				if (str.length() == 0)
+				if (str.isEmpty())
 					continue;
 				try {
 					URL imgURL = new URL(flURL, str);

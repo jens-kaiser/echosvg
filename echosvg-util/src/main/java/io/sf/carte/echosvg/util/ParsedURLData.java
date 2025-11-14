@@ -156,21 +156,21 @@ public class ParsedURLData implements Serializable {
 	 */
 	public ParsedURLData(URL url) {
 		protocol = url.getProtocol();
-		if ((protocol != null) && (protocol.length() == 0))
+		if ((protocol != null) && (protocol.isEmpty()))
 			protocol = null;
 
 		host = url.getHost();
-		if ((host != null) && (host.length() == 0))
+		if ((host != null) && (host.isEmpty()))
 			host = null;
 
 		port = url.getPort();
 
 		path = url.getFile();
-		if ((path != null) && (path.length() == 0))
+		if ((path != null) && (path.isEmpty()))
 			path = null;
 
 		ref = url.getRef();
-		if ((ref != null) && (ref.length() == 0))
+		if ((ref != null) && (ref.isEmpty()))
 			ref = null;
 	}
 

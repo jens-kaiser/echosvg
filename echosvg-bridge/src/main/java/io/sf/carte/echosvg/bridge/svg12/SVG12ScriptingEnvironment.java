@@ -237,7 +237,7 @@ public class SVG12ScriptingEnvironment extends ScriptingEnvironment {
 			Element elt = (Element) evt.getCurrentTarget();
 			// Evaluate the script
 			String script = handlerElement.getTextContent();
-			if (script.length() == 0)
+			if (script.isEmpty())
 				return;
 
 			DocumentLoader dl = bridgeContext.getDocumentLoader();
@@ -248,7 +248,7 @@ public class SVG12ScriptingEnvironment extends ScriptingEnvironment {
 
 			// Find the scripting language
 			String lang = handlerElement.getAttributeNS(null, SVGConstants.SVG_CONTENT_SCRIPT_TYPE_ATTRIBUTE);
-			if (lang.length() == 0) {
+			if (lang.isEmpty()) {
 				Element e = elt;
 				while (e != null && (!SVGConstants.SVG_NAMESPACE_URI.equals(e.getNamespaceURI())
 						|| !SVGConstants.SVG_SVG_TAG.equals(e.getLocalName()))) {

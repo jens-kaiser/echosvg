@@ -308,7 +308,7 @@ public class SVGOMAnimatedNumberList extends AbstractSVGAnimatedValue implements
 			malformed = false;
 
 			String s = getValueAsString();
-			boolean isEmpty = s != null && s.length() == 0;
+			boolean isEmpty = s != null && s.isEmpty();
 			if (s == null || isEmpty && !emptyAllowed) {
 				missing = true;
 				return;

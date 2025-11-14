@@ -74,38 +74,38 @@ public class SVGRadialGradientElementBridge extends AbstractSVGGradientElementBr
 
 		// 'cx' attribute - default is 50%
 		String cxStr = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_CX_ATTRIBUTE, ctx);
-		if (cxStr.length() == 0) {
+		if (cxStr.isEmpty()) {
 			cxStr = SVG_RADIAL_GRADIENT_CX_DEFAULT_VALUE;
 		}
 
 		// 'cy' attribute - default is 50%
 		String cyStr = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_CY_ATTRIBUTE, ctx);
-		if (cyStr.length() == 0) {
+		if (cyStr.isEmpty()) {
 			cyStr = SVG_RADIAL_GRADIENT_CY_DEFAULT_VALUE;
 		}
 
 		// 'r' attribute - default is 50%
 		String rStr = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_R_ATTRIBUTE, ctx);
-		if (rStr.length() == 0) {
+		if (rStr.isEmpty()) {
 			rStr = SVG_RADIAL_GRADIENT_R_DEFAULT_VALUE;
 		}
 
 		// 'fx' attribute - default is same as cx
 		String fxStr = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_FX_ATTRIBUTE, ctx);
-		if (fxStr.length() == 0) {
+		if (fxStr.isEmpty()) {
 			fxStr = cxStr;
 		}
 
 		// 'fy' attribute - default is same as cy
 		String fyStr = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_FY_ATTRIBUTE, ctx);
-		if (fyStr.length() == 0) {
+		if (fyStr.isEmpty()) {
 			fyStr = cyStr;
 		}
 
 		// 'gradientUnits' attribute - default is objectBoundingBox
 		short coordSystemType;
 		String s = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_GRADIENT_UNITS_ATTRIBUTE, ctx);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			coordSystemType = SVGUtilities.OBJECT_BOUNDING_BOX;
 		} else {
 			coordSystemType = SVGUtilities.parseCoordinateSystem(paintElement, SVG_GRADIENT_UNITS_ATTRIBUTE, s, ctx);

@@ -97,7 +97,7 @@ public class SVGPatternElementBridge extends AnimatableGenericSVGBridge implemen
 		// 'patternTransform' attribute - default is an Identity matrix
 		AffineTransform patternTransform;
 		s = SVGUtilities.getChainableAttributeNS(patternElement, null, SVG_PATTERN_TRANSFORM_ATTRIBUTE, ctx);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			patternTransform = SVGUtilities.convertTransform(patternElement, SVG_PATTERN_TRANSFORM_ATTRIBUTE, s, ctx);
 		} else {
 			patternTransform = new AffineTransform();
@@ -109,7 +109,7 @@ public class SVGPatternElementBridge extends AnimatableGenericSVGBridge implemen
 		// 'patternContentUnits' - default is userSpaceOnUse
 		short contentCoordSystem;
 		s = SVGUtilities.getChainableAttributeNS(patternElement, null, SVG_PATTERN_CONTENT_UNITS_ATTRIBUTE, ctx);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			contentCoordSystem = SVGUtilities.USER_SPACE_ON_USE;
 		} else {
 			contentCoordSystem = SVGUtilities.parseCoordinateSystem(patternElement, SVG_PATTERN_CONTENT_UNITS_ATTRIBUTE,
@@ -155,7 +155,7 @@ public class SVGPatternElementBridge extends AnimatableGenericSVGBridge implemen
 		// 'viewBox' attribute
 		String viewBoxStr = SVGUtilities.getChainableAttributeNS(patternElement, null, SVG_VIEW_BOX_ATTRIBUTE, ctx);
 
-		if (viewBoxStr.length() > 0) {
+		if (!viewBoxStr.isEmpty()) {
 			// There is a viewBox attribute. Then, take
 			// preserveAspectRatio into account.
 			String aspectRatioStr = SVGUtilities.getChainableAttributeNS(patternElement, null,
@@ -226,7 +226,7 @@ public class SVGPatternElementBridge extends AnimatableGenericSVGBridge implemen
 				return content; // pattern content found, exit
 			}
 			String uri = XLinkSupport.getXLinkHref(patternElement);
-			if (uri.length() == 0) {
+			if (uri.isEmpty()) {
 				return null; // no xlink:href found, exit
 			}
 			// check if there is circular dependencies

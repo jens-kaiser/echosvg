@@ -125,7 +125,7 @@ public class SVGFeCompositeElementBridge extends AbstractSVGFilterPrimitiveEleme
 	 */
 	protected static CompositeRule convertOperator(Element filterElement, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, SVG_OPERATOR_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return CompositeRule.OVER; // default is over
 		}
 		if (SVG_ATOP_VALUE.equals(s)) {

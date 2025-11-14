@@ -199,7 +199,7 @@ public class SVGAElementBridge extends SVGGElementBridge {
 			ParsedURL durl = doc.getParsedURL();
 			if (purl.sameFile(durl)) {
 				String frag = purl.getRef();
-				if (frag != null && frag.length() != 0) {
+				if (frag != null && !frag.isEmpty()) {
 					Element refElt = doc.getElementById(frag);
 					if (refElt instanceof SVGOMAnimationElement) {
 						SVGOMAnimationElement aelt = (SVGOMAnimationElement) refElt;

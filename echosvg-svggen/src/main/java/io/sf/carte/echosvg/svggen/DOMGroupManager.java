@@ -261,7 +261,7 @@ public class DOMGroupManager implements SVGSyntax, ErrorConstants {
 	 */
 	protected void setTransform(Element element, TransformStackElement[] transformStack) {
 		String transform = domTreeManager.getGraphicContextConverter().toSVG(transformStack).trim();
-		if (transform.length() > 0)
+		if (!transform.isEmpty())
 			element.setAttributeNS(null, SVG_TRANSFORM_ATTRIBUTE, transform);
 	}
 

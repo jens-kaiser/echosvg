@@ -379,12 +379,12 @@ public class ContentManager {
 	 */
 	protected String getContentSelectorLanguage(Element e) {
 		String lang = e.getAttributeNS("http://xml.apache.org/batik/ext", "selectorLanguage");
-		if (lang.length() != 0) {
+		if (!lang.isEmpty()) {
 			return lang;
 		}
 		lang = e.getOwnerDocument().getDocumentElement().getAttributeNS("http://xml.apache.org/batik/ext",
 				"selectorLanguage");
-		if (lang.length() != 0) {
+		if (!lang.isEmpty()) {
 			return lang;
 		}
 		return null;

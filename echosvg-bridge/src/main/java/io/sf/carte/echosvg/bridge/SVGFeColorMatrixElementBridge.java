@@ -133,7 +133,7 @@ public class SVGFeColorMatrixElementBridge extends AbstractSVGFilterPrimitiveEle
 	protected static float[][] convertValuesToMatrix(Element filterElement, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, SVG_VALUES_ATTRIBUTE);
 		float[][] matrix = new float[4][5];
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			matrix[0][0] = 1;
 			matrix[1][1] = 1;
 			matrix[2][2] = 1;
@@ -171,7 +171,7 @@ public class SVGFeColorMatrixElementBridge extends AbstractSVGFilterPrimitiveEle
 	 */
 	protected static float convertValuesToSaturate(Element filterElement, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, SVG_VALUES_ATTRIBUTE);
-		if (s.length() == 0)
+		if (s.isEmpty())
 			return 1; // default is 1
 		try {
 			return SVGUtilities.convertSVGNumber(s);
@@ -190,7 +190,7 @@ public class SVGFeColorMatrixElementBridge extends AbstractSVGFilterPrimitiveEle
 	 */
 	protected static float convertValuesToHueRotate(Element filterElement, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, SVG_VALUES_ATTRIBUTE);
-		if (s.length() == 0)
+		if (s.isEmpty())
 			return 0; // default is 0
 		try {
 			return (float) Math.toRadians(SVGUtilities.convertSVGNumber(s));
@@ -208,7 +208,7 @@ public class SVGFeColorMatrixElementBridge extends AbstractSVGFilterPrimitiveEle
 	 */
 	protected static int convertType(Element filterElement, BridgeContext ctx) {
 		String s = filterElement.getAttributeNS(null, SVG_TYPE_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return ColorMatrixRable.TYPE_MATRIX;
 		}
 		if (SVG_HUE_ROTATE_VALUE.equals(s)) {

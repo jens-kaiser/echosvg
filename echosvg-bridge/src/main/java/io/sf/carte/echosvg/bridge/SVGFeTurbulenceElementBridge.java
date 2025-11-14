@@ -127,7 +127,7 @@ public class SVGFeTurbulenceElementBridge extends AbstractSVGFilterPrimitiveElem
 	 */
 	protected static float[] convertBaseFrenquency(Element e, BridgeContext ctx) {
 		String s = e.getAttributeNS(null, SVG_BASE_FREQUENCY_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return new float[] { 0.001f, 0.001f };
 		}
 		float[] v = new float[2];
@@ -163,7 +163,7 @@ public class SVGFeTurbulenceElementBridge extends AbstractSVGFilterPrimitiveElem
 	 */
 	protected static boolean convertStitchTiles(Element e, BridgeContext ctx) {
 		String s = e.getAttributeNS(null, SVG_STITCH_TILES_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return false;
 		}
 		if (SVG_STITCH_VALUE.equals(s)) {
@@ -185,7 +185,7 @@ public class SVGFeTurbulenceElementBridge extends AbstractSVGFilterPrimitiveElem
 	 */
 	protected static boolean convertType(Element e, BridgeContext ctx) {
 		String s = e.getAttributeNS(null, SVG_TYPE_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			return false;
 		}
 		if (SVG_FRACTAL_NOISE_VALUE.equals(s)) {

@@ -1000,7 +1000,7 @@ public abstract class CSSEngine {
 			// Apply the inline style to the result.
 			if (styleLocalName != null) {
 				String style = elt.getAttributeNS(styleNamespaceURI, styleLocalName);
-				if (style.length() > 0) {
+				if (!style.isEmpty()) {
 					try {
 						styleDeclarationDocumentHandler.styleMap = result;
 						parser.setDocumentHandler(styleDeclarationDocumentHandler);
@@ -3161,7 +3161,7 @@ public abstract class CSSEngine {
 		switch (attrChange) {
 		case MutationEvent.ADDITION: // intentional fall-through
 		case MutationEvent.MODIFICATION:
-			if (newValue.length() > 0) {
+			if (!newValue.isEmpty()) {
 				element = elt;
 				try {
 					styleDeclarationUpdateHandler.styleMap = style;
@@ -3190,7 +3190,7 @@ public abstract class CSSEngine {
 		case MutationEvent.REMOVAL:
 			boolean removed = false;
 
-			if (prevValue != null && prevValue.length() > 0) {
+			if (prevValue != null && !prevValue.isEmpty()) {
 				// Check if the style map has cascaded styles which
 				// come from the inline style attribute or override style.
 				for (int i = getNumberOfProperties() - 1; i >= 0; --i) {
@@ -3815,7 +3815,7 @@ public abstract class CSSEngine {
 		 */
 		@Override
 		public void overrideStylePropertyChanged(CSSStylableElement elt, String name, String val, String prio) {
-			boolean important = prio != null && prio.length() != 0;
+			boolean important = prio != null && !prio.isEmpty();
 			StyleDeclarationProvider p = elt.getOverrideStyleDeclarationProvider();
 			declaration = p.getStyleDeclaration();
 			setMainProperties(elt, this, name, val, important);

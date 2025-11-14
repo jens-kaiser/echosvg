@@ -286,7 +286,7 @@ public abstract class AbstractParentNode extends AbstractNode {
 		if (localName == null) {
 			return EMPTY_NODE_LIST;
 		}
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		AbstractDocument ad = getCurrentDocument();

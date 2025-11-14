@@ -80,7 +80,7 @@ public abstract class ViewBox implements SVGConstants, ErrorConstants {
 	public static AffineTransform getViewTransform(String ref, Element e, float w, float h, BridgeContext ctx) {
 
 		// no reference has been specified, no extra viewBox is defined
-		if (ref == null || ref.length() == 0) {
+		if (ref == null || ref.isEmpty()) {
 			return getPreserveAspectRatioTransform(e, w, h, ctx);
 		}
 
@@ -217,7 +217,7 @@ public abstract class ViewBox implements SVGConstants, ErrorConstants {
 			float w, float h, BridgeContext ctx) throws BridgeException {
 
 		// no viewBox specified
-		if (viewBox.length() == 0) {
+		if (viewBox.isEmpty()) {
 			return new AffineTransform();
 		}
 		float[] vb;

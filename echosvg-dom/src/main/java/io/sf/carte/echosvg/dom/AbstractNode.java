@@ -595,7 +595,7 @@ public abstract class AbstractNode implements ExtendedNode, NodeXBL, XBLManagerD
 	 */
 	@Override
 	public String lookupPrefix(String namespaceURI) {
-		if (namespaceURI == null || namespaceURI.length() == 0) {
+		if (namespaceURI == null || namespaceURI.isEmpty()) {
 			return null;
 		}
 		int type = getNodeType();
@@ -743,7 +743,7 @@ public abstract class AbstractNode implements ExtendedNode, NodeXBL, XBLManagerD
 					if (XMLConstants.XMLNS_PREFIX.equals(attrPrefix) && compareStrings(localName, prefix)
 							|| XMLConstants.XMLNS_PREFIX.equals(localName) && prefix == null) {
 						String value = attr.getNodeValue();
-						if (value.length() > 0) {
+						if (!value.isEmpty()) {
 							return value;
 						}
 						return null;
@@ -932,7 +932,7 @@ public abstract class AbstractNode implements ExtendedNode, NodeXBL, XBLManagerD
 		if (eventSupport == null) {
 			initializeEventSupport();
 		}
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		eventSupport.addEventListenerNS(namespaceURI, type, listener, useCapture, evtGroup);
@@ -956,7 +956,7 @@ public abstract class AbstractNode implements ExtendedNode, NodeXBL, XBLManagerD
 	@Override
 	public void removeEventListenerNS(String namespaceURI, String type, EventListener listener, boolean useCapture) {
 		if (eventSupport != null) {
-			if (namespaceURI != null && namespaceURI.length() == 0) {
+			if (namespaceURI != null && namespaceURI.isEmpty()) {
 				namespaceURI = null;
 			}
 			eventSupport.removeEventListenerNS(namespaceURI, type, listener, useCapture);
@@ -1001,7 +1001,7 @@ public abstract class AbstractNode implements ExtendedNode, NodeXBL, XBLManagerD
 		if (eventSupport == null) {
 			return false;
 		}
-		if (namespaceURI != null && namespaceURI.length() == 0) {
+		if (namespaceURI != null && namespaceURI.isEmpty()) {
 			namespaceURI = null;
 		}
 		return eventSupport.hasEventListenerNS(namespaceURI, type);

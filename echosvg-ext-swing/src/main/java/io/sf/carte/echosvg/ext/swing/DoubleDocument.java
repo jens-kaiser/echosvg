@@ -95,7 +95,7 @@ public class DoubleDocument extends PlainDocument {
 	public double getValue() {
 		try {
 			String t = getText(0, getLength());
-			if (t != null && t.length() > 0) {
+			if (t != null && !t.isEmpty()) {
 				return Double.parseDouble(t);
 			} else {
 				return 0;

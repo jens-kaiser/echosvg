@@ -387,7 +387,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 			float verticalAlignment = 0.0f;
 			String verticalAlignmentAttribute = e.getAttribute(EXT_VERTICAL_ALIGN_ATTRIBUTE);
 
-			if ((verticalAlignmentAttribute != null) && (verticalAlignmentAttribute.length() > 0)) {
+			if ((verticalAlignmentAttribute != null) && (!verticalAlignmentAttribute.isEmpty())) {
 				if (EXT_ALIGN_TOP_VALUE.equals(verticalAlignmentAttribute)) {
 					verticalAlignment = 0.0f;
 				} else if (EXT_ALIGN_MIDDLE_VALUE.equals(verticalAlignmentAttribute)) {
@@ -430,21 +430,21 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 		// 'x' attribute - default is 0
 		s = e.getAttribute(EXT_X_ATTRIBUTE);
 		float x = 0;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			x = UnitProcessor.svgHorizontalCoordinateToUserSpace(s, EXT_X_ATTRIBUTE, uctx);
 		}
 
 		// 'y' attribute - default is 0
 		s = e.getAttribute(EXT_Y_ATTRIBUTE);
 		float y = 0;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			y = UnitProcessor.svgVerticalCoordinateToUserSpace(s, EXT_Y_ATTRIBUTE, uctx);
 		}
 
 		// 'width' attribute - required
 		s = e.getAttribute(EXT_WIDTH_ATTRIBUTE);
 		float w;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			w = UnitProcessor.svgHorizontalLengthToUserSpace(s, EXT_WIDTH_ATTRIBUTE, uctx);
 		} else {
 			throw new BridgeException(ctx, e, ERR_ATTRIBUTE_MISSING, new Object[] { EXT_WIDTH_ATTRIBUTE, s });
@@ -457,7 +457,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 		// 'height' attribute - required
 		s = e.getAttribute(EXT_HEIGHT_ATTRIBUTE);
 		float h;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			h = UnitProcessor.svgVerticalLengthToUserSpace(s, EXT_HEIGHT_ATTRIBUTE, uctx);
 		} else {
 			throw new BridgeException(ctx, e, ERR_ATTRIBUTE_MISSING, new Object[] { EXT_HEIGHT_ATTRIBUTE, s });
@@ -505,7 +505,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 			if (preserve) {
 				prevEndsWithSpace = false;
 			} else {
-				if (asb.length() == 0) {
+				if (asb.isEmpty()) {
 					prevEndsWithSpace = true;
 				} else {
 					prevEndsWithSpace = (asb.getLastChar() == ' ');
@@ -566,7 +566,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 					}
 					s = TextUtilities.getElementContent(ref);
 					s = normalizeString(s, preserve, prevEndsWithSpace);
-					if (s.length() != 0) {
+					if (!s.isEmpty()) {
 						int trefStart = asb.length();
 						HashMap<Attribute, Object> m = initialAttributes == null ? new HashMap<>()
 								: new HashMap<>(initialAttributes);
@@ -586,7 +586,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 			case Node.CDATA_SECTION_NODE:
 				s = n.getNodeValue();
 				s = normalizeString(s, preserve, prevEndsWithSpace);
-				if (s.length() != 0) {
+				if (!s.isEmpty()) {
 					asb.append(s, map);
 					if (preserve) {
 						endLimit = asb.length();
@@ -624,7 +624,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 		Map<Attribute, Object> initialMap = super.getAttributeMap(ctx, element, textPath, bidiLevel, result);
 		String s;
 		s = element.getAttribute(EXT_PREFORMATTED_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			if (s.equals("true")) {
 				result.put(PREFORMATTED, Boolean.TRUE);
 			}
@@ -701,7 +701,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 
 		s = e.getAttribute(EXT_MARGIN_ATTRIBUTE);
 		try {
-			if (s.length() != 0) {
+			if (!s.isEmpty()) {
 				float f = Float.parseFloat(s);
 				top = right = bottom = left = f;
 			}
@@ -710,7 +710,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 
 		s = e.getAttribute(EXT_TOP_MARGIN_ATTRIBUTE);
 		try {
-			if (s.length() != 0) {
+			if (!s.isEmpty()) {
 				float f = Float.parseFloat(s);
 				top = f;
 			}
@@ -718,7 +718,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 			/* nothing */ }
 		s = e.getAttribute(EXT_RIGHT_MARGIN_ATTRIBUTE);
 		try {
-			if (s.length() != 0) {
+			if (!s.isEmpty()) {
 				float f = Float.parseFloat(s);
 				right = f;
 			}
@@ -726,7 +726,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 			/* nothing */ }
 		s = e.getAttribute(EXT_BOTTOM_MARGIN_ATTRIBUTE);
 		try {
-			if (s.length() != 0) {
+			if (!s.isEmpty()) {
 				float f = Float.parseFloat(s);
 				bottom = f;
 			}
@@ -734,7 +734,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 			/* nothing */ }
 		s = e.getAttribute(EXT_LEFT_MARGIN_ATTRIBUTE);
 		try {
-			if (s.length() != 0) {
+			if (!s.isEmpty()) {
 				float f = Float.parseFloat(s);
 				left = f;
 			}
@@ -744,7 +744,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 		float indent = 0;
 		s = e.getAttribute(EXT_INDENT_ATTRIBUTE);
 		try {
-			if (s.length() != 0) {
+			if (!s.isEmpty()) {
 				float f = Float.parseFloat(s);
 				indent = f;
 			}
@@ -754,7 +754,7 @@ public class EchoSVGFlowTextElementBridge extends SVGTextElementBridge implement
 		int justification = MarginInfo.JUSTIFY_START;
 		s = e.getAttribute(EXT_JUSTIFICATION_ATTRIBUTE);
 		try {
-			if (s.length() != 0) {
+			if (!s.isEmpty()) {
 				if (EXT_JUSTIFICATION_START_VALUE.equals(s)) {
 					justification = MarginInfo.JUSTIFY_START;
 				} else if (EXT_JUSTIFICATION_MIDDLE_VALUE.equals(s)) {

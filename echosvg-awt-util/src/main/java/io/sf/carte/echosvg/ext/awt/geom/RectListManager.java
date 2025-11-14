@@ -341,7 +341,7 @@ public class RectListManager implements Collection<Rectangle> {
 			add(new RectListManager(c));
 		}
 
-		return (c.size() != 0);
+		return (!c.isEmpty());
 	}
 
 	@Override

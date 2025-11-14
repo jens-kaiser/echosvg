@@ -287,7 +287,7 @@ public abstract class AbstractRed implements CachableRed {
 			int tileGridYOff, Map<String, ?> props) {
 		this.srcs = new Vector<>();
 		if (srcs != null) {
-			if (srcs.size() != 0) {
+			if (!srcs.isEmpty()) {
 				this.srcs.addAll(srcs);
 				CachableRed src = srcs.get(0);
 				if (bounds == null)

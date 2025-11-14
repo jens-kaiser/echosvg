@@ -299,7 +299,7 @@ public class CSSMediaPanel extends JPanel implements ActionMap {
 			}
 
 			String medium = dialog.getMedium().trim();
-			if (medium.length() == 0 || listModel.contains(medium)) {
+			if (medium.isEmpty() || listModel.contains(medium)) {
 				return;
 			}
 

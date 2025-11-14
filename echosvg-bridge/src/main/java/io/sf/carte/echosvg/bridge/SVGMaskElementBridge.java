@@ -99,7 +99,7 @@ public class SVGMaskElementBridge extends AnimatableGenericSVGBridge implements 
 		// 'transform' attribute
 		AffineTransform Tx;
 		s = maskElement.getAttributeNS(null, SVG_TRANSFORM_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			Tx = SVGUtilities.convertTransform(maskElement, SVG_TRANSFORM_ATTRIBUTE, s, ctx);
 		} else {
 			Tx = new AffineTransform();
@@ -108,7 +108,7 @@ public class SVGMaskElementBridge extends AnimatableGenericSVGBridge implements 
 		// 'maskContentUnits' attribute - default is userSpaceOnUse
 		short coordSystemType;
 		s = maskElement.getAttributeNS(null, SVG_MASK_CONTENT_UNITS_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			coordSystemType = SVGUtilities.USER_SPACE_ON_USE;
 		} else {
 			coordSystemType = SVGUtilities.parseCoordinateSystem(maskElement, SVG_MASK_CONTENT_UNITS_ATTRIBUTE, s, ctx);

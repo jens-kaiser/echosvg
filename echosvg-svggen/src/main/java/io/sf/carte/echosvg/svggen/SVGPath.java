@@ -58,7 +58,7 @@ public class SVGPath extends SVGGraphicObjectConverter {
 		// Create the path element and process its
 		// d attribute.
 		String dAttr = toSVGPathData(path, getGeneratorContext());
-		if (dAttr == null || dAttr.length() == 0) {
+		if (dAttr == null || dAttr.isEmpty()) {
 			// be careful not to append null to the DOM tree
 			// because it will crash
 			return null;

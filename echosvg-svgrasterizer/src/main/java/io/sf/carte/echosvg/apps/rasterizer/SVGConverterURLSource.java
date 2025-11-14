@@ -61,11 +61,11 @@ public class SVGConverterURLSource implements SVGConverterSource {
 			// after the slash.
 			file = path.substring(n + 1);
 		}
-		if (file.length() == 0) {
+		if (file.isEmpty()) {
 			int idx = path.lastIndexOf('/', n - 1);
 			file = path.substring(idx + 1, n);
 		}
-		if (file.length() == 0) {
+		if (file.isEmpty()) {
 			throw new SVGConverterException(ERROR_INVALID_URL, new Object[] { url });
 		}
 		n = file.indexOf('?');
@@ -82,10 +82,10 @@ public class SVGConverterURLSource implements SVGConverterSource {
 		// for urls with references (e.g., anne.svg#svgView(viewBox(0,0,4,5)))
 		//
 		String ref = this.purl.getRef();
-		if ((ref != null) && (ref.length() != 0)) {
+		if ((ref != null) && (!ref.isEmpty())) {
 			name += "_" + ref.hashCode();
 		}
-		if ((args != null) && (args.length() != 0)) {
+		if ((args != null) && (!args.isEmpty())) {
 			name += "_" + args.hashCode();
 		}
 	}

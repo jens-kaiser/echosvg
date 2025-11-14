@@ -482,7 +482,7 @@ public class CursorManager implements SVGConstants, ErrorConstants {
 		// One of the cursor url resolved to a <cursor> element
 		// Try to handle its image.
 		String uriStr = XLinkSupport.getXLinkHref(cursorElement);
-		if (uriStr.length() == 0) {
+		if (uriStr.isEmpty()) {
 			throw new BridgeException(ctx, cursorElement, ERR_ATTRIBUTE_MISSING, new Object[] { "xlink:href" });
 		}
 
@@ -501,13 +501,13 @@ public class CursorManager implements SVGConstants, ErrorConstants {
 
 		String s = cursorElement.getAttributeNS(null, SVG_X_ATTRIBUTE);
 		float x = 0;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			x = UnitProcessor.svgHorizontalCoordinateToUserSpace(s, SVG_X_ATTRIBUTE, uctx);
 		}
 
 		s = cursorElement.getAttributeNS(null, SVG_Y_ATTRIBUTE);
 		float y = 0;
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			y = UnitProcessor.svgVerticalCoordinateToUserSpace(s, SVG_Y_ATTRIBUTE, uctx);
 		}
 
@@ -610,12 +610,12 @@ public class CursorManager implements SVGConstants, ErrorConstants {
 			UnitProcessor.Context uctx = UnitProcessor.createContext(ctx, rootElement);
 
 			String s = rootElement.getAttribute(SVG_WIDTH_ATTRIBUTE);
-			if (s.length() != 0) {
+			if (!s.isEmpty()) {
 				width = UnitProcessor.svgHorizontalLengthToUserSpace(s, SVG_WIDTH_ATTRIBUTE, uctx);
 			}
 
 			s = rootElement.getAttribute(SVG_HEIGHT_ATTRIBUTE);
-			if (s.length() != 0) {
+			if (!s.isEmpty()) {
 				height = UnitProcessor.svgVerticalLengthToUserSpace(s, SVG_HEIGHT_ATTRIBUTE, uctx);
 			}
 

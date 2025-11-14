@@ -204,7 +204,7 @@ public class XBLEventSupport extends EventSupport {
 		}
 		AbstractEvent e = (AbstractEvent) evt;
 		String type = e.getType();
-		if (type == null || type.length() == 0) {
+		if (type == null || type.isEmpty()) {
 			throw createEventException(EventException.UNSPECIFIED_EVENT_TYPE_ERR, "unspecified.event", new Object[] {});
 		}
 		// fix event status

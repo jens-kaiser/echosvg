@@ -183,7 +183,7 @@ public class SVGFlowRootElementBridge extends SVG12TextElementBridge {
 
 		// 'transform'
 		String s = e.getAttributeNS(null, SVG_TRANSFORM_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			cgn.setTransform(SVGUtilities.convertTransform(e, SVG_TRANSFORM_ATTRIBUTE, s, ctx));
 		}
 		// 'visibility'
@@ -628,7 +628,7 @@ public class SVGFlowRootElementBridge extends SVG12TextElementBridge {
 		}
 
 		int lineBreak = -1;
-		if (lnLocs.size() != 0) {
+		if (!lnLocs.isEmpty()) {
 			lineBreak = lnLocs.get(lnLocs.size() - 1);
 		}
 
@@ -706,7 +706,7 @@ public class SVGFlowRootElementBridge extends SVG12TextElementBridge {
 					}
 					s = TextUtilities.getElementContent(ref);
 					s = normalizeString(s, preserve, prevEndsWithSpace);
-					if (s.length() != 0) {
+					if (!s.isEmpty()) {
 						int trefStart = asb.length();
 						Map<Attribute, Object> m = new HashMap<>();
 						getAttributeMap(ctx, nodeElement, null, bidiLevel, m);
@@ -724,7 +724,7 @@ public class SVGFlowRootElementBridge extends SVG12TextElementBridge {
 			case Node.CDATA_SECTION_NODE:
 				s = n.getNodeValue();
 				s = normalizeString(s, preserve, prevEndsWithSpace);
-				if (s.length() != 0) {
+				if (!s.isEmpty()) {
 					asb.append(s, map);
 					if (preserve) {
 						endLimit = asb.length();

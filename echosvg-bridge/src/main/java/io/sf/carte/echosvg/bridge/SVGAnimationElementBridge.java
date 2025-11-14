@@ -164,7 +164,7 @@ public abstract class SVGAnimationElementBridge extends AbstractSVGBridge
 		// Determine the target element.
 		String uri = XLinkSupport.getXLinkHref(element);
 		Node t;
-		if (uri.length() == 0) {
+		if (uri.isEmpty()) {
 			t = element.getParentNode();
 		} else {
 			t = ctx.getReferencedElement(element, uri);
@@ -695,7 +695,7 @@ public abstract class SVGAnimationElementBridge extends AbstractSVGBridge
 		public String toString() {
 			if (element != null) {
 				String id = element.getAttributeNS(null, "id");
-				if (id.length() != 0) {
+				if (!id.isEmpty()) {
 					return id;
 				}
 			}

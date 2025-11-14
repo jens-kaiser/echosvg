@@ -74,7 +74,7 @@ public class SVGClipPathElementBridge extends AnimatableGenericSVGBridge impleme
 		// 'transform' attribute
 		AffineTransform Tx;
 		s = clipElement.getAttributeNS(null, SVG_TRANSFORM_ATTRIBUTE);
-		if (s.length() != 0) {
+		if (!s.isEmpty()) {
 			Tx = SVGUtilities.convertTransform(clipElement, SVG_TRANSFORM_ATTRIBUTE, s, ctx);
 		} else {
 			Tx = new AffineTransform();
@@ -83,7 +83,7 @@ public class SVGClipPathElementBridge extends AnimatableGenericSVGBridge impleme
 		// 'clipPathUnits' attribute - default is userSpaceOnUse
 		short coordSystemType;
 		s = clipElement.getAttributeNS(null, SVG_CLIP_PATH_UNITS_ATTRIBUTE);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			coordSystemType = SVGUtilities.USER_SPACE_ON_USE;
 		} else {
 			coordSystemType = SVGUtilities.parseCoordinateSystem(clipElement, SVG_CLIP_PATH_UNITS_ATTRIBUTE, s, ctx);

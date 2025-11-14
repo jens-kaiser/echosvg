@@ -74,32 +74,32 @@ public class SVGLinearGradientElementBridge extends AbstractSVGGradientElementBr
 
 		// 'x1' attribute - default is 0%
 		String x1Str = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_X1_ATTRIBUTE, ctx);
-		if (x1Str.length() == 0) {
+		if (x1Str.isEmpty()) {
 			x1Str = SVG_LINEAR_GRADIENT_X1_DEFAULT_VALUE;
 		}
 
 		// 'y1' attribute - default is 0%
 		String y1Str = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_Y1_ATTRIBUTE, ctx);
-		if (y1Str.length() == 0) {
+		if (y1Str.isEmpty()) {
 			y1Str = SVG_LINEAR_GRADIENT_Y1_DEFAULT_VALUE;
 		}
 
 		// 'x2' attribute - default is 100%
 		String x2Str = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_X2_ATTRIBUTE, ctx);
-		if (x2Str.length() == 0) {
+		if (x2Str.isEmpty()) {
 			x2Str = SVG_LINEAR_GRADIENT_X2_DEFAULT_VALUE;
 		}
 
 		// 'y2' attribute - default is 0%
 		String y2Str = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_Y2_ATTRIBUTE, ctx);
-		if (y2Str.length() == 0) {
+		if (y2Str.isEmpty()) {
 			y2Str = SVG_LINEAR_GRADIENT_Y2_DEFAULT_VALUE;
 		}
 
 		// 'gradientUnits' attribute - default is objectBoundingBox
 		short coordSystemType;
 		String s = SVGUtilities.getChainableAttributeNS(paintElement, null, SVG_GRADIENT_UNITS_ATTRIBUTE, ctx);
-		if (s.length() == 0) {
+		if (s.isEmpty()) {
 			coordSystemType = SVGUtilities.OBJECT_BOUNDING_BOX;
 		} else {
 			coordSystemType = SVGUtilities.parseCoordinateSystem(paintElement, SVG_GRADIENT_UNITS_ATTRIBUTE, s, ctx);
