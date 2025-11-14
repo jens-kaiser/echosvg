@@ -127,7 +127,7 @@ public class ScriptSelfTest extends SelfContainedSVGOnLoadTest {
 	private class TestUserAgent extends UserAgentAdapter {
 		@Override
 		public ScriptSecurity getScriptSecurity(String scriptType, ParsedURL scriptPURL, ParsedURL docPURL) {
-			if (scripts.indexOf(scriptType) == -1) {
+			if (!scripts.contains(scriptType)) {
 				return new NoLoadScriptSecurity(scriptType);
 			} else {
 				if (constrain) {

@@ -124,7 +124,7 @@ public abstract class SVGFontUtilities implements SVGConstants {
 			}
 
 			String fontFaceStyle = fontFace.getFontStyle();
-			if (fontFaceStyle.equals(SVG_ALL_VALUE) || fontFaceStyle.indexOf(fontStyle) != -1) {
+			if (fontFaceStyle.equals(SVG_ALL_VALUE) || fontFaceStyle.contains(fontStyle)) {
 				GVTFontFamily ffam = fontFace.getFontFamily(ctx);
 				if (ffam != null)
 					svgFontFamilies.add(ffam);
@@ -162,7 +162,7 @@ public abstract class SVGFontUtilities implements SVGConstants {
 				int minDifferenceIndex = 0;
 				for (int j = 0; j < fontFamilyWeights.size(); j++) {
 					String fontFamilyWeight = fontFamilyWeights.get(j);
-					if (fontFamilyWeight.indexOf(weightString) > -1) {
+					if (fontFamilyWeight.contains(weightString)) {
 						matched = true;
 						break;
 					}
@@ -185,7 +185,7 @@ public abstract class SVGFontUtilities implements SVGConstants {
 			// now find matching font weight
 			for (int i = 0; i < svgFontFamilies.size(); i++) {
 				String fontFaceWeight = newFontFamilyWeights.get(i);
-				if (fontFaceWeight.indexOf(fontWeightNumber) > -1) {
+				if (fontFaceWeight.contains(fontWeightNumber)) {
 					fontFamilyMap.put(fontKeyName, svgFontFamilies.get(i));
 					return svgFontFamilies.get(i);
 				}

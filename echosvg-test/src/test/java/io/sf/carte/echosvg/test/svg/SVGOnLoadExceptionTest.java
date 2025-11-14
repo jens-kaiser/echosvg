@@ -514,7 +514,7 @@ public class SVGOnLoadExceptionTest {
 		@Override
 		public ScriptSecurity getScriptSecurity(String scriptType, ParsedURL scriptURL, ParsedURL docURL) {
 			ScriptSecurity result = null;
-			if (scripts.indexOf(scriptType) == -1) {
+			if (!scripts.contains(scriptType)) {
 				result = new NoLoadScriptSecurity(scriptType);
 			} else {
 				if ("ANY".equals(scriptOrigin)) {

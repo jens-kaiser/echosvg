@@ -184,7 +184,7 @@ public class JSVGMemoryLeakTest extends MemoryLeakTest implements JSVGCanvasHand
 				continue;
 			}
 			String url = ((SVGOMDocument) bc.getDocument()).getURL();
-			if (url.indexOf(uriSubstring) != -1) {
+			if (url.contains(uriSubstring)) {
 				registerObjectDesc(ctx, desc);
 			}
 		}

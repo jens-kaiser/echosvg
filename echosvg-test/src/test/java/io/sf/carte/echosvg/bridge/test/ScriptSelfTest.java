@@ -140,7 +140,7 @@ public class ScriptSelfTest extends SelfContainedSVGOnLoadTest {
 		@Override
 		public ScriptSecurity getScriptSecurity(String scriptType, ParsedURL scriptPURL, ParsedURL docPURL) {
 			ScriptSecurity scriptSecurity = null;
-			if (scripts.indexOf(scriptType) == -1) {
+			if (!scripts.contains(scriptType)) {
 				scriptSecurity = new NoLoadScriptSecurity(scriptType);
 			} else {
 				if ("any".equals(scriptOrigin)) {

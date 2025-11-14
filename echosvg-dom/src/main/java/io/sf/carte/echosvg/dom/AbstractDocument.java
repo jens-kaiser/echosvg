@@ -1472,7 +1472,7 @@ public abstract class AbstractDocument extends AbstractParentNode
 				break;
 			case Node.COMMENT_NODE:
 				s = m.getNodeValue();
-				if (!checkChars(s) || s.indexOf(XMLConstants.XML_DOUBLE_DASH) != -1
+				if (!checkChars(s) || s.contains(XMLConstants.XML_DOUBLE_DASH)
 						|| s.charAt(s.length() - 1) == '-') {
 					if (errorHandler != null) {
 						if (!errorHandler.handleError(createDOMError(DOMConstants.DOM_INVALID_CHARACTER_ERROR,
@@ -1485,7 +1485,7 @@ public abstract class AbstractDocument extends AbstractParentNode
 				break;
 			case Node.CDATA_SECTION_NODE:
 				s = m.getNodeValue();
-				if (!checkChars(s) || s.indexOf(XMLConstants.XML_CDATA_END) != -1) {
+				if (!checkChars(s) || s.contains(XMLConstants.XML_CDATA_END)) {
 					if (errorHandler != null) {
 						if (!errorHandler.handleError(createDOMError(DOMConstants.DOM_INVALID_CHARACTER_ERROR,
 								DOMError.SEVERITY_ERROR, "wf.invalid.character",
@@ -1506,7 +1506,7 @@ public abstract class AbstractDocument extends AbstractParentNode
 					}
 				}
 				s = m.getNodeValue();
-				if (!checkChars(s) || s.indexOf(XMLConstants.XML_PROCESSING_INSTRUCTION_END) != -1) {
+				if (!checkChars(s) || s.contains(XMLConstants.XML_PROCESSING_INSTRUCTION_END)) {
 					if (errorHandler != null) {
 						if (!errorHandler.handleError(createDOMError(DOMConstants.DOM_INVALID_CHARACTER_ERROR,
 								DOMError.SEVERITY_ERROR, "wf.invalid.character",

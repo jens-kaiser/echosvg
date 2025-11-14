@@ -278,7 +278,7 @@ public class DOMUtilities extends XMLUtilities implements XMLConstants {
 			break;
 		case Node.CDATA_SECTION_NODE: {
 			String data = n.getNodeValue();
-			if (data.indexOf("]]>") != -1) {
+			if (data.contains("]]>")) {
 				throw new IOException("Unserializable CDATA section node");
 			}
 			w.write("<![CDATA[" + assertValidCharacters(data, isXML11) + "]]>");
@@ -290,7 +290,7 @@ public class DOMUtilities extends XMLUtilities implements XMLConstants {
 		case Node.PROCESSING_INSTRUCTION_NODE: {
 			String target = n.getNodeName();
 			String data = n.getNodeValue();
-			if (target.equalsIgnoreCase("xml") || target.indexOf(':') != -1 || data.indexOf("?>") != -1) {
+			if (target.equalsIgnoreCase("xml") || target.indexOf(':') != -1 || data.contains("?>")) {
 				throw new IOException("Unserializable processing instruction node");
 			}
 			w.write("<?" + target + ' ' + data + "?>");
@@ -300,7 +300,7 @@ public class DOMUtilities extends XMLUtilities implements XMLConstants {
 			w.write("<!--");
 			String data = n.getNodeValue();
 			int len = data.length();
-			if (len != 0 && data.charAt(len - 1) == '-' || data.indexOf("--") != -1) {
+			if (len != 0 && data.charAt(len - 1) == '-' || data.contains("--")) {
 				throw new IOException("Unserializable comment node");
 			}
 			w.write(data);
