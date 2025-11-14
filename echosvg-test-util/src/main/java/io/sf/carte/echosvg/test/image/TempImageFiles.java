@@ -76,16 +76,10 @@ public class TempImageFiles implements ImageFileBuilder {
 				dotIndex = path.length();
 			}
 			CharSequence imageName = path.subSequence(idx + 1, dotIndex);
-			StringBuilder buf = new StringBuilder(
-					imageName.length() + fileSuffix.length() + dotExtension.length());
-			buf.append(imageName).append(fileSuffix).append(dotExtension);
-			return createImageFile(buf.toString());
+			return createImageFile(String.valueOf(imageName) + fileSuffix + dotExtension);
 		}
 
-		StringBuilder buf = new StringBuilder(path.length() + fileSuffix.length() + dotExtension.length());
-		buf.append(path).append(fileSuffix).append(dotExtension);
-
-		return File.createTempFile("TempImageFiles", buf.toString(), null);
+		return File.createTempFile("TempImageFiles", path + fileSuffix + dotExtension, null);
 	}
 
 	@Override

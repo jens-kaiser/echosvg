@@ -79,12 +79,11 @@ class PNGChunk {
 	}
 
 	public String getString4(int offset) {
-		StringBuilder sb = new StringBuilder(4);
-		sb.append((char) data[offset]);
-		sb.append((char) data[offset + 1]);
-		sb.append((char) data[offset + 2]);
-		sb.append((char) data[offset + 3]);
-		return sb.toString();
+		String sb = String.valueOf((char) data[offset]) +
+			(char) data[offset + 1] +
+			(char) data[offset + 2] +
+			(char) data[offset + 3];
+		return sb;
 	}
 
 	public boolean isType(String typeName) {

@@ -193,11 +193,10 @@ public class StringMap<E> {
 
 		@Override
 		public String toString() {
-			StringBuilder buf = new StringBuilder();
-			buf.append(key);
-			buf.append(": ");
-			buf.append(value);
-			return buf.toString();
+			String buf = key +
+				": " +
+				value;
+			return buf;
 		}
 
 	}

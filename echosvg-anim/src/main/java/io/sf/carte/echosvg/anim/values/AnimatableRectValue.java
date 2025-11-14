@@ -165,15 +165,14 @@ public class AnimatableRectValue extends AnimatableValue {
 	 */
 	@Override
 	public String toStringRep() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(x);
-		sb.append(',');
-		sb.append(y);
-		sb.append(',');
-		sb.append(width);
-		sb.append(',');
-		sb.append(height);
-		return sb.toString();
+		String sb = String.valueOf(x) +
+			',' +
+			y +
+			',' +
+			width +
+			',' +
+			height;
+		return sb;
 	}
 
 }

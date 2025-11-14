@@ -93,8 +93,8 @@ public class CmapIndexEntry {
 				encoding = "";
 			}
 		}
-		return new StringBuilder().append("platform id: ").append(platformId).append(platform).append(", encoding id: ")
-				.append(encodingId).append(encoding).append(", offset: ").append(offset).toString();
+		return "platform id: " + platformId + platform + ", encoding id: " +
+			encodingId + encoding + ", offset: " + offset;
 	}
 
 }

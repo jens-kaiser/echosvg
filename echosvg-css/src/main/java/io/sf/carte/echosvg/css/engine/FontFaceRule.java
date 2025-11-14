@@ -76,11 +76,10 @@ public class FontFaceRule implements Rule {
 	 */
 	@Override
 	public String toString(CSSEngine eng) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("@font-face { ");
-		sb.append(sm.toString(eng));
-		sb.append(" }\n");
-		return sb.toString();
+		String sb = "@font-face { " +
+			sm.toString(eng) +
+			" }\n";
+		return sb;
 	}
 
 }

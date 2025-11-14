@@ -113,12 +113,11 @@ public class SVGConvolveOp extends AbstractSVGFilterConverter {
 			//
 
 			// Process filter attribute
-			StringBuilder filterAttrBuf = new StringBuilder(URL_PREFIX);
-			filterAttrBuf.append(SIGN_POUND);
-			filterAttrBuf.append(filterDef.getAttributeNS(null, SVG_ID_ATTRIBUTE));
-			filterAttrBuf.append(URL_SUFFIX);
+			String filterAttrBuf = URL_PREFIX + SIGN_POUND +
+				filterDef.getAttributeNS(null, SVG_ID_ATTRIBUTE) +
+				URL_SUFFIX;
 
-			filterDesc = new SVGFilterDescriptor(filterAttrBuf.toString(), filterDef);
+			filterDesc = new SVGFilterDescriptor(filterAttrBuf, filterDef);
 
 			defSet.add(filterDef);
 			descMap.put(convolveOp, filterDesc);

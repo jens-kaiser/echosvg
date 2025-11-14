@@ -92,13 +92,12 @@ public class Panose {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(String.valueOf(bFamilyType)).append(" ").append(String.valueOf(bSerifStyle)).append(" ")
-				.append(String.valueOf(bWeight)).append(" ").append(String.valueOf(bProportion)).append(" ")
-				.append(String.valueOf(bContrast)).append(" ").append(String.valueOf(bStrokeVariation)).append(" ")
-				.append(String.valueOf(bArmStyle)).append(" ").append(String.valueOf(bLetterform)).append(" ")
-				.append(String.valueOf(bMidline)).append(" ").append(String.valueOf(bXHeight));
-		return sb.toString();
+		String sb = String.valueOf(bFamilyType) + " " + String.valueOf(bSerifStyle) + " " +
+			String.valueOf(bWeight) + " " + String.valueOf(bProportion) + " " +
+			String.valueOf(bContrast) + " " + String.valueOf(bStrokeVariation) + " " +
+			String.valueOf(bArmStyle) + " " + String.valueOf(bLetterform) + " " +
+			String.valueOf(bMidline) + " " + String.valueOf(bXHeight);
+		return sb;
 	}
 
 }

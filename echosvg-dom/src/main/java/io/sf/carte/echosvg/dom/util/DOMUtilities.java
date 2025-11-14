@@ -645,12 +645,9 @@ public class DOMUtilities extends XMLUtilities implements XMLConstants {
 		}
 
 		// Try and parse as a document fragment
-		StringBuilder sb = new StringBuilder(
-				wrapperElementPrefix.length() + text.length() + wrapperElementSuffix.length());
-		sb.append(wrapperElementPrefix);
-		sb.append(text);
-		sb.append(wrapperElementSuffix);
-		String newText = sb.toString();
+		String newText = wrapperElementPrefix +
+			text +
+			wrapperElementSuffix;
 		try {
 			Document d = documentFactory.createDocument(uri, new StringReader(newText));
 			if (doc == null) {

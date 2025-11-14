@@ -125,12 +125,11 @@ public class SVGGradient extends AbstractSVGConverter {
 			//
 			// Build Paint descriptor
 			//
-			StringBuilder paintAttrBuf = new StringBuilder(URL_PREFIX);
-			paintAttrBuf.append(SIGN_POUND);
-			paintAttrBuf.append(gradientDef.getAttributeNS(null, SVG_ID_ATTRIBUTE));
-			paintAttrBuf.append(URL_SUFFIX);
+			String paintAttrBuf = URL_PREFIX + SIGN_POUND +
+				gradientDef.getAttributeNS(null, SVG_ID_ATTRIBUTE) +
+				URL_SUFFIX;
 
-			gradientDesc = new SVGPaintDescriptor(paintAttrBuf.toString(), SVG_OPAQUE_VALUE, gradientDef);
+			gradientDesc = new SVGPaintDescriptor(paintAttrBuf, SVG_OPAQUE_VALUE, gradientDef);
 
 			//
 			// Update maps so that gradient can be reused if needed

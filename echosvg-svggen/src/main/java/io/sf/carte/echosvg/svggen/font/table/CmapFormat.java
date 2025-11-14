@@ -71,8 +71,8 @@ public abstract class CmapFormat {
 
 	@Override
 	public String toString() {
-		return new StringBuilder().append("format: ").append(format).append(", length: ").append(length)
-				.append(", version: ").append(version).toString();
+		return "format: " + format + ", length: " + length +
+				", version: " + version;
 	}
 
 }

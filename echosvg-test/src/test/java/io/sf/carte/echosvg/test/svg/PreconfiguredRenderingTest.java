@@ -112,14 +112,10 @@ public abstract class PreconfiguredRenderingTest extends SVGRenderingAccuracyTes
 		String refSuffix = getRefImageSuffix();
 		CharSequence imgSuffix = getImageSuffix();
 
-		StringBuilder buf = new StringBuilder(refPrefix.length() + refSuffix.length() + imgSuffix.length()
-				+ svgDir.length() + svgFile.length() + 4);
+		String buf = refPrefix + svgDir + refSuffix +
+			svgFile + imgSuffix + PNG_EXTENSION;
 
-		buf.append(refPrefix).append(svgDir).append(refSuffix);
-
-		buf.append(svgFile).append(imgSuffix).append(PNG_EXTENSION);
-
-		return buf.toString();
+		return buf;
 	}
 
 	protected abstract String getRefImagePrefix();

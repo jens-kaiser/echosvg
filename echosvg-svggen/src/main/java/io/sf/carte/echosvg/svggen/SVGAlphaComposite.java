@@ -127,12 +127,11 @@ public class SVGAlphaComposite extends AbstractSVGConverter {
 				defSet.add(filterDef);
 
 				// Process the filter value
-				StringBuilder filterAttrBuf = new StringBuilder(URL_PREFIX);
-				filterAttrBuf.append(SIGN_POUND);
-				filterAttrBuf.append(filterDef.getAttributeNS(null, SVG_ID_ATTRIBUTE));
-				filterAttrBuf.append(URL_SUFFIX);
+				String filterAttrBuf = URL_PREFIX + SIGN_POUND +
+					filterDef.getAttributeNS(null, SVG_ID_ATTRIBUTE) +
+					URL_SUFFIX;
 
-				filterValue = filterAttrBuf.toString();
+				filterValue = filterAttrBuf;
 			} else
 				filterValue = SVG_NONE_VALUE;
 

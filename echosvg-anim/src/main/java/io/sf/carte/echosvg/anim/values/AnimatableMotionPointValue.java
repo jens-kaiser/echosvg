@@ -157,14 +157,13 @@ public class AnimatableMotionPointValue extends AnimatableValue {
 	 */
 	@Override
 	public String toStringRep() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(formatNumber(x));
-		sb.append(',');
-		sb.append(formatNumber(y));
-		sb.append(',');
-		sb.append(formatNumber(angle));
-		sb.append("rad");
-		return sb.toString();
+		String sb = formatNumber(x) +
+			',' +
+			formatNumber(y) +
+			',' +
+			formatNumber(angle) +
+			"rad";
+		return sb;
 	}
 
 }

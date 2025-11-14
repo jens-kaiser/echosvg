@@ -138,15 +138,15 @@ public class HeadTable implements Table {
 
 	@Override
 	public String toString() {
-		return new StringBuilder().append("head\n\tversionNumber: ").append(versionNumber).append("\n\tfontRevision: ")
-				.append(fontRevision).append("\n\tcheckSumAdjustment: ").append(checkSumAdjustment)
-				.append("\n\tmagicNumber: ").append(magicNumber).append("\n\tflags: ").append(flags)
-				.append("\n\tunitsPerEm: ").append(unitsPerEm).append("\n\tcreated: ").append(created)
-				.append("\n\tmodified: ").append(modified).append("\n\txMin: ").append(xMin).append(", yMin: ")
-				.append(yMin).append("\n\txMax: ").append(xMax).append(", yMax: ").append(yMax).append("\n\tmacStyle: ")
-				.append(macStyle).append("\n\tlowestRecPPEM: ").append(lowestRecPPEM).append("\n\tfontDirectionHint: ")
-				.append(fontDirectionHint).append("\n\tindexToLocFormat: ").append(indexToLocFormat)
-				.append("\n\tglyphDataFormat: ").append(glyphDataFormat).toString();
+		return "head\n\tversionNumber: " + versionNumber + "\n\tfontRevision: " +
+			fontRevision + "\n\tcheckSumAdjustment: " + checkSumAdjustment +
+			"\n\tmagicNumber: " + magicNumber + "\n\tflags: " + flags +
+			"\n\tunitsPerEm: " + unitsPerEm + "\n\tcreated: " + created +
+			"\n\tmodified: " + modified + "\n\txMin: " + xMin + ", yMin: " +
+			yMin + "\n\txMax: " + xMax + ", yMax: " + yMax + "\n\tmacStyle: " +
+			macStyle + "\n\tlowestRecPPEM: " + lowestRecPPEM + "\n\tfontDirectionHint: " +
+			fontDirectionHint + "\n\tindexToLocFormat: " + indexToLocFormat +
+			"\n\tglyphDataFormat: " + glyphDataFormat;
 	}
 
 }
