@@ -745,7 +745,7 @@ public abstract class SVGAbstractTranscoder extends io.sf.carte.echosvg.transcod
 
 			obj = SVGAbstractTranscoder.this.hints.get(KEY_RESOLUTION_DPI);
 			if (obj != null) {
-				return 25.4f / ((Float) obj).floatValue();
+				return 25.4f / (Float) obj;
 			}
 
 			return super.getPixelUnitToMillimeter();
@@ -758,13 +758,13 @@ public abstract class SVGAbstractTranscoder extends io.sf.carte.echosvg.transcod
 		public float getResolution() {
 			Float obj = (Float) SVGAbstractTranscoder.this.hints.get(KEY_RESOLUTION_DPI);
 			if (obj != null) {
-				return obj.floatValue();
+				return obj;
 			}
 
 			@SuppressWarnings("deprecation")
 			Float deprec = (Float) SVGAbstractTranscoder.this.hints.get(KEY_PIXEL_UNIT_TO_MILLIMETER);
 			if (deprec != null) {
-				return 25.4f / deprec.floatValue();
+				return 25.4f / deprec;
 			}
 
 			return 96f;

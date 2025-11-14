@@ -52,7 +52,7 @@ public class PNGImageWriter implements ImageWriter {
 			Integer level = params.getCompressionLevel();
 			if (level != null) {
 				param = PNGEncodeParam.getDefaultEncodeParam(image);
-				param.setCompressionLevel(level.intValue());
+				param.setCompressionLevel(level);
 			}
 
 			if (params instanceof PNGImageWriterParams) {

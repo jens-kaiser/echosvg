@@ -609,7 +609,7 @@ public abstract class PNGEncodeParam implements ImageEncodeParam {
 	 * @param level the level (for <code>Deflate</code>, in the range 0-9).
 	 */
 	public void setCompressionLevel(int level) {
-		this.deflateLevel = Integer.valueOf(level);
+		this.deflateLevel = level;
 	}
 
 	protected int bitDepth;

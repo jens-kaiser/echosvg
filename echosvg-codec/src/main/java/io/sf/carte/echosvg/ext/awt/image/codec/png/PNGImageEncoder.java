@@ -1160,7 +1160,7 @@ public class PNGImageEncoder extends ImageEncoderImpl {
 		Integer level = param.getCompressionLevel();
 
 		if (level != null) {
-			int lvl = level.intValue();
+			int lvl = level;
 			if (lvl < -1) {
 				lvl = -1; // Default
 			} else if (lvl > 9) {

@@ -108,7 +108,7 @@ public class ImageWriterParams {
 	 *              and the value must be in the range [0-9]).
 	 */
 	public void setCompressionLevel(int level) {
-		this.compressionLevel = Integer.valueOf(level);
+		this.compressionLevel = level;
 	}
 
 	/**

@@ -1147,7 +1147,7 @@ public class CSSTranscodingHelper {
 			// Width
 			Float width = (Float) transcodingHints.get(SVGAbstractTranscoder.KEY_WIDTH);
 			if (width != null) {
-				this.width = width.floatValue();
+				this.width = width;
 			} else {
 				String w = svgRoot.getAttribute("width");
 				if (!w.isEmpty()) {
@@ -1163,7 +1163,7 @@ public class CSSTranscodingHelper {
 			// Height
 			Float height = (Float) transcodingHints.get(SVGAbstractTranscoder.KEY_HEIGHT);
 			if (height != null) {
-				this.height = height.floatValue();
+				this.height = height;
 			} else {
 				String h = svgRoot.getAttribute("height");
 				if (!h.isEmpty()) {

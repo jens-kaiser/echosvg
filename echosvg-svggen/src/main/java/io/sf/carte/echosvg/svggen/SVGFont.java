@@ -183,7 +183,7 @@ public class SVGFont extends AbstractSVGConverter {
 	 */
 	private static Font createCommonSizeFont(Font font) {
 		Map<TextAttribute, Object> attributes = new HashMap<>();
-		attributes.put(TextAttribute.SIZE, Float.valueOf(COMMON_FONT_SIZE));
+		attributes.put(TextAttribute.SIZE, (float) COMMON_FONT_SIZE);
 		// Remove Transform from font otherwise it will be applied twice.
 		attributes.put(TextAttribute.TRANSFORM, null);
 		Map<TextAttribute, ?> oattr = font.getAttributes();

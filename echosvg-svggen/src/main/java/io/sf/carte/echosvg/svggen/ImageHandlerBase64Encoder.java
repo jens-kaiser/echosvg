@@ -156,7 +156,7 @@ public class ImageHandlerBase64Encoder extends DefaultImageHandler {
 			PNGImageWriterParams params = null;
 			if (compressionLevel != null) {
 				params = new PNGImageWriterParams();
-				params.setCompressionLevel(compressionLevel.intValue());
+				params.setCompressionLevel(compressionLevel);
 			}
 			ImageWriter writer = ImageWriterRegistry.getInstance().getWriterFor("image/png");
 			writer.writeImage(buf, os, params);

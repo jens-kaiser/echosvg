@@ -119,7 +119,7 @@ public class ImageIOPNGImageWriter extends ImageIOImageWriter {
 		if (params != null) {
 			Integer level = params.getCompressionLevel();
 			if (level != null) {
-				lvl = level.intValue();
+				lvl = level;
 				if (lvl < -1) {
 					lvl = Deflater.DEFAULT_COMPRESSION;
 				} else if (lvl > Deflater.BEST_COMPRESSION) {
@@ -156,7 +156,7 @@ public class ImageIOPNGImageWriter extends ImageIOImageWriter {
 			String comprMethod = params.getCompressionMethod();
 			Integer level = params.getCompressionLevel();
 			int lvl;
-			if (level != null && (lvl = level.intValue()) >= 0 && lvl < 10) {
+			if (level != null && (lvl = level) >= 0 && lvl < 10) {
 				try {
 					param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
 					param.setCompressionType(comprMethod != null ? comprMethod : "Deflate");
