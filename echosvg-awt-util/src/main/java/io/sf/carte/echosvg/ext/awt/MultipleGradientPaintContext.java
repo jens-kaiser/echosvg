@@ -1374,7 +1374,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
 	 * Took this cacheRaster code from GradientPaint. It appears to recycle rasters
 	 * for use by any other instance, as long as they are sufficiently large.
 	 */
-	protected static final synchronized WritableRaster getCachedRaster(ColorModel cm, int w, int h) {
+	protected static synchronized WritableRaster getCachedRaster(ColorModel cm, int w, int h) {
 		if (cm == cachedModel && cached != null) {
 			WritableRaster ras = cached.get();
 			if (ras != null && ras.getWidth() >= w && ras.getHeight() >= h) {
@@ -1394,7 +1394,7 @@ abstract class MultipleGradientPaintContext implements PaintContext {
 	 * Took this cacheRaster code from GradientPaint. It appears to recycle rasters
 	 * for use by any other instance, as long as they are sufficiently large.
 	 */
-	protected static final synchronized void putCachedRaster(ColorModel cm, WritableRaster ras) {
+	protected static synchronized void putCachedRaster(ColorModel cm, WritableRaster ras) {
 		if (cached != null) {
 			WritableRaster cras = cached.get();
 			if (cras != null) {

@@ -333,7 +333,7 @@ public class GlyphLayout implements TextSpanLayout {
 	 * This method makes certain that the layout has been completed at this point
 	 * (much of the layout is done lazily).
 	 */
-	private final void syncLayout() {
+	private void syncLayout() {
 		if (!pathApplied) {
 			doPathLayout();
 		}

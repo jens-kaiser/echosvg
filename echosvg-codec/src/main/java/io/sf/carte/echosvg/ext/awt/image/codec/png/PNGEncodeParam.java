@@ -1399,7 +1399,7 @@ public abstract class PNGEncodeParam implements ImageEncodeParam {
 	/**
 	 * An abs() function for use by the Paeth predictor.
 	 */
-	private static final int abs(int x) {
+	private static int abs(int x) {
 		return (x < 0) ? -x : x;
 	}
 
@@ -1407,7 +1407,7 @@ public abstract class PNGEncodeParam implements ImageEncodeParam {
 	 * The Paeth predictor routine used in PNG encoding. This routine is included as
 	 * a convenience to subclasses that override the <code>filterRow</code> method.
 	 */
-	public static final int paethPredictor(int a, int b, int c) {
+	public static int paethPredictor(int a, int b, int c) {
 		int p = a + b - c;
 		int pa = abs(p - a);
 		int pb = abs(p - b);
