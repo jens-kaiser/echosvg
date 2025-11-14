@@ -25,6 +25,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PushbackInputStream;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 
 import io.sf.carte.echosvg.util.EncodingUtilities;
 
@@ -222,7 +223,7 @@ public class XMLUtilities extends XMLCharacters {
 			}
 		}
 
-		return new InputStreamReader(pbis, "UTF8");
+		return new InputStreamReader(pbis, StandardCharsets.UTF_8);
 	}
 
 	/**
