@@ -162,11 +162,7 @@ public class RectListManagerTest {
 				currRLM.add(new Rectangle(x, y, w, h));
 			} else if (RLM_PREF.equals(pref)) {
 				String id = st.nextToken();
-				Object o = rlms.get(id);
-				if (o == null) {
-					o = new RectListManager();
-					rlms.put(id, o);
-				}
+				Object o = rlms.computeIfAbsent(id, k -> new RectListManager());
 				currRLM = (RectListManager) o;
 				currID = id;
 			} else if (MERGE_PREF.equals(pref)) {

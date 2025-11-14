@@ -1393,11 +1393,7 @@ public abstract class TimedElement implements SMILConstants {
 	 * processed at the beginning of the next tick.
 	 */
 	void eventOccurred(TimingSpecifier t, Event e) {
-		Set<TimingSpecifier> ts = handledEvents.get(e);
-		if (ts == null) {
-			ts = new HashSet<>();
-			handledEvents.put(e, ts);
-		}
+		Set<TimingSpecifier> ts = handledEvents.computeIfAbsent(e, k -> new HashSet<>());
 		ts.add(t);
 		root.currentIntervalWillUpdate();
 	}

@@ -232,11 +232,7 @@ public class ContentManager {
 	 * Adds the specified ContentSelectionChangedListener to the listener list.
 	 */
 	public void addContentSelectionChangedListener(XBLOMContentElement e, ContentSelectionChangedListener l) {
-		EventListenerList ll = listeners.get(e);
-		if (ll == null) {
-			ll = new EventListenerList();
-			listeners.put(e, ll);
-		}
+		EventListenerList ll = listeners.computeIfAbsent(e, k -> new EventListenerList());
 		ll.add(ContentSelectionChangedListener.class, l);
 	}
 

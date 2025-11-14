@@ -248,17 +248,9 @@ public abstract class AnimationEngine {
 				info.xmlAnimations.put(ns, an, sandwich);
 			}
 		} else if (type == ANIM_TYPE_CSS) {
-			sandwich = info.cssAnimations.get(an);
-			if (sandwich == null) {
-				sandwich = new Sandwich();
-				info.cssAnimations.put(an, sandwich);
-			}
+			sandwich = info.cssAnimations.computeIfAbsent(an, k -> new Sandwich());
 		} else {
-			sandwich = info.otherAnimations.get(an);
-			if (sandwich == null) {
-				sandwich = new Sandwich();
-				info.otherAnimations.put(an, sandwich);
-			}
+			sandwich = info.otherAnimations.computeIfAbsent(an, k -> new Sandwich());
 		}
 		return sandwich;
 	}
@@ -279,11 +271,7 @@ public abstract class AnimationEngine {
 	 * Returns the AnimationInfo for the given AbstractAnimation.
 	 */
 	protected AnimationInfo getAnimationInfo(AbstractAnimation anim) {
-		AnimationInfo info = animations.get(anim);
-		if (info == null) {
-			info = new AnimationInfo();
-			animations.put(anim, info);
-		}
+		AnimationInfo info = animations.computeIfAbsent(anim, k -> new AnimationInfo());
 		return info;
 	}
 

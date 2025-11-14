@@ -62,11 +62,7 @@ public abstract class AnimatableSVGBridge extends AbstractSVGBridge implements S
 		if (targetListeners == null) {
 			targetListeners = new HashMap<>();
 		}
-		LinkedList<AnimationTargetListener> ll = targetListeners.get(pn);
-		if (ll == null) {
-			ll = new LinkedList<>();
-			targetListeners.put(pn, ll);
-		}
+		LinkedList<AnimationTargetListener> ll = targetListeners.computeIfAbsent(pn, k -> new LinkedList<>());
 		ll.add(l);
 	}
 

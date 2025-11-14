@@ -44,11 +44,7 @@ public class SVGIDGenerator {
 	 * @return a value of the form &lt;prefix&gt;&lt;n&gt;
 	 */
 	public String generateID(String prefix) {
-		Integer maxId = prefixMap.get(prefix);
-		if (maxId == null) {
-			maxId = 0;
-			prefixMap.put(prefix, maxId);
-		}
+		Integer maxId = prefixMap.computeIfAbsent(prefix, k -> 0);
 
 		maxId = maxId + 1;
 		prefixMap.put(prefix, maxId);

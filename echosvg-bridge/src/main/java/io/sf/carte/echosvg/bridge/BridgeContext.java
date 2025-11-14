@@ -1027,11 +1027,7 @@ public class BridgeContext implements ErrorConstants, CSSContext, ColorContext, 
 		if (namespaceURIMap == null) {
 			namespaceURIMap = new HashMap<>();
 		}
-		HashMap<String, Bridge> localNameMap = namespaceURIMap.get(namespaceURI);
-		if (localNameMap == null) {
-			localNameMap = new HashMap<>();
-			namespaceURIMap.put(namespaceURI, localNameMap);
-		}
+		HashMap<String, Bridge> localNameMap = namespaceURIMap.computeIfAbsent(namespaceURI, k -> new HashMap<>());
 		localNameMap.put(localName, bridge);
 	}
 
