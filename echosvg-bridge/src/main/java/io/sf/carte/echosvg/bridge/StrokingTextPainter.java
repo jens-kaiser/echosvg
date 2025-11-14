@@ -147,11 +147,11 @@ public class StrokingTextPainter extends BasicTextPainter {
 		System.out.print("AttrRuns: ");
 		while (aci.current() != CharacterIterator.DONE) {
 			int end = aci.getRunLimit();
-			System.out.print("" + (end - start) + ", ");
+			System.out.print((end - start) + ", ");
 			aci.setIndex(end);
 			start = end;
 		}
-		System.out.println("");
+		System.out.println();
 	}
 
 	public List<TextRun> getTextRuns(TextNode node, AttributedCharacterIterator aci) {

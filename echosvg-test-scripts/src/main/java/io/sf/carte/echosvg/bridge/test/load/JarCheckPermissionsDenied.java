@@ -255,11 +255,11 @@ public class JarCheckPermissionsDenied implements ScriptHandler {
 					String unexpectedDenialString = "";
 
 					for (int i = 0; i < unexpectedGrantsCnt; i++) {
-						unexpectedGrantsString += unexpectedGrants.get(i).toString();
+						unexpectedGrantsString += unexpectedGrants.get(i);
 					}
 
 					for (int i = 0; i < unexpectedDenialCnt; i++) {
-						unexpectedDenialString += unexpectedDenial.get(i).toString();
+						unexpectedDenialString += unexpectedDenial.get(i);
 					}
 
 					System.out.println("unexpected.grants : " + unexpectedGrantsString);

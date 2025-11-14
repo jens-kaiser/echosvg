@@ -1435,7 +1435,7 @@ class PNGImage extends SimpleRenderedImage {
 				while ((c = is.read()) != -1) {
 					out.write(c);
 				}
-				text = new String(out.toByteArray(), StandardCharsets.UTF_8);
+				text = out.toString(StandardCharsets.UTF_8);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return;

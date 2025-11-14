@@ -196,7 +196,7 @@ public class ParsedURLDefaultProtocolHandler extends AbstractParsedURLProtocolHa
 		StringBuilder ret = new StringBuilder();
 		while (idx != -1) {
 			if (idx != prev)
-				ret.append(str.substring(prev, idx));
+				ret.append(str, prev, idx);
 
 			if (idx + 2 >= str.length())
 				break;

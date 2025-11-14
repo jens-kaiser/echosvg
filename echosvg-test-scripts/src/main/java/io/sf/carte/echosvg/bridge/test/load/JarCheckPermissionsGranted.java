@@ -220,7 +220,7 @@ public class JarCheckPermissionsGranted implements ScriptHandler {
 					String unexpectedDenialString = "";
 
 					for (int i = 0; i < unexpectedDenialCnt; i++) {
-						unexpectedDenialString += unexpectedDenial.get(i).toString();
+						unexpectedDenialString += unexpectedDenial.get(i);
 					}
 
 					Element entry = null;
