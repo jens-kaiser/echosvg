@@ -443,7 +443,7 @@ public abstract class SeekableStream extends InputStream implements DataInput {
 		int ch2 = this.read();
 		if ((ch1 | ch2) < 0)
 			throw new EOFException();
-		return (short) ((ch1 << 8) + (ch2 << 0));
+		return (short) ((ch1 << 8) + (ch2));
 	}
 
 	/**
@@ -473,7 +473,7 @@ public abstract class SeekableStream extends InputStream implements DataInput {
 		int ch2 = this.read();
 		if ((ch1 | ch2) < 0)
 			throw new EOFException();
-		return (short) ((ch2 << 8) + (ch1 << 0));
+		return (short) ((ch2 << 8) + (ch1));
 	}
 
 	/**
@@ -504,7 +504,7 @@ public abstract class SeekableStream extends InputStream implements DataInput {
 		int ch2 = this.read();
 		if ((ch1 | ch2) < 0)
 			throw new EOFException();
-		return (ch1 << 8) + (ch2 << 0);
+		return (ch1 << 8) + (ch2);
 	}
 
 	/**
@@ -535,7 +535,7 @@ public abstract class SeekableStream extends InputStream implements DataInput {
 		int ch2 = this.read();
 		if ((ch1 | ch2) < 0)
 			throw new EOFException();
-		return (ch2 << 8) + (ch1 << 0);
+		return (ch2 << 8) + (ch1);
 	}
 
 	/**
@@ -565,7 +565,7 @@ public abstract class SeekableStream extends InputStream implements DataInput {
 		int ch2 = this.read();
 		if ((ch1 | ch2) < 0)
 			throw new EOFException();
-		return (char) ((ch1 << 8) + (ch2 << 0));
+		return (char) ((ch1 << 8) + (ch2));
 	}
 
 	/**
@@ -595,7 +595,7 @@ public abstract class SeekableStream extends InputStream implements DataInput {
 		int ch2 = this.read();
 		if ((ch1 | ch2) < 0)
 			throw new EOFException();
-		return (char) ((ch2 << 8) + (ch1 << 0));
+		return (char) ((ch2 << 8) + (ch1));
 	}
 
 	/**
@@ -629,7 +629,7 @@ public abstract class SeekableStream extends InputStream implements DataInput {
 		int ch4 = this.read();
 		if ((ch1 | ch2 | ch3 | ch4) < 0)
 			throw new EOFException();
-		return ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4 << 0));
+		return ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4));
 	}
 
 	/**
@@ -662,7 +662,7 @@ public abstract class SeekableStream extends InputStream implements DataInput {
 		int ch4 = this.read();
 		if ((ch1 | ch2 | ch3 | ch4) < 0)
 			throw new EOFException();
-		return ((ch4 << 24) + (ch3 << 16) + (ch2 << 8) + (ch1 << 0));
+		return ((ch4 << 24) + (ch3 << 16) + (ch2 << 8) + (ch1));
 	}
 
 	/**
@@ -695,7 +695,7 @@ public abstract class SeekableStream extends InputStream implements DataInput {
 		long ch4 = this.read();
 		if ((ch1 | ch2 | ch3 | ch4) < 0)
 			throw new EOFException();
-		return ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4 << 0));
+		return ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4));
 	}
 
 	private byte[] ruileBuf = new byte[4];
@@ -730,7 +730,7 @@ public abstract class SeekableStream extends InputStream implements DataInput {
 		long ch3 = (ruileBuf[2] & 0xff);
 		long ch4 = (ruileBuf[3] & 0xff);
 
-		return ((ch4 << 24) + (ch3 << 16) + (ch2 << 8) + (ch1 << 0));
+		return ((ch4 << 24) + (ch3 << 16) + (ch2 << 8) + (ch1));
 	}
 
 	/**

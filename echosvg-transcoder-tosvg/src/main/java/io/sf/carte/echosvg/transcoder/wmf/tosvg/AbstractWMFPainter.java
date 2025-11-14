@@ -133,7 +133,7 @@ public class AbstractWMFPainter {
 			// populate the int array
 			for (int j = 0; j < _height; j++) {
 				for (int i = 0; i < _width; i++) {
-					bitI[_width * (_height - j - 1) + i] = (255 & 0x00ff) << 24 | ((bit[offset + 2] & 0x00ff) << 16)
+					bitI[_width * (_height - j - 1) + i] = (0x00ff) << 24 | ((bit[offset + 2] & 0x00ff) << 16)
 							| ((bit[offset + 1] & 0x00ff) << 8) | bit[offset] & 0x00ff;
 					offset += 3;
 				}
@@ -151,7 +151,7 @@ public class AbstractWMFPainter {
 			int offset = _headerSize;
 			int[] palette = new int[nbColors];
 			for (int i = 0; i < nbColors; i++) {
-				palette[i] = (255 & 0x00ff) << 24 | ((bit[offset + 2] & 0x00ff) << 16)
+				palette[i] = (0x00ff) << 24 | ((bit[offset + 2] & 0x00ff) << 16)
 						| ((bit[offset + 1] & 0x00ff) << 8) | bit[offset] & 0x00ff;
 				offset += 4;
 			}
@@ -179,7 +179,7 @@ public class AbstractWMFPainter {
 			int offset = _headerSize;
 			int[] palette = new int[nbColors];
 			for (int i = 0; i < nbColors; i++) {
-				palette[i] = (255 & 0x00ff) << 24 | ((bit[offset + 2] & 0x00ff) << 16)
+				palette[i] = (0x00ff) << 24 | ((bit[offset + 2] & 0x00ff) << 16)
 						| ((bit[offset + 1] & 0x00ff) << 8) | bit[offset] & 0x00ff;
 				offset += 4;
 			}

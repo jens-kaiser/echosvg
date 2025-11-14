@@ -199,7 +199,7 @@ class ChunkStream extends OutputStream implements DataOutput {
 		int crc = 0xffffffff;
 		crc = CRC.updateCRC(crc, typeSignature, 0, 4);
 		crc = CRC.updateCRC(crc, data, 0, len);
-		output.writeInt(crc ^ 0xffffffff);
+		output.writeInt(~crc);
 	}
 
 	/**
@@ -266,7 +266,7 @@ class IDATOutputStream extends FilterOutputStream {
 		crc = CRC.updateCRC(crc, buffer, 0, bytesWritten);
 
 		// CRC
-		writeInt(crc ^ 0xffffffff);
+		writeInt(~crc);
 
 		// Reset buffer
 		bytesWritten = 0;
