@@ -507,9 +507,7 @@ public class OutputManager {
 			printSpaces(space, true);
 		}
 		level++;
-		for (int i = 0; i < prettyPrinter.getTabulationWidth(); i++) {
-			margin.append(' ');
-		}
+		margin.append(" ".repeat(Math.max(0, prettyPrinter.getTabulationWidth())));
 		canIndent = true;
 	}
 
