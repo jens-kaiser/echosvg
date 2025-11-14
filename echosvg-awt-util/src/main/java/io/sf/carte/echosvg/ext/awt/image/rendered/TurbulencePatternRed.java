@@ -1258,8 +1258,8 @@ public final class TurbulencePatternRed extends AbstractRed {
 		double dy = Math.max(Math.abs(vecX[1]), Math.abs(vecY[1]));
 		int maxY = -(int) Math.round((Math.log(dy) + Math.log(baseFrequencyY)) / Math.log(2));
 
-		this.numOctaves = numOctaves > maxX ? maxX : numOctaves;
-		this.numOctaves = this.numOctaves > maxY ? maxY : this.numOctaves;
+		this.numOctaves = Math.min(numOctaves, maxX);
+		this.numOctaves = Math.min(this.numOctaves, maxY);
 
 		if (this.numOctaves < 1 && numOctaves > 1)
 			this.numOctaves = 1;

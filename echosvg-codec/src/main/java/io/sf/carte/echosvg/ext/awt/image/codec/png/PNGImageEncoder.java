@@ -412,7 +412,7 @@ public class PNGImageEncoder extends ImageEncoderImpl {
 	private byte[][] filteredRows = null;
 
 	private static int clamp(int val, int maxValue) {
-		return (val > maxValue) ? maxValue : val;
+		return Math.min(val, maxValue);
 	}
 
 	private void encodePass(OutputStream os, Raster ras, int xOffset, int yOffset, int xSkip, int ySkip)

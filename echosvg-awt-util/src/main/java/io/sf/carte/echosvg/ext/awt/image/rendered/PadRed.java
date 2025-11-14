@@ -307,11 +307,10 @@ public class PadRed extends AbstractRed {
 			// (The x and y ranges will be correct if they
 			// overlap in one dimension even if they don't
 			// intersect in both dimensions).
-			int minX = (srcR.x > x) ? srcR.x : x;
-			int maxX = (((srcR.x + srcR.width - 1) < (x + width - 1)) ? (srcR.x + srcR.width - 1) : (x + width - 1));
-			int minY = (srcR.y > y) ? srcR.y : y;
-			int maxY = (((srcR.y + srcR.height - 1) < (y + height - 1)) ? (srcR.y + srcR.height - 1)
-					: (y + height - 1));
+			int minX = Math.max(srcR.x, x);
+			int maxX = (Math.min((srcR.x + srcR.width - 1), (x + width - 1)));
+			int minY = Math.max(srcR.y, y);
+			int maxY = (Math.min((srcR.y + srcR.height - 1), (y + height - 1)));
 
 			int x0 = minX;
 			int w = maxX - minX + 1;

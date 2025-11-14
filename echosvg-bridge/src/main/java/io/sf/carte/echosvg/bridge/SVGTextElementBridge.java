@@ -2569,8 +2569,8 @@ public class SVGTextElementBridge extends AbstractGraphicsNodeBridge implements 
 		int lastStart = last.glyphIndexStart;
 		int lastEnd = last.glyphIndexEnd;
 
-		int start = (firstStart < lastStart) ? firstStart : lastStart;
-		int end = (firstEnd < lastEnd) ? lastEnd : firstEnd;
+		int start = Math.min(firstStart, lastStart);
+		int end = Math.max(firstEnd, lastEnd);
 		return advs[end + 1] - advs[start];
 	}
 

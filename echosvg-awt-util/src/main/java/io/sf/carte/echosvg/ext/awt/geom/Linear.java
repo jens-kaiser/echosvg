@@ -56,30 +56,22 @@ public class Linear implements Segment {
 
 	@Override
 	public double minX() {
-		if (p1.x < p2.x)
-			return p1.x;
-		return p2.x;
+		return Math.min(p1.x, p2.x);
 	}
 
 	@Override
 	public double maxX() {
-		if (p1.x > p2.x)
-			return p1.x;
-		return p2.x;
+		return Math.max(p1.x, p2.x);
 	}
 
 	@Override
 	public double minY() {
-		if (p1.y < p2.y)
-			return p1.y;
-		return p2.y;
+		return Math.min(p1.y, p2.y);
 	}
 
 	@Override
 	public double maxY() {
-		if (p1.y > p2.y)
-			return p2.y;
-		return p1.y;
+		return Math.min(p1.y, p2.y);
 	}
 
 	@Override

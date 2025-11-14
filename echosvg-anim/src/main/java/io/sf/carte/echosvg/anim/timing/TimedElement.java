@@ -496,10 +496,7 @@ public abstract class TimedElement implements SMILConstants {
 		if (t1 == INDEFINITE && isUnresolved(t2) || isUnresolved(t1) && t2 == INDEFINITE) {
 			return INDEFINITE;
 		}
-		if (t1 < t2) {
-			return t1;
-		}
-		return t2;
+		return Math.min(t1, t2);
 	}
 
 	/**
@@ -515,10 +512,7 @@ public abstract class TimedElement implements SMILConstants {
 		if (t1 == INDEFINITE && isUnresolved(t2) || isUnresolved(t1) && t2 == INDEFINITE) {
 			return UNRESOLVED;
 		}
-		if (t1 > t2) {
-			return t1;
-		}
-		return t2;
+		return Math.max(t1, t2);
 	}
 
 	/**
@@ -814,10 +808,7 @@ public abstract class TimedElement implements SMILConstants {
 			if (t <= 0) {
 				t = isConstantAnimation() || isFrozen ? currentInterval.getEnd() - time : 0;
 			}
-			if (dependentMinTime < t) {
-				return dependentMinTime;
-			}
-			return t;
+			return Math.min(dependentMinTime, t);
 		}
 		return dependentMinTime;
 		// } finally { Trace.exit(); }

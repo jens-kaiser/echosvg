@@ -157,7 +157,7 @@ public class AbstractZoomInteractor extends InteractorAdapter {
 			// Zoom factor
 			float scaleX = size.width / (float) dx;
 			float scaleY = size.height / (float) dy;
-			float scale = (scaleX < scaleY) ? scaleX : scaleY;
+			float scale = Math.min(scaleX, scaleY);
 
 			// Zoom translate
 			AffineTransform at = new AffineTransform();

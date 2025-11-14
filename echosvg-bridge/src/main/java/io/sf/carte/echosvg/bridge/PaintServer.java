@@ -624,7 +624,7 @@ public abstract class PaintServer implements SVGConstants, CSSConstants, ErrorCo
 	 */
 	public static float convertStrokeMiterlimit(Value v) {
 		float miterlimit = v.getFloatValue();
-		return (miterlimit < 1.0f) ? 1.0f : miterlimit;
+		return Math.max(miterlimit, 1.0f);
 	}
 
 	/**
@@ -683,11 +683,11 @@ public abstract class PaintServer implements SVGConstants, CSSConstants, ErrorCo
 		switch (v.getUnitType()) {
 		case CSSUnit.CSS_PERCENTAGE:
 			f = v.getFloatValue();
-			f = (f > 100f) ? 100f : (f < 0f) ? 0f : f;
+			f = (f > 100f) ? 100f : Math.max(f, 0f);
 			return f / 100f;
 		case CSSUnit.CSS_NUMBER:
 			f = v.getFloatValue();
-			f = (f > 1f) ? 1f : (f < 0f) ? 0f : f;
+			f = (f > 1f) ? 1f : Math.max(f, 0f);
 			return f;
 		default:
 			throw new IllegalArgumentException(
@@ -703,7 +703,7 @@ public abstract class PaintServer implements SVGConstants, CSSConstants, ErrorCo
 	 */
 	public static float convertOpacity(Value v) {
 		float r = v.getFloatValue();
-		return (r < 0f) ? 0f : (r > 1.0f) ? 1.0f : r;
+		return (r < 0f) ? 0f : Math.min(r, 1.0f);
 	}
 
 }

@@ -153,7 +153,7 @@ public class FlowExtGlyphLayout extends GlyphLayout {
 				List<MarginInfo> extraP = (List<MarginInfo>) aci.getAttribute(FLOW_EMPTY_PARAGRAPH);
 				if (extraP != null) {
 					for (MarginInfo emi : extraP) {
-						float inc = ((prevBotMargin > emi.getTopMargin()) ? prevBotMargin : emi.getTopMargin());
+						float inc = (Math.max(prevBotMargin, emi.getTopMargin()));
 						if ((dy + inc <= height) && !emi.isFlowRegionBreak()) {
 							dy += inc;
 							prevBotMargin = emi.getBottomMargin();
@@ -206,7 +206,7 @@ public class FlowExtGlyphLayout extends GlyphLayout {
 				continue;
 			}
 
-			float inc = ((prevBotMargin > mi.getTopMargin()) ? prevBotMargin : mi.getTopMargin());
+			float inc = (Math.max(prevBotMargin, mi.getTopMargin()));
 			if (dy + inc <= height) {
 				dy += inc;
 			} else {
@@ -357,9 +357,7 @@ public class FlowExtGlyphLayout extends GlyphLayout {
 				float newDesc = halfLeading + gi.getMaxDescent();
 
 				dy += ladv;
-				float bottomEdge = newDesc;
-				if (newDesc < gi.getMaxDescent())
-					bottomEdge = gi.getMaxDescent();
+				float bottomEdge = Math.max(newDesc, gi.getMaxDescent());
 
 				if ((dy + bottomEdge) > height) {
 					// The current Line doesn't fit in the

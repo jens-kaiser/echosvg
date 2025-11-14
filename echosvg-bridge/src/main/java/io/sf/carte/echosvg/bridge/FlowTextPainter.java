@@ -158,10 +158,7 @@ public class FlowTextPainter extends StrokingTextPainter {
 			BlockInfo bi = (BlockInfo) aci.getAttribute(FLOW_PARAGRAPH);
 			bi.initLineInfo(frc);
 			blockInfos[chunk] = bi;
-			if (prevBotMargin > bi.getTopMargin())
-				topSkip[chunk] = prevBotMargin;
-			else
-				topSkip[chunk] = bi.getTopMargin();
+			topSkip[chunk] = Math.max(prevBotMargin, bi.getTopMargin());
 			prevBotMargin = bi.getBottomMargin();
 			numWords += wordInfos[chunk].length;
 		}

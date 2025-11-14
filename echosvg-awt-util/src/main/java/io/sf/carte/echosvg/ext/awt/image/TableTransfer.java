@@ -71,7 +71,7 @@ public class TableTransfer implements TransferFunction {
 		for (j = 0; j <= 255; j++) {
 			fi = j * (n - 1) / 255f;
 			ffi = (int) Math.floor(fi);
-			cfi = (ffi + 1) > (n - 1) ? (n - 1) : (ffi + 1);
+			cfi = Math.min((ffi + 1), (n - 1));
 			r = fi - ffi;
 			lutData[j] = (byte) ((int) ((tableValues[ffi] + r * (tableValues[cfi] - tableValues[ffi]))) & 0xff);
 			// System.out.println("[" + j + "] : " + ffi + "/" + cfi + "/" + r);

@@ -885,10 +885,7 @@ public class SVGComposite implements Composite {
 							val = 0;
 						else
 							val = 255;
-					if (val > max)
-						dstPix[i] = val;
-					else
-						dstPix[i] = max;
+					dstPix[i] = Math.max(val, max);
 				}
 				dstOut.setPixels(x, y, w, 1, dstPix);
 			}
@@ -1246,26 +1243,17 @@ public class SVGComposite implements Composite {
 
 					t1 = ((srcM * srcPix[sp] * norm + pt5) >>> 24) + dstPix[sp];
 					t2 = ((dstM * dstPix[sp] * norm + pt5) >>> 24) + srcPix[sp];
-					if (t1 > t2)
-						dstPix[sp] = t2;
-					else
-						dstPix[sp] = t1;
+					dstPix[sp] = Math.min(t1, t2);
 					++sp;
 
 					t1 = ((srcM * srcPix[sp] * norm + pt5) >>> 24) + dstPix[sp];
 					t2 = ((dstM * dstPix[sp] * norm + pt5) >>> 24) + srcPix[sp];
-					if (t1 > t2)
-						dstPix[sp] = t2;
-					else
-						dstPix[sp] = t1;
+					dstPix[sp] = Math.min(t1, t2);
 					++sp;
 
 					t1 = ((srcM * srcPix[sp] * norm + pt5) >>> 24) + dstPix[sp];
 					t2 = ((dstM * dstPix[sp] * norm + pt5) >>> 24) + srcPix[sp];
-					if (t1 > t2)
-						dstPix[sp] = t2;
-					else
-						dstPix[sp] = t1;
+					dstPix[sp] = Math.min(t1, t2);
 					++sp;
 
 					dstPix[sp] = (srcPix[sp] + dstPix[sp] - ((dstPix[sp] * srcPix[sp] * norm + pt5) >>> 24));
@@ -1374,26 +1362,17 @@ public class SVGComposite implements Composite {
 
 					t1 = ((srcM * srcPix[sp] * norm + pt5) >>> 24) + dstPix[sp];
 					t2 = ((dstM * dstPix[sp] * norm + pt5) >>> 24) + srcPix[sp];
-					if (t1 > t2)
-						dstPix[sp] = t1;
-					else
-						dstPix[sp] = t2;
+					dstPix[sp] = Math.max(t1, t2);
 					++sp;
 
 					t1 = ((srcM * srcPix[sp] * norm + pt5) >>> 24) + dstPix[sp];
 					t2 = ((dstM * dstPix[sp] * norm + pt5) >>> 24) + srcPix[sp];
-					if (t1 > t2)
-						dstPix[sp] = t1;
-					else
-						dstPix[sp] = t2;
+					dstPix[sp] = Math.max(t1, t2);
 					++sp;
 
 					t1 = ((srcM * srcPix[sp] * norm + pt5) >>> 24) + dstPix[sp];
 					t2 = ((dstM * dstPix[sp] * norm + pt5) >>> 24) + srcPix[sp];
-					if (t1 > t2)
-						dstPix[sp] = t1;
-					else
-						dstPix[sp] = t2;
+					dstPix[sp] = Math.max(t1, t2);
 					++sp;
 
 					dstPix[sp] = (srcPix[sp] + dstPix[sp] - ((dstPix[sp] * srcPix[sp] * norm + pt5) >>> 24));

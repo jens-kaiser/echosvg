@@ -140,8 +140,8 @@ public class SpecularLightingRed extends AbstractTiledRed {
 
 		int pixel = 0, tmp;
 		double mult;
-		mult = (lightColor[0] > lightColor[1]) ? lightColor[0] : lightColor[1];
-		mult = (mult > lightColor[2]) ? mult : lightColor[2];
+		mult = Math.max(lightColor[0], lightColor[1]);
+		mult = Math.max(mult, lightColor[2]);
 
 		double scale = 255 / mult;
 		pixel = (int) (lightColor[0] * scale + 0.5);

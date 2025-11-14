@@ -1268,14 +1268,8 @@ public class GraphicsUtil {
 		sR = sR.intersection(src.getBounds());
 		dR = dR.intersection(dst.getBounds());
 		int width, height;
-		if (dR.width < sR.width)
-			width = dR.width;
-		else
-			width = sR.width;
-		if (dR.height < sR.height)
-			height = dR.height;
-		else
-			height = sR.height;
+		width = Math.min(dR.width, sR.width);
+		height = Math.min(dR.height, sR.height);
 
 		int x = sR.x + dx;
 		int[] samples = null;
