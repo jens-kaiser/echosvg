@@ -218,7 +218,7 @@ public class MenuFactory extends ResourceManager {
 			return new JSeparator();
 		}
 		String type = getSpecializedString(name + TYPE_SUFFIX, specialization);
-		JComponent item = null;
+		AbstractButton item;
 
 		if (type.equals(TYPE_RADIO)) {
 			if (buttonGroup == null) {
@@ -234,7 +234,7 @@ public class MenuFactory extends ResourceManager {
 			item = createJMenuItem(name, specialization);
 		} else if (type.equals(TYPE_RADIO)) {
 			item = createJRadioButtonMenuItem(name, specialization);
-			buttonGroup.add((AbstractButton) item);
+			buttonGroup.add(item);
 		} else if (type.equals(TYPE_CHECK)) {
 			item = createJCheckBoxMenuItem(name, specialization);
 		} else {

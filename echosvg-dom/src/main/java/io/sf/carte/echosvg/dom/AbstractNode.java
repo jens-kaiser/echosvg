@@ -540,10 +540,10 @@ public abstract class AbstractNode implements ExtendedNode, NodeXBL, XBLManagerD
 						| DOCUMENT_POSITION_FOLLOWING;
 			}
 		}
-		Object n1 = a1.get(i1);
+		Node n1 = a1.get(i1);
 		Object n2 = a2.get(i2);
 		while (n1 == n2) {
-			n = (Node) n1;
+			n = n1;
 			n1 = a1.get(--i1);
 			n2 = a2.get(--i2);
 		}

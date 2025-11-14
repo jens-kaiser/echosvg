@@ -1331,9 +1331,9 @@ public class SVGTextElementBridge extends AbstractGraphicsNodeBridge implements 
 		if ((!SVGUtilities.matchUserAgent(element, ctx.getUserAgent())) || (!CSSUtilities.convertDisplay(element))) {
 			return;
 		}
-		Object o = elemTPI.get(element);
+		TextPaintInfo o = elemTPI.get(element);
 		if (o != null) {
-			node.swapTextPaintInfo(pi, (TextPaintInfo) o);
+			node.swapTextPaintInfo(pi, o);
 		}
 		addChildPaintAttributes(as, element, node, pi, ctx);
 	}

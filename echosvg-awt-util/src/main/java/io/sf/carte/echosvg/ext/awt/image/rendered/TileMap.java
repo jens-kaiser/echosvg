@@ -83,19 +83,19 @@ public class TileMap implements TileStore {
 
 		if (ras == null) {
 			// Clearing entry...
-			Object o = rasters.remove(pt);
+			TileMapLRUMember o = rasters.remove(pt);
 			if (o != null)
-				cache.remove((TileMapLRUMember) o);
+				cache.remove(o);
 			return;
 		}
 
-		Object o = rasters.get(pt);
+		TileMapLRUMember o = rasters.get(pt);
 		TileMapLRUMember item;
 		if (o == null) {
 			item = new TileMapLRUMember(this, pt, ras);
 			rasters.put(pt, item);
 		} else {
-			item = (TileMapLRUMember) o;
+			item = o;
 			item.setRaster(ras);
 		}
 
@@ -109,11 +109,11 @@ public class TileMap implements TileStore {
 	@Override
 	public Raster getTileNoCompute(int x, int y) {
 		Point pt = new Point(x, y);
-		Object o = rasters.get(pt);
+		TileMapLRUMember o = rasters.get(pt);
 		if (o == null)
 			return null;
 
-		TileMapLRUMember item = (TileMapLRUMember) o;
+		TileMapLRUMember item = o;
 		Raster ret = item.retrieveRaster();
 		if (ret != null)
 			cache.add(item);
@@ -131,10 +131,10 @@ public class TileMap implements TileStore {
 
 		Raster ras = null;
 		Point pt = new Point(x, y);
-		Object o = rasters.get(pt);
+		TileMapLRUMember o = rasters.get(pt);
 		TileMapLRUMember item = null;
 		if (o != null) {
-			item = (TileMapLRUMember) o;
+			item = o;
 			ras = item.retrieveRaster();
 		}
 

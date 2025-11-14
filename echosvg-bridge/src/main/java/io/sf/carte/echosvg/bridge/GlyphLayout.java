@@ -404,15 +404,15 @@ public class GlyphLayout implements TextSpanLayout {
 	public Shape getDecorationOutline(int decorationType) {
 		syncLayout();
 
-		Shape g = new GeneralPath();
+		GeneralPath g = new GeneralPath();
 		if ((decorationType & DECORATION_UNDERLINE) != 0) {
-			((GeneralPath) g).append(getUnderlineShape(), false);
+			g.append(getUnderlineShape(), false);
 		}
 		if ((decorationType & DECORATION_STRIKETHROUGH) != 0) {
-			((GeneralPath) g).append(getStrikethroughShape(), false);
+			g.append(getStrikethroughShape(), false);
 		}
 		if ((decorationType & DECORATION_OVERLINE) != 0) {
-			((GeneralPath) g).append(getOverlineShape(), false);
+			g.append(getOverlineShape(), false);
 		}
 		return g;
 	}

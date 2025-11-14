@@ -80,9 +80,9 @@ public class XMLEditorKit extends DefaultEditorKit {
 	public void install(JEditorPane c) {
 		super.install(c);
 
-		Object obj = context.getSyntaxFont(StyleContext.DEFAULT_STYLE);
+		Font obj = context.getSyntaxFont(StyleContext.DEFAULT_STYLE);
 		if (obj != null) {
-			c.setFont((Font) obj);
+			c.setFont(obj);
 		}
 	}
 

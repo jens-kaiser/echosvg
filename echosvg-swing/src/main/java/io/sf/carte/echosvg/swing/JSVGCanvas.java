@@ -1240,7 +1240,7 @@ public class JSVGCanvas extends JSVGComponent {
 
 			if (toolTipMap != null) {
 				Element e = (Element) lastTarget;
-				Object o = null;
+				String o = null;
 				while (e != null) {
 					// Search the parents of the current node for ToolTips.
 					o = toolTipMap.get(e);
@@ -1249,7 +1249,7 @@ public class JSVGCanvas extends JSVGComponent {
 					}
 					e = CSSEngine.getParentCSSStylableElement(e);
 				}
-				final String theToolTip = (String) o;
+				final String theToolTip = o;
 				if (prevLastTarget != lastTarget)
 					EventQueue.invokeLater(new ToolTipRunnable(theToolTip));
 			}

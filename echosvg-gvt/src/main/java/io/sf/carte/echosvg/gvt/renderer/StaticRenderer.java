@@ -459,11 +459,11 @@ public class StaticRenderer implements ImageRenderer {
 			lastCache = null;
 		}
 
-		Object o = null;
+		CachableRed o = null;
 		if (lastCache != null)
 			o = lastCache.get();
 		if (o != null)
-			return (CachableRed) o;
+			return o;
 
 		img = new TileCacheRed(img);
 		lastCache = new SoftReference<>(img);
