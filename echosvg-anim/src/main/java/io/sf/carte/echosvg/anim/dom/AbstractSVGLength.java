@@ -199,7 +199,7 @@ public abstract class AbstractSVGLength implements SVGLength {
 		if (unitType == CSSUnit.CSS_INVALID) {
 			return "";
 		}
-		return Float.toString(value) + CSSUnit.dimensionUnitString(unitType);
+		return value + CSSUnit.dimensionUnitString(unitType);
 	}
 
 	/**

@@ -103,7 +103,7 @@ public class SupportsRule extends RuleGroup implements GroupingRule {
 		StringBuilder sb = new StringBuilder();
 		sb.append("@supports");
 		if (condition != null) {
-			sb.append(condition.toString());
+			sb.append(condition);
 		}
 		sb.append(" {\n");
 		for (int i = 0; i < size; i++) {

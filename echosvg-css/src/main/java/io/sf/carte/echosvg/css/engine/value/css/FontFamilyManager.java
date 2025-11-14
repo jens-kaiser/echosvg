@@ -175,7 +175,7 @@ public class FontFamilyManager extends AbstractValueManager {
 						case INTEGER:
 							// Some font names contain integer values but are not quoted!
 							// Example: "Univers 45 Light"
-							sb.append(Integer.toString(lu.getIntegerValue()));
+							sb.append(lu.getIntegerValue());
 						default:
 							break;
 						}

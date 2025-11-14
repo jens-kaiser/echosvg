@@ -77,9 +77,9 @@ class PropertyDefinitionImpl implements PropertyDefinition {
 		StringBuilder buf = new StringBuilder(48);
 		buf.append("@property ").append(name).append(" {\n");
 		buf.append("  syntax: \"").append(syntax.toString()).append("\";\n");
-		buf.append("  inherits: ").append(Boolean.toString(inherits)).append(";\n");
+		buf.append("  inherits: ").append(inherits).append(";\n");
 		if (initialValue != null) {
-			buf.append("  initial-value: ").append(initialValue.toString()).append(";\n");
+			buf.append("  initial-value: ").append(initialValue).append(";\n");
 		}
 		buf.append("}\n");
 		return buf.toString();

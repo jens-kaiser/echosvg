@@ -580,13 +580,13 @@ public abstract class AbstractColorManager extends IdentifierManager {
 			return createLexicalValue(lunit);
 		default:
 			throw new DOMException(DOMException.TYPE_MISMATCH_ERR,
-					"Color space must be identifier: " + lunit.toString());
+					"Color space must be identifier: " + lunit);
 		}
 
 		String colorSpace = lu.getStringValue();
 		lu = lu.getNextLexicalUnit();
 		if (lu == null) {
-			throw new DOMException(DOMException.SYNTAX_ERR, "Wrong value: " + lunit.toString());
+			throw new DOMException(DOMException.SYNTAX_ERR, "Wrong value: " + lunit);
 		}
 
 		if (from != null) {
@@ -620,7 +620,7 @@ public abstract class AbstractColorManager extends IdentifierManager {
 					lu = lu.getNextLexicalUnit();
 					if (lu != null) {
 						throw new DOMException(DOMException.SYNTAX_ERR,
-								"Wrong value: " + lunit.toString());
+								"Wrong value: " + lunit);
 					}
 					break;
 				}

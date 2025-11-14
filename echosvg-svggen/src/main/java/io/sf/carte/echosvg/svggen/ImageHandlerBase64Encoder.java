@@ -141,7 +141,7 @@ public class ImageHandlerBase64Encoder extends DefaultImageHandler {
 		//
 		// Finally, write out url
 		//
-		imageElement.setAttributeNS(XLINK_NAMESPACE_URI, XLINK_HREF_QNAME, DATA_PROTOCOL_PNG_PREFIX + os.toString());
+		imageElement.setAttributeNS(XLINK_NAMESPACE_URI, XLINK_HREF_QNAME, DATA_PROTOCOL_PNG_PREFIX + os);
 
 	}
 

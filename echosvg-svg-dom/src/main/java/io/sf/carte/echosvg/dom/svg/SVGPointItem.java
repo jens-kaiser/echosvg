@@ -49,7 +49,7 @@ public class SVGPointItem extends AbstractSVGItem implements SVGPoint {
 	 */
 	@Override
 	protected String getStringValue() {
-		return Float.toString(x) + ',' + Float.toString(y);
+		return Float.toString(x) + ',' + y;
 	}
 
 	/**

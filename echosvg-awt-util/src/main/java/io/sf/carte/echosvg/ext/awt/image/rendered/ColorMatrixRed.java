@@ -56,7 +56,7 @@ public class ColorMatrixRed extends AbstractRed {
 
 		for (int i = 0; i < 4; i++) {
 			if (tmp[i].length != 5) {
-				throw new IllegalArgumentException(String.valueOf(i) + " : " + tmp[i].length);
+				throw new IllegalArgumentException(i + " : " + tmp[i].length);
 			}
 		}
 		this.matrix = matrix;

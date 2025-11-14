@@ -103,7 +103,7 @@ public class SVGOMAngle implements SVGAngle {
 	@Override
 	public String getValueAsString() {
 		revalidate();
-		return Float.toString(value) + UNITS[getUnitType()];
+		return value + UNITS[getUnitType()];
 	}
 
 	/**

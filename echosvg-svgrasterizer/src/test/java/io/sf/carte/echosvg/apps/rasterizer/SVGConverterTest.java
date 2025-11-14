@@ -662,7 +662,7 @@ abstract class AbstractConfigTest implements SVGConverterController {
 			Object computedHintValue = computedConfig.hints.get(hintKey);
 
 			if (!expectedHintValue.equals(computedHintValue)) {
-				fail("Unexpected hint [" + hintKey.toString() + ", " + expectedHintValue.toString() + "], found ["
+				fail("Unexpected hint [" + hintKey.toString() + ", " + expectedHintValue + "], found ["
 						+ computedHintValue + "]");
 			}
 		}

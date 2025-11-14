@@ -1375,7 +1375,7 @@ public abstract class CSSEngine {
 
 		if (!checkSet.add(attrname)) {
 			throw new CSSCircularityException(
-					"Circularity evaluating attr() '" + attrname + "': " + checkSet.toString());
+					"Circularity evaluating attr() '" + attrname + "': " + checkSet);
 		}
 
 		CSSValueSyntax syn = null;
@@ -1507,7 +1507,7 @@ public abstract class CSSEngine {
 						return substValue;
 					} else {
 						String message = "Attribute " + attrname + " with value '" + substValue
-								+ "' does not match type '" + syn.toString() + "'.";
+								+ "' does not match type '" + syn + "'.";
 						if (lu == null) {
 							// Throw an exception to break the chain replacement
 							throw new DOMException(DOMException.TYPE_MISMATCH_ERR, message);
@@ -1573,7 +1573,7 @@ public abstract class CSSEngine {
 		if (customPtySet.contains(customProperty)) {
 			throw new CSSCircularityException(
 					"Circularity evaluating custom property " + customProperty + ": "
-							+ customPtySet.toString());
+							+ customPtySet);
 		}
 
 		if (!counter.increment()) {

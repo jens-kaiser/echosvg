@@ -264,7 +264,7 @@ public abstract class AbstractSVGPathSegList extends AbstractSVGList implements 
 
 		@Override
 		protected String getStringValue() {
-			return letter + ' ' + Float.toString(getX()) + ' ' + Float.toString(getY());
+			return letter + ' ' + getX() + ' ' + getY();
 		}
 
 	}
@@ -346,9 +346,9 @@ public abstract class AbstractSVGPathSegList extends AbstractSVGList implements 
 
 		@Override
 		protected String getStringValue() {
-			return letter + ' ' + Float.toString(getX1()) + ' ' + Float.toString(getY1()) + ' '
-					+ Float.toString(getX2()) + ' ' + Float.toString(getY2()) + ' ' + Float.toString(getX()) + ' '
-					+ Float.toString(getY());
+			return letter + ' ' + getX1() + ' ' + getY1() + ' '
+					+ getX2() + ' ' + getY2() + ' ' + getX() + ' '
+					+ getY();
 		}
 
 	}
@@ -413,8 +413,8 @@ public abstract class AbstractSVGPathSegList extends AbstractSVGList implements 
 		@Override
 		protected String getStringValue() {
 
-			return letter + ' ' + Float.toString(getX1()) + ' ' + Float.toString(getY1()) + ' ' + Float.toString(getX())
-					+ ' ' + Float.toString(getY());
+			return letter + ' ' + getX1() + ' ' + getY1() + ' ' + getX()
+					+ ' ' + getY();
 		}
 
 	}
@@ -514,9 +514,9 @@ public abstract class AbstractSVGPathSegList extends AbstractSVGList implements 
 
 		@Override
 		protected String getStringValue() {
-			return letter + ' ' + Float.toString(getR1()) + ' ' + Float.toString(getR2()) + ' '
-					+ Float.toString(getAngle()) + ' ' + ((isLargeArcFlag() ? "1" : "0")) + ' '
-					+ ((isSweepFlag() ? "1" : "0")) + (' ') + Float.toString(getX()) + ' ' + Float.toString(getY());
+			return letter + ' ' + getR1() + ' ' + getR2() + ' '
+					+ getAngle() + ' ' + ((isLargeArcFlag() ? "1" : "0")) + ' '
+					+ ((isSweepFlag() ? "1" : "0")) + (' ') + getX() + ' ' + getY();
 		}
 
 	}
@@ -552,7 +552,7 @@ public abstract class AbstractSVGPathSegList extends AbstractSVGList implements 
 
 		@Override
 		protected String getStringValue() {
-			return letter + ' ' + Float.toString(getX());
+			return letter + ' ' + getX();
 		}
 
 	}
@@ -588,7 +588,7 @@ public abstract class AbstractSVGPathSegList extends AbstractSVGList implements 
 
 		@Override
 		protected String getStringValue() {
-			return letter + ' ' + Float.toString(getY());
+			return letter + ' ' + getY();
 		}
 
 	}
@@ -651,8 +651,8 @@ public abstract class AbstractSVGPathSegList extends AbstractSVGList implements 
 
 		@Override
 		protected String getStringValue() {
-			return letter + ' ' + Float.toString(getX2()) + ' ' + Float.toString(getY2()) + ' ' + Float.toString(getX())
-					+ ' ' + Float.toString(getY());
+			return letter + ' ' + getX2() + ' ' + getY2() + ' ' + getX()
+					+ ' ' + getY();
 		}
 
 	}
@@ -697,7 +697,7 @@ public abstract class AbstractSVGPathSegList extends AbstractSVGList implements 
 
 		@Override
 		protected String getStringValue() {
-			return letter + ' ' + Float.toString(getX()) + ' ' + Float.toString(getY());
+			return letter + ' ' + getX() + ' ' + getY();
 		}
 
 	}

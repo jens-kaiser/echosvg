@@ -126,7 +126,7 @@ public class SVGOMFEGaussianBlurElement extends SVGOMFilterPrimitiveStandardAttr
 	 */
 	@Override
 	public void setStdDeviation(float devX, float devY) {
-		setAttributeNS(null, SVG_STD_DEVIATION_ATTRIBUTE, Float.toString(devX) + " " + Float.toString(devY));
+		setAttributeNS(null, SVG_STD_DEVIATION_ATTRIBUTE, devX + " " + devY);
 	}
 
 	/**

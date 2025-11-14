@@ -291,7 +291,7 @@ public abstract class AbstractParser implements Parser {
 
 	protected void handleNumber(short unitType, float floatValue) throws ParseException {
 		errorHandler.error(new ParseException(createErrorMessage("unexpected.value",
-				new Object[] { Float.toString(floatValue) + CSSUnit.dimensionUnitString(unitType) }), -1, -1));
+				new Object[] {floatValue + CSSUnit.dimensionUnitString(unitType) }), -1, -1));
 	}
 
 	protected void handleMathExpression(CSSExpressionValue cssvalue) throws ParseException {

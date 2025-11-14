@@ -426,8 +426,8 @@ public class SVGFlowRootElementBridge extends SVG12TextElementBridge {
 				brkStr.append(' ');
 			}
 		}
-		System.out.println(chars.toString());
-		System.out.println(brkStr.toString());
+		System.out.println(chars);
+		System.out.println(brkStr);
 	}
 
 	protected Element getFlowDivElement(Element elem) {
